@@ -1,5 +1,6 @@
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
+import 'package:ditonton/domain/entities/watchlist.dart';
 import 'package:ditonton/domain/usecases/get_movie_detail.dart';
 import 'package:ditonton/domain/usecases/get_movie_recommendations.dart';
 import 'package:ditonton/common/state_enum.dart';
@@ -30,26 +31,27 @@ class MovieDetailNotifier extends ChangeNotifier {
   late MovieDetail _movie;
   MovieDetail get movie => _movie;
 
-  RequestState _movieState = RequestState.Empty;
+  RequestState _movieState = RequestState.Loading;
   RequestState get movieState => _movieState;
 
   List<Movie> _movieRecommendations = [];
   List<Movie> get movieRecommendations => _movieRecommendations;
 
-  RequestState _recommendationState = RequestState.Empty;
+  RequestState _recommendationState = RequestState.Loading;
   RequestState get recommendationState => _recommendationState;
 
   String _message = '';
   String get message => _message;
 
-  bool _isAddedtoWatchlist = false;
-  bool get isAddedToWatchlist => _isAddedtoWatchlist;
+  bool _isAddedToWatchlist = false;
+  bool get isAddedToWatchlist => _isAddedToWatchlist;
 
   Future<void> fetchMovieDetail(int id) async {
     _movieState = RequestState.Loading;
     notifyListeners();
     final detailResult = await getMovieDetail.execute(id);
     final recommendationResult = await getMovieRecommendations.execute(id);
+
     detailResult.fold(
       (failure) {
         _movieState = RequestState.Error;
@@ -80,7 +82,14 @@ class MovieDetailNotifier extends ChangeNotifier {
   String get watchlistMessage => _watchlistMessage;
 
   Future<void> addWatchlist(MovieDetail movie) async {
-    final result = await saveWatchlist.execute(movie);
+    final watchlist = Watchlist(
+      id: movie.id,
+      title: movie.title,
+      posterPath: movie.posterPath,
+      overview: movie.overview,
+      type: 'movie',
+    );
+    final result = await saveWatchlist.execute(watchlist);
 
     await result.fold(
       (failure) async {
@@ -95,7 +104,14 @@ class MovieDetailNotifier extends ChangeNotifier {
   }
 
   Future<void> removeFromWatchlist(MovieDetail movie) async {
-    final result = await removeWatchlist.execute(movie);
+    final watchlist = Watchlist(
+      id: movie.id,
+      title: movie.title,
+      posterPath: movie.posterPath,
+      overview: movie.overview,
+      type: 'movie',
+    );
+    final result = await removeWatchlist.execute(watchlist);
 
     await result.fold(
       (failure) async {
@@ -110,8 +126,8 @@ class MovieDetailNotifier extends ChangeNotifier {
   }
 
   Future<void> loadWatchlistStatus(int id) async {
-    final result = await getWatchListStatus.execute(id);
-    _isAddedtoWatchlist = result;
+    final result = await getWatchListStatus.execute(id, 'movie');
+    _isAddedToWatchlist = result;
     notifyListeners();
   }
 }

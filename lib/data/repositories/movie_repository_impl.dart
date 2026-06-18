@@ -102,40 +102,4 @@ class MovieRepositoryImpl implements MovieRepository {
       return Left(ConnectionFailure('Failed to connect to the network'));
     }
   }
-
-  @override
-  Future<Either<Failure, String>> saveWatchlist(MovieDetail movie) async {
-    try {
-      final result =
-          await localDataSource.insertWatchlist(MovieTable.fromEntity(movie));
-      return Right(result);
-    } on DatabaseException catch (e) {
-      return Left(DatabaseFailure(e.message));
-    } catch (e) {
-      throw e;
-    }
-  }
-
-  @override
-  Future<Either<Failure, String>> removeWatchlist(MovieDetail movie) async {
-    try {
-      final result =
-          await localDataSource.removeWatchlist(MovieTable.fromEntity(movie));
-      return Right(result);
-    } on DatabaseException catch (e) {
-      return Left(DatabaseFailure(e.message));
-    }
-  }
-
-  @override
-  Future<bool> isAddedToWatchlist(int id) async {
-    final result = await localDataSource.getMovieById(id);
-    return result != null;
-  }
-
-  @override
-  Future<Either<Failure, List<Movie>>> getWatchlistMovies() async {
-    final result = await localDataSource.getWatchlistMovies();
-    return Right(result.map((data) => data.toEntity()).toList());
-  }
 }

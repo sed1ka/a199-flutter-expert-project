@@ -182,90 +182,56 @@ class TvDetailContent extends StatelessWidget {
                               style: kHeading6,
                             ),
 
-                            SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                children: [
-                                  for(final season in tv.seasons)
-                                    Container(
-                                      padding: const EdgeInsets.all(8),
+                            for(final season in tv.seasons)
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 12),
+                                child: Row(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  spacing: 16,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(8),
+                                      ),
+                                      child: CachedNetworkImage(
+                                        height: 120,
+                                        imageUrl: season.posterPath != null
+                                            ? 'https://image.tmdb.org/t/p/w500${season.posterPath}'
+                                            : 'https://via.placeholder.com/150',
+                                        placeholder: (context, url) =>
+                                            Center(
+                                              child:
+                                              CircularProgressIndicator(),
+                                            ),
+                                        errorWidget:
+                                            (context, url, error) =>
+                                            Icon(Icons.error),
+                                      ),
+                                    ),
+                                    Expanded(
                                       child: Column(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.start,
-                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
-                                          ClipRRect(
-                                            borderRadius: BorderRadius.all(
-                                              Radius.circular(8),
-                                            ),
-                                            child: CachedNetworkImage(
-                                              height: 100,
-                                              imageUrl: season.posterPath != null
-                                                  ? 'https://image.tmdb.org/t/p/w500${season.posterPath}'
-                                                  : 'https://via.placeholder.com/150',
-                                              placeholder: (context, url) =>
-                                                  Center(
-                                                    child:
-                                                    CircularProgressIndicator(),
-                                                  ),
-                                              errorWidget:
-                                                  (context, url, error) =>
-                                                  Icon(Icons.error),
-                                            ),
-                                          ),
                                           Text(
-                                              'Season ${season.seasonNumber}'),
+                                              'Season ${season.seasonNumber}', style: kSubtitle2,),
+                                          const SizedBox(height: 5),
                                           Text(
-                                              '${season.episodeCount} Eps',
+                                              '${season.episodeCount} Episodes',
                                               style: kBodyText),
+                                          const SizedBox(height: 16),
+                                          Text(
+                                              '${season.overview} Eps',
+                                              style: kBodyText, maxLines: 10, overflow: TextOverflow.ellipsis),
                                         ],
                                       ),
-                                    )
-                                ],
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            // ListView.builder(
-                            //   scrollDirection: Axis.horizontal,
-                            //   itemBuilder: (context, index) {
-                            //     final season = tv.seasons[index];
-                            //     return Container(
-                            //       padding: const EdgeInsets.all(6),
-                            //       child: Column(
-                            //         mainAxisAlignment:
-                            //         MainAxisAlignment.start,
-                            //         mainAxisSize: MainAxisSize.min,
-                            //         spacing: 16,
-                            //         children: [
-                            //           ClipRRect(
-                            //             borderRadius: BorderRadius.all(
-                            //               Radius.circular(8),
-                            //             ),
-                            //             child: CachedNetworkImage(
-                            //               height: 110,
-                            //               imageUrl: season.posterPath != null
-                            //                   ? 'https://image.tmdb.org/t/p/w500${season.posterPath}'
-                            //                   : 'https://via.placeholder.com/150',
-                            //               placeholder: (context, url) =>
-                            //                   Center(
-                            //                 child:
-                            //                     CircularProgressIndicator(),
-                            //               ),
-                            //               errorWidget:
-                            //                   (context, url, error) =>
-                            //                       Icon(Icons.error),
-                            //             ),
-                            //           ),
-                            //           Text(
-                            //               'Season ${season.seasonNumber}'),
-                            //           Text(
-                            //               '${season.episodeCount} Eps',
-                            //               style: kBodyText),
-                            //         ],
-                            //       ),
-                            //     );
-                            //   },
-                            //   itemCount: tv.seasons.length,
-                            // ),
                             SizedBox(height: 16),
                             Text(
                               'Recommendations',

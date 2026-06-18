@@ -13,13 +13,13 @@ import 'top_rated_movies_notifier_test.mocks.dart';
 @GenerateMocks([GetTopRatedMovies])
 void main() {
   late MockGetTopRatedMovies mockGetTopRatedMovies;
-  late TopRatedMoviesNotifier notifier;
+  late TopRatedMoviesNotifier provider;
   late int listenerCallCount;
 
   setUp(() {
     listenerCallCount = 0;
     mockGetTopRatedMovies = MockGetTopRatedMovies();
-    notifier = TopRatedMoviesNotifier(getTopRatedMovies: mockGetTopRatedMovies)
+    provider = TopRatedMoviesNotifier(getTopRatedMovies: mockGetTopRatedMovies)
       ..addListener(() {
         listenerCallCount++;
       });
@@ -48,9 +48,9 @@ void main() {
     when(mockGetTopRatedMovies.execute())
         .thenAnswer((_) async => Right(tMovieList));
     // act
-    notifier.fetchTopRatedMovies();
+    provider.fetchTopRatedMovies();
     // assert
-    expect(notifier.state, RequestState.Loading);
+    expect(provider.state, RequestState.Loading);
     expect(listenerCallCount, 1);
   });
 
@@ -59,10 +59,10 @@ void main() {
     when(mockGetTopRatedMovies.execute())
         .thenAnswer((_) async => Right(tMovieList));
     // act
-    await notifier.fetchTopRatedMovies();
+    await provider.fetchTopRatedMovies();
     // assert
-    expect(notifier.state, RequestState.Loaded);
-    expect(notifier.movies, tMovieList);
+    expect(provider.state, RequestState.Loaded);
+    expect(provider.movies, tMovieList);
     expect(listenerCallCount, 2);
   });
 
@@ -71,10 +71,10 @@ void main() {
     when(mockGetTopRatedMovies.execute())
         .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
     // act
-    await notifier.fetchTopRatedMovies();
+    await provider.fetchTopRatedMovies();
     // assert
-    expect(notifier.state, RequestState.Error);
-    expect(notifier.message, 'Server Failure');
+    expect(provider.state, RequestState.Error);
+    expect(provider.message, 'Server Failure');
     expect(listenerCallCount, 2);
   });
 }

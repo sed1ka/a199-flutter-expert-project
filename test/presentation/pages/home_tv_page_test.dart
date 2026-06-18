@@ -1,5 +1,4 @@
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/tv.dart';
 import 'package:ditonton/presentation/pages/home_tv_page.dart';
 import 'package:ditonton/presentation/pages/tv_search_page.dart';
 import 'package:ditonton/presentation/provider/tv_list_notifier.dart';
@@ -90,7 +89,7 @@ void main() {
 
     await tester.pumpWidget(_makeTestableWidget(HomeTvPage()));
 
-    expect(find.text('Ditonton TV Series'), findsOneWidget);
+    expect(find.text('TV Series'), findsOneWidget);
     expect(find.byIcon(Icons.search), findsOneWidget);
   });
 

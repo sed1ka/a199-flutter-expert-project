@@ -1,0 +1,76 @@
+import 'package:core/core.dart';
+import 'package:tv/presentation/blocs/top_rated_tv_notifier.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'package:provider/provider.dart';
+import 'package:tv/presentation/pages/top_rated_tv_page.dart';
+
+import '../../dummy_data/dummy_objects.dart';
+import 'top_rated_tv_page_test.mocks.dart';
+
+@GenerateMocks([TopRatedTvNotifier])
+void main() {
+  late MockTopRatedTvNotifier mockNotifier;
+
+  setUp(() {
+    mockNotifier = MockTopRatedTvNotifier();
+  });
+
+  Widget makeTestableWidget(Widget body) {
+    return ChangeNotifierProvider<TopRatedTvNotifier>.value(
+      value: mockNotifier,
+      child: MaterialApp(
+        home: body,
+      ),
+    );
+  }
+
+  testWidgets('Page should display route name constant',
+      (WidgetTester tester) async {
+    expect(TopRatedTvPage.ROUTE_NAME, '/top-rated-tv');
+  });
+
+  testWidgets('Page should display center progress bar when loading',
+      (WidgetTester tester) async {
+    when(mockNotifier.state).thenReturn(RequestState.Loading);
+
+    final progressBarFinder = find.byType(CircularProgressIndicator);
+
+    await tester.pumpWidget(makeTestableWidget(TopRatedTvPage()));
+
+    expect(progressBarFinder, findsOneWidget);
+  });
+
+  testWidgets('Page should display ListView when data is loaded',
+      (WidgetTester tester) async {
+    when(mockNotifier.state).thenReturn(RequestState.Loaded);
+    when(mockNotifier.tv).thenReturn(testTvList);
+
+    await tester.pumpWidget(makeTestableWidget(TopRatedTvPage()));
+
+    expect(find.byType(ListView), findsOneWidget);
+  });
+
+  testWidgets('Page should display text with message when Error',
+      (WidgetTester tester) async {
+    when(mockNotifier.state).thenReturn(RequestState.Error);
+    when(mockNotifier.message).thenReturn('Error message');
+
+    final textFinder = find.byKey(Key('error_message'));
+
+    await tester.pumpWidget(makeTestableWidget(TopRatedTvPage()));
+
+    expect(textFinder, findsOneWidget);
+  });
+
+  testWidgets('Page should display app bar with title',
+      (WidgetTester tester) async {
+    when(mockNotifier.state).thenReturn(RequestState.Loading);
+
+    await tester.pumpWidget(makeTestableWidget(TopRatedTvPage()));
+
+    expect(find.text('Top Rated TV Series'), findsOneWidget);
+  });
+}

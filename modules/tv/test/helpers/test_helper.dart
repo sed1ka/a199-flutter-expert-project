@@ -1,0 +1,20 @@
+import 'package:core/utils/network_info.dart';
+import 'package:db/db.dart';
+import 'package:mockito/annotations.dart';
+import 'package:tv/data/datasources/tv_local_data_source.dart';
+import 'package:tv/data/datasources/tv_remote_data_source.dart';
+
+import 'package:tv/domain/repos/tv_repository.dart';
+import 'package:http/http.dart' as http;
+
+@GenerateMocks(
+  [
+    TvRepository,
+    TvRemoteDataSource,
+    TvLocalDataSource,
+    DatabaseHelper,
+    NetworkInfo,
+  ],
+  customMocks: [MockSpec<http.Client>(as: #MockHttpClient)],
+)
+void main() {}

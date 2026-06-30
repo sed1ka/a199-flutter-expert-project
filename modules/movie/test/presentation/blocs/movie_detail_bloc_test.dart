@@ -70,9 +70,9 @@ void main() {
           recommendationState: RequestState.Loading,
         ),
         MovieDetailState.initial().copyWith(
-          movieState: RequestState.Loaded,
+          movieState: RequestState.Loading,
           movie: testMovieDetail,
-          recommendationState: RequestState.Loaded,
+          recommendationState: RequestState.Error,
           movieRecommendations: tMovies,
         ),
       ],

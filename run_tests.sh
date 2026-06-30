@@ -17,4 +17,4 @@ echo "--------------------------------------"
 echo "Running Integration Tests"
 echo "--------------------------------------"
 # Using flutter drive for better integration with CI environments
-flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart
+flutter test integration_test/app_test.dart

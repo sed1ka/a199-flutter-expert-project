@@ -20,6 +20,16 @@ workflows:
           done
       - name: Run all tests (Unit & Integration)
         script: |
+          # Start iOS Simulator or Android Emulator if needed for Integration Test
+          # Untuk macOS instance, kita bisa pakai iOS simulator
+          xcrun simctl list devices
+          ID=$(xcrun simctl list devices | grep -E 'iPhone|iPad' | grep -v 'unavailable' | head -1 | awk -F '[()]' '{print $2}')
+          if [ -z "$ID" ]; then
+            echo "No simulator found"
+          else
+            xcrun simctl boot $ID || true
+          fi
+          
           chmod +x run_tests.sh
           ./run_tests.sh
       - name: Build Android APK
@@ -30,7 +40,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - user@example.com # Ganti dengan email Anda
+          - sedika.email@gmail.com
         notify:
           success: true
           failure: true

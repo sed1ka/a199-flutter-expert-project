@@ -29,40 +29,40 @@ class CustomDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.movie),
             title: Text('Movies'),
-            selected: currentRoute == HomeMoviePage.ROUTE_NAME,
+            selected: currentRoute == HomeMoviePage.routeName,
             onTap: () {
-              if (currentRoute == HomeMoviePage.ROUTE_NAME) {
+              if (currentRoute == HomeMoviePage.routeName) {
                 Navigator.pop(context);
               } else {
-                Navigator.pushReplacementNamed(context, HomeMoviePage.ROUTE_NAME);
+                Navigator.pushReplacementNamed(context, HomeMoviePage.routeName);
               }
             },
           ),
           ListTile(
             leading: Icon(Icons.tv),
             title: Text('TV Series'),
-            selected: currentRoute == HomeTvPage.ROUTE_NAME,
+            selected: currentRoute == HomeTvPage.routeName,
             onTap: () {
-              if (currentRoute == HomeTvPage.ROUTE_NAME) {
+              if (currentRoute == HomeTvPage.routeName) {
                 Navigator.pop(context);
               } else {
-                Navigator.pushReplacementNamed(context, HomeTvPage.ROUTE_NAME);
+                Navigator.pushReplacementNamed(context, HomeTvPage.routeName);
               }
             },
           ),
           ListTile(
             leading: Icon(Icons.save_alt),
             title: Text('Watchlist'),
-            selected: currentRoute == WatchlistPage.ROUTE_NAME,
+            selected: currentRoute == WatchlistPage.routeName,
             onTap: () {
-              Navigator.pushNamed(context, WatchlistPage.ROUTE_NAME);
+              Navigator.pushNamed(context, WatchlistPage.routeName);
             },
           ),
           ListTile(
             onTap: () {
-              Navigator.pushNamed(context, AboutPage.ROUTE_NAME);
+              Navigator.pushNamed(context, AboutPage.routeName);
             },
-            selected: currentRoute == AboutPage.ROUTE_NAME,
+            selected: currentRoute == AboutPage.routeName,
             leading: Icon(Icons.info_outline),
             title: Text('About'),
           ),

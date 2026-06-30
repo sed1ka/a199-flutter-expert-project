@@ -19,13 +19,13 @@ class WatchlistGridCard extends StatelessWidget {
         if (isMovie) {
           Navigator.pushNamed(
             context,
-            MovieDetailPage.ROUTE_NAME,
+            MovieDetailPage.routeName,
             arguments: item.id,
           );
         } else {
           Navigator.pushNamed(
             context,
-            TvDetailPage.ROUTE_NAME,
+            TvDetailPage.routeName,
             arguments: item.id,
           );
         }
@@ -37,7 +37,7 @@ class WatchlistGridCard extends StatelessWidget {
           children: [
             Expanded(
               child: CachedNetworkImage(
-                imageUrl: '$BASE_IMAGE_URL${item.posterPath}',
+                imageUrl: '$baseImageUrl${item.posterPath}',
                 fit: BoxFit.cover,
                 placeholder: (context, url) => Center(
                   child: CircularProgressIndicator(),

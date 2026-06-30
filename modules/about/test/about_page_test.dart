@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('AboutPage should display route name constant',
       (WidgetTester tester) async {
-    expect(AboutPage.ROUTE_NAME, '/about');
+    expect(AboutPage.routeName, '/about');
   });
 
   testWidgets('AboutPage should render without crashing',

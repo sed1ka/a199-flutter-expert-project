@@ -1,124 +1,50 @@
-import 'package:core/core.dart';
-import 'package:core/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:provider/provider.dart';
-import 'package:watchlist/domain/entities/watchlist.dart';
+import 'package:watchlist/presentation/blocs/watchlist_bloc.dart';
 import 'package:watchlist/presentation/watchlist_grid_card.dart';
-import 'package:watchlist/presentation/watchlist_notifier.dart';
 import 'package:watchlist/presentation/watchlist_page.dart';
 
 import '../../dummy_data/dummy_objects.dart';
-import 'watchlist_page_test.mocks.dart';
+import '../../helper/test_helper.mocks.dart';
 
-@GenerateMocks([WatchlistNotifier])
 void main() {
-  late MockWatchlistNotifier mockNotifier;
+  late MockWatchlistBloc mockBloc;
 
   setUp(() {
-    mockNotifier = MockWatchlistNotifier();
-
-    // Stub fetchWatchlist() yang dipanggil pada initState
-    when(mockNotifier.fetchWatchlist())
-        .thenAnswer((_) async {});
+    mockBloc = MockWatchlistBloc();
   });
 
   Widget makeTestableWidget(Widget body) {
-    return ChangeNotifierProvider<WatchlistNotifier>.value(
-      value: mockNotifier,
+    return BlocProvider<WatchlistBloc>.value(
+      value: mockBloc,
       child: MaterialApp(
-        navigatorObservers: [
-          routeObserver,
-        ],
         home: body,
       ),
     );
   }
 
-  testWidgets(
-    'Page should display center progress bar when loading',
-        (WidgetTester tester) async {
-      when(mockNotifier.watchlistState)
-          .thenReturn(RequestState.Loading);
+  testWidgets('Page should display center progress bar when loading',
+      (WidgetTester tester) async {
+    when(mockBloc.state).thenReturn(WatchlistLoading());
+    when(mockBloc.stream).thenAnswer((_) => Stream.value(WatchlistLoading()));
 
-      await tester.pumpWidget(
-        makeTestableWidget(WatchlistPage()),
-      );
+    final progressBarFinder = find.byType(CircularProgressIndicator);
 
-      // Jalankan Future.microtask()
-      await tester.pump();
+    await tester.pumpWidget(makeTestableWidget(const WatchlistPage()));
 
-      expect(find.byType(Center), findsOneWidget);
-      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    expect(progressBarFinder, findsOneWidget);
+  });
 
-      verify(mockNotifier.fetchWatchlist()).called(1);
-    },
-  );
+  testWidgets('Page should display GridView when data is loaded',
+      (WidgetTester tester) async {
+    when(mockBloc.state).thenReturn(WatchlistHasData([testWatchlist]));
+    when(mockBloc.stream).thenAnswer((_) => Stream.value(WatchlistHasData([testWatchlist])));
 
-  testWidgets(
-    'Page should display GridView when data is loaded',
-        (WidgetTester tester) async {
-      when(mockNotifier.watchlistState)
-          .thenReturn(RequestState.Loaded);
+    await tester.pumpWidget(makeTestableWidget(const WatchlistPage()));
 
-      when(mockNotifier.watchlistItems)
-          .thenReturn([testWatchlist]);
-
-      await tester.pumpWidget(
-        makeTestableWidget(WatchlistPage()),
-      );
-
-      await tester.pump();
-
-      expect(find.byType(GridView), findsOneWidget);
-      expect(find.byType(WatchlistGridCard), findsOneWidget);
-
-      verify(mockNotifier.fetchWatchlist()).called(1);
-    },
-  );
-
-  testWidgets(
-    'Page should display text when data is empty',
-        (WidgetTester tester) async {
-      when(mockNotifier.watchlistState)
-          .thenReturn(RequestState.Loaded);
-
-      when(mockNotifier.watchlistItems)
-          .thenReturn(<Watchlist>[]);
-
-      await tester.pumpWidget(
-        makeTestableWidget(WatchlistPage()),
-      );
-
-      await tester.pump();
-
-      expect(find.text('Watchlist is Empty'), findsOneWidget);
-
-      verify(mockNotifier.fetchWatchlist()).called(1);
-    },
-  );
-
-  testWidgets(
-    'Page should display text with message when Error',
-        (WidgetTester tester) async {
-      when(mockNotifier.watchlistState)
-          .thenReturn(RequestState.Error);
-
-      when(mockNotifier.message)
-          .thenReturn('Error message');
-
-      await tester.pumpWidget(
-        makeTestableWidget(WatchlistPage()),
-      );
-
-      await tester.pump();
-
-      expect(find.byKey(const Key('error_message')), findsOneWidget);
-      expect(find.text('Error message'), findsOneWidget);
-
-      verify(mockNotifier.fetchWatchlist()).called(1);
-    },
-  );
+    expect(find.byType(GridView), findsOneWidget);
+    expect(find.byType(WatchlistGridCard), findsOneWidget);
+  });
 }

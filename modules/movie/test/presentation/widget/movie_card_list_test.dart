@@ -29,7 +29,7 @@ void main() {
             body: MovieCard(tMovie),
           ),
           routes: {
-            MovieDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            MovieDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -44,7 +44,7 @@ void main() {
             body: MovieCard(tMovie),
           ),
           routes: {
-            MovieDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            MovieDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -60,7 +60,7 @@ void main() {
             body: MovieCard(tMovie),
           ),
           routes: {
-            MovieDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            MovieDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -75,7 +75,7 @@ void main() {
             body: MovieCard(tMovie),
           ),
           routes: {
-            MovieDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            MovieDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -93,7 +93,7 @@ void main() {
             body: MovieCard(tMovie),
           ),
           routes: {
-            MovieDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            MovieDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -108,7 +108,7 @@ void main() {
             body: MovieCard(tMovie),
           ),
           routes: {
-            MovieDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            MovieDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -139,7 +139,7 @@ void main() {
             body: MovieCard(movieWithNullTitle),
           ),
           routes: {
-            MovieDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            MovieDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -170,7 +170,7 @@ void main() {
             body: MovieCard(movieWithNullOverview),
           ),
           routes: {
-            MovieDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            MovieDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );

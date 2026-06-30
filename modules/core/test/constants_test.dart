@@ -1,8 +1,8 @@
+import 'package:core/utils/constants.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('BASE_IMAGE_URL should be defined', () {
-    const String baseImageUrl = 'https://image.tmdb.org/t/p/w500';
+  test('baseImageUrl should be defined', () {
     expect(baseImageUrl, isNotEmpty);
     expect(baseImageUrl, 'https://image.tmdb.org/t/p/w500');
   });

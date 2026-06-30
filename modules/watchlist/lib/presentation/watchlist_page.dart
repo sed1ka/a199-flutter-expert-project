@@ -1,14 +1,13 @@
 import 'package:core/core.dart';
 import 'package:core/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:watchlist/presentation/watchlist_grid_card.dart';
-import 'package:watchlist/presentation/watchlist_notifier.dart';
 
-
+import 'blocs/watchlist_bloc.dart';
 
 class WatchlistPage extends StatefulWidget {
-  static const ROUTE_NAME = '/watchlist';
+  static const routeName = '/watchlist';
   const WatchlistPage({super.key});
 
   @override
@@ -20,7 +19,7 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
   void initState() {
     super.initState();
     Future.microtask(() {
-      Provider.of<WatchlistNotifier>(context, listen: false).fetchWatchlist();
+      context.read<WatchlistBloc>().add(FetchWatchlist());
     });
   }
 
@@ -32,40 +31,43 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
 
   @override
   void didPopNext() {
-    Provider.of<WatchlistNotifier>(context, listen: false).fetchWatchlist();
+    context.read<WatchlistBloc>().add(FetchWatchlist());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Watchlist')),
+      appBar: AppBar(title: const Text('Watchlist')),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<WatchlistNotifier>(
-          builder: (context, data, child) {
-            if (data.watchlistState == RequestState.Loading) {
-              return Center(child: CircularProgressIndicator());
-            } else if (data.watchlistState == RequestState.Loaded) {
-              if (data.watchlistItems.isEmpty) {
-                return Center(child: Text('Watchlist is Empty'));
+        child: BlocBuilder<WatchlistBloc, WatchlistState>(
+          builder: (context, state) {
+            if (state is WatchlistLoading) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (state is WatchlistHasData) {
+              if (state.result.isEmpty) {
+                return const Center(child: Text('Watchlist is Empty'));
               }
 
               return GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   childAspectRatio: 0.6,
                   crossAxisSpacing: 8,
                   mainAxisSpacing: 8,
                 ),
                 itemBuilder: (context, index) {
-                  final item = data.watchlistItems[index];
+                  final item = state.result[index];
                   return WatchlistGridCard(item);
                 },
-                itemCount: data.watchlistItems.length,
+                itemCount: state.result.length,
               );
+            } else if (state is WatchlistError) {
+              return Center(
+                  key: const Key('error_message'), child: Text(state.message));
+            } else {
+              return Container();
             }
-
-            return Center(key: Key('error_message'), child: Text(data.message));
           },
         ),
       ),

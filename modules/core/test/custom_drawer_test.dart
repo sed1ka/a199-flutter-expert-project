@@ -15,7 +15,7 @@ void main() {
     );
   }
 
-  Widget createWidget({String currentRoute = HomeMoviePage.ROUTE_NAME}) {
+  Widget createWidget({String currentRoute = HomeMoviePage.routeName}) {
     return MaterialApp(
       home: Scaffold(
         drawer: CustomDrawer(
@@ -114,10 +114,10 @@ void main() {
 
     group('Movies menu', () {
       testWidgets(
-        'should be selected when currentRoute is HomeMoviePage.ROUTE_NAME',
+        'should be selected when currentRoute is HomeMoviePage.routeName',
             (tester) async {
           await tester.pumpWidget(
-            createWidget(currentRoute: HomeMoviePage.ROUTE_NAME),
+            createWidget(currentRoute: HomeMoviePage.routeName),
           );
 
           final scaffold = tester.state<ScaffoldState>(
@@ -136,7 +136,7 @@ void main() {
       );
 
       testWidgets(
-        'should not be selected when currentRoute is not HomeMoviePage.ROUTE_NAME',
+        'should not be selected when currentRoute is not HomeMoviePage.routeName',
             (tester) async {
           await tester.pumpWidget(
             createWidget(currentRoute: '/another-route'),
@@ -156,7 +156,7 @@ void main() {
         'should close drawer when Movies menu is tapped on current page',
             (tester) async {
           await tester.pumpWidget(
-            createWidget(currentRoute: HomeMoviePage.ROUTE_NAME),
+            createWidget(currentRoute: HomeMoviePage.routeName),
           );
 
           await openDrawer(tester);
@@ -174,7 +174,7 @@ void main() {
           await tester.pumpWidget(
             MaterialApp(
               routes: {
-                HomeMoviePage.ROUTE_NAME: (_) => const Scaffold(
+                HomeMoviePage.routeName: (_) => const Scaffold(
                   body: Text('Home Movie'),
                 ),
               },
@@ -198,10 +198,10 @@ void main() {
 
     group('TV Series menu', () {
       testWidgets(
-        'should be selected when currentRoute is HomeTvPage.ROUTE_NAME',
+        'should be selected when currentRoute is HomeTvPage.routeName',
             (tester) async {
           await tester.pumpWidget(
-            createWidget(currentRoute: HomeTvPage.ROUTE_NAME),
+            createWidget(currentRoute: HomeTvPage.routeName),
           );
 
           final scaffold = tester.state<ScaffoldState>(
@@ -220,7 +220,7 @@ void main() {
       );
 
       testWidgets(
-        'should not be selected when currentRoute is not HomeTvPage.ROUTE_NAME',
+        'should not be selected when currentRoute is not HomeTvPage.routeName',
             (tester) async {
           await tester.pumpWidget(
             createWidget(currentRoute: '/another-route'),
@@ -240,7 +240,7 @@ void main() {
         'should close drawer when TV Series menu is tapped on current page',
             (tester) async {
           await tester.pumpWidget(
-            createWidget(currentRoute: HomeTvPage.ROUTE_NAME),
+            createWidget(currentRoute: HomeTvPage.routeName),
           );
 
           await openDrawer(tester);
@@ -258,7 +258,7 @@ void main() {
           await tester.pumpWidget(
             MaterialApp(
               routes: {
-                HomeTvPage.ROUTE_NAME: (_) => const Scaffold(
+                HomeTvPage.routeName: (_) => const Scaffold(
                   body: Text('Home TV Series'),
                 ),
               },
@@ -282,13 +282,13 @@ void main() {
 
     group('Watchlist menu', () {
       testWidgets(
-        'should be selected when currentRoute is WatchlistPage.ROUTE_NAME',
+        'should be selected when currentRoute is WatchlistPage.routeName',
             (tester) async {
           await tester.pumpWidget(
             MaterialApp(
               home: Scaffold(
                 drawer: const CustomDrawer(
-                  currentRoute: WatchlistPage.ROUTE_NAME,
+                  currentRoute: WatchlistPage.routeName,
                 ),
               ),
             ),
@@ -314,7 +314,7 @@ void main() {
           await tester.pumpWidget(
             MaterialApp(
               routes: {
-                WatchlistPage.ROUTE_NAME: (_) => const Scaffold(
+                WatchlistPage.routeName: (_) => const Scaffold(
                   body: Text('Watchlist Page'),
                 ),
               },
@@ -342,13 +342,13 @@ void main() {
 
     group('About menu', () {
       testWidgets(
-        'should be selected when currentRoute is AboutPage.ROUTE_NAME',
+        'should be selected when currentRoute is AboutPage.routeName',
             (tester) async {
           await tester.pumpWidget(
             MaterialApp(
               home: Scaffold(
                 drawer: const CustomDrawer(
-                  currentRoute: AboutPage.ROUTE_NAME,
+                  currentRoute: AboutPage.routeName,
                 ),
               ),
             ),
@@ -374,7 +374,7 @@ void main() {
           await tester.pumpWidget(
             MaterialApp(
               routes: {
-                AboutPage.ROUTE_NAME: (_) => const Scaffold(
+                AboutPage.routeName: (_) => const Scaffold(
                   body: Text('About Page'),
                 ),
               },

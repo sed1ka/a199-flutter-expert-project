@@ -27,7 +27,7 @@ void main() {
             body: TvCard(tTv),
           ),
           routes: {
-            TvDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            TvDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -42,7 +42,7 @@ void main() {
             body: TvCard(tTv),
           ),
           routes: {
-            TvDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            TvDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -58,7 +58,7 @@ void main() {
             body: TvCard(tTv),
           ),
           routes: {
-            TvDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            TvDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -73,7 +73,7 @@ void main() {
             body: TvCard(tTv),
           ),
           routes: {
-            TvDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            TvDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -91,7 +91,7 @@ void main() {
             body: TvCard(tTv),
           ),
           routes: {
-            TvDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            TvDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -107,7 +107,7 @@ void main() {
             body: TvCard(tTv),
           ),
           routes: {
-            TvDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            TvDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -136,7 +136,7 @@ void main() {
             body: TvCard(tvWithNullName),
           ),
           routes: {
-            TvDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            TvDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -165,7 +165,7 @@ void main() {
             body: TvCard(tvWithNullOverview),
           ),
           routes: {
-            TvDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            TvDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -180,7 +180,7 @@ void main() {
             body: TvCard(tTv),
           ),
           routes: {
-            TvDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            TvDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -200,7 +200,7 @@ void main() {
             ),
           ),
           routes: {
-            TvDetailPage.ROUTE_NAME: (context) => Scaffold(),
+            TvDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );

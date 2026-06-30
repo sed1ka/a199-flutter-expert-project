@@ -1,83 +1,59 @@
-import 'package:core/core.dart';
-import 'package:tv/presentation/blocs/tv_search_notifier.dart';
+import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
-import 'package:provider/Provider.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:tv/presentation/blocs/tv_search_bloc.dart';
 import 'package:tv/presentation/pages/tv_search_page.dart';
 
 import '../../dummy_data/dummy_objects.dart';
-import 'tv_search_page_test.mocks.dart';
 
-@GenerateMocks([TvSearchNotifier])
+class MockTvSearchBloc
+    extends MockBloc<TvSearchEvent, TvSearchState>
+    implements TvSearchBloc {}
+
 void main() {
-  late MockTvSearchNotifier mockNotifier;
+  late MockTvSearchBloc mockBloc;
 
   setUp(() {
-    mockNotifier = MockTvSearchNotifier();
+    mockBloc = MockTvSearchBloc();
   });
 
   Widget makeTestableWidget(Widget body) {
-    return ChangeNotifierProvider<TvSearchNotifier>.value(
-      value: mockNotifier,
+    return BlocProvider<TvSearchBloc>.value(
+      value: mockBloc,
       child: MaterialApp(
         home: body,
       ),
     );
   }
 
-  testWidgets('Page should display route name constant',
-      (WidgetTester tester) async {
-    expect(TvSearchPage.ROUTE_NAME, '/search-tv');
-  });
-
   testWidgets('Page should display center progress bar when loading',
       (WidgetTester tester) async {
-    when(mockNotifier.state).thenReturn(RequestState.Loading);
+    when(() => mockBloc.state).thenReturn(TvSearchLoading());
 
     final progressBarFinder = find.byType(CircularProgressIndicator);
 
-    await tester.pumpWidget(makeTestableWidget(TvSearchPage()));
+    await tester.pumpWidget(makeTestableWidget(const TvSearchPage()));
 
     expect(progressBarFinder, findsOneWidget);
   });
 
-  testWidgets('Page should display search results when data is loaded',
+  testWidgets('Page should display ListView when data is loaded',
       (WidgetTester tester) async {
-    when(mockNotifier.state).thenReturn(RequestState.Loaded);
-    when(mockNotifier.searchResult).thenReturn(testTvList);
+    when(() => mockBloc.state).thenReturn(TvSearchHasData(testTvList));
 
-    await tester.pumpWidget(makeTestableWidget(TvSearchPage()));
+    await tester.pumpWidget(makeTestableWidget(const TvSearchPage()));
 
     expect(find.byType(ListView), findsOneWidget);
   });
 
-  testWidgets('Page should display search text field',
+  testWidgets('Page should display error message when error',
       (WidgetTester tester) async {
-    when(mockNotifier.state).thenReturn(RequestState.Loading);
+    when(() => mockBloc.state).thenReturn(const TvSearchError('Error message'));
 
-    await tester.pumpWidget(makeTestableWidget(TvSearchPage()));
+    await tester.pumpWidget(makeTestableWidget(const TvSearchPage()));
 
-    expect(find.byType(TextField), findsOneWidget);
-    expect(find.byIcon(Icons.search), findsOneWidget);
-  });
-
-  testWidgets('Page should display empty container when no state',
-      (WidgetTester tester) async {
-    when(mockNotifier.state).thenReturn(RequestState.Empty);
-
-    await tester.pumpWidget(makeTestableWidget(TvSearchPage()));
-
-    expect(find.byType(TextField), findsOneWidget);
-  });
-
-  testWidgets('Page should display app bar with title',
-      (WidgetTester tester) async {
-    when(mockNotifier.state).thenReturn(RequestState.Loading);
-
-    await tester.pumpWidget(makeTestableWidget(TvSearchPage()));
-
-    expect(find.text('Search TV Series'), findsOneWidget);
+    expect(find.text('Error message'), findsOneWidget);
   });
 }

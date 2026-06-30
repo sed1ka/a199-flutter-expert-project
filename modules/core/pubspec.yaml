@@ -17,7 +17,7 @@ dependencies:
       url: https://github.com/chornthorn/data_connection_checker.git
       ref: master
   equatable: ^2.0.3
-  google_fonts: ^6.2.1
+  google_fonts: ^8.1.0
 
   # Modules
   about:
@@ -34,7 +34,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
-  mockito: ^5.0.8
+  mockito: ^5.6.4
   build_runner: ^2.0.4
 
 # For information on the generic Dart part of this file, see the

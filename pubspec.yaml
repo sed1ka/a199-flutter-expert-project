@@ -24,14 +24,9 @@ dependencies:
   flutter:
     sdk: flutter
 
-  dartz: ^0.10.1
-  equatable: ^2.0.5
   flutter_bloc: ^9.1.1
   get_it: ^7.7.0
-  google_fonts: ^6.2.1
-  http: ^1.2.2
   path_provider: ^2.1.4
-  provider: ^6.1.2
 
   ## Modules
   about:
@@ -48,10 +43,14 @@ dependencies:
     path: modules/watchlist
 
 dev_dependencies:
+  bloc_test: ^10.0.0
   build_runner: ^2.0.4
   flutter_test:
     sdk: flutter
-  mockito: ^5.0.8
+  integration_test:
+    sdk: flutter
+  mockito: ^5.6.4
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

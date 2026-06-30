@@ -1,0 +1,36 @@
+workflows:
+  flutter-modular-workflow:
+    name: Flutter Modular CI/CD
+    instance_type: mac_mini_m1
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Get dependencies for all modules
+        script: |
+          flutter pub get
+          MODULES=("core" "db" "about" "movie" "tv" "watchlist")
+          for module in "${MODULES[@]}"; do
+            echo "Pub get in: modules/$module"
+            cd "modules/$module"
+            flutter pub get
+            cd ../..
+          done
+      - name: Run all tests (Unit & Integration)
+        script: |
+          chmod +x run_tests.sh
+          ./run_tests.sh
+      - name: Build Android APK
+        script: |
+          flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
+    publishing:
+      email:
+        recipients:
+          - user@example.com # Ganti dengan email Anda
+        notify:
+          success: true
+          failure: true

@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:core/core.dart';
-import 'package:core/utils/network_info.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../domain/entities/movie.dart';

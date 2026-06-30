@@ -1,12 +1,10 @@
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:tv/presentation/blocs/popular_tv_notifier.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../blocs/popular_tv_bloc.dart';
 import '../widgets/tv_card_list.dart';
 
 class PopularTvPage extends StatefulWidget {
-  static const ROUTE_NAME = '/popular-tv';
+  static const routeName = '/popular-tv';
 
   const PopularTvPage({super.key});
 
@@ -19,10 +17,7 @@ class _PopularTvPageState extends State<PopularTvPage> {
   void initState() {
     super.initState();
     Future.microtask(
-      () => Provider.of<PopularTvNotifier>(
-        context,
-        listen: false,
-      ).fetchPopularTv(),
+      () => context.read<PopularTvBloc>().add(FetchPopularTv()),
     );
   }
 
@@ -32,23 +27,25 @@ class _PopularTvPageState extends State<PopularTvPage> {
       appBar: AppBar(title: Text('Popular TV Series')),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<PopularTvNotifier>(
-          builder: (context, data, child) {
-            if (data.state == RequestState.Loading) {
+        child: BlocBuilder<PopularTvBloc, PopularTvState>(
+          builder: (context, state) {
+            if (state is PopularTvLoading) {
               return Center(child: CircularProgressIndicator());
-            } else if (data.state == RequestState.Loaded) {
+            } else if (state is PopularTvHasData) {
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final tv = data.tv[index];
+                  final tv = state.result[index];
                   return TvCard(tv);
                 },
-                itemCount: data.tv.length,
+                itemCount: state.result.length,
               );
-            } else {
+            } else if (state is PopularTvError) {
               return Center(
                 key: Key('error_message'),
-                child: Text(data.message),
+                child: Text(state.message),
               );
+            } else {
+              return Container();
             }
           },
         ),

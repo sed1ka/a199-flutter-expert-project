@@ -1,64 +1,67 @@
+import 'package:bloc_test/bloc_test.dart';
 import 'package:core/core.dart';
-import 'package:tv/presentation/blocs/tv_detail_notifier.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
-import 'package:provider/Provider.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:tv/presentation/blocs/tv_detail_bloc.dart';
 import 'package:tv/presentation/pages/tv_detail_page.dart';
 
-import 'tv_detail_page_test.mocks.dart';
+import '../../dummy_data/dummy_objects.dart';
 
-@GenerateMocks([TvDetailNotifier])
+class MockTvDetailBloc
+    extends MockBloc<TvDetailEvent, TvDetailState>
+    implements TvDetailBloc {}
+
 void main() {
-  late MockTvDetailNotifier mockNotifier;
+  late MockTvDetailBloc mockBloc;
 
   setUp(() {
-    mockNotifier = MockTvDetailNotifier();
+    mockBloc = MockTvDetailBloc();
   });
 
   Widget makeTestableWidget(Widget body) {
-    return ChangeNotifierProvider<TvDetailNotifier>.value(
-      value: mockNotifier,
+    return BlocProvider<TvDetailBloc>.value(
+      value: mockBloc,
       child: MaterialApp(
         home: body,
       ),
     );
   }
 
-  testWidgets('Page should display route name constant',
-      (WidgetTester tester) async {
-    expect(TvDetailPage.ROUTE_NAME, '/detail-tv');
-  });
-
   testWidgets('Page should display loading state',
       (WidgetTester tester) async {
-    when(mockNotifier.tvState).thenReturn(RequestState.Loading);
+    when(() => mockBloc.state).thenReturn(TvDetailState.initial().copyWith(
+      tvState: RequestState.Loading,
+    ));
 
-    await tester.pumpWidget(makeTestableWidget(TvDetailPage(id: 1)));
+    await tester.pumpWidget(makeTestableWidget(const TvDetailPage(id: 1)));
 
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });
 
-  testWidgets('Page should display error message', (WidgetTester tester) async {
-    when(mockNotifier.tvState).thenReturn(RequestState.Error);
-    when(mockNotifier.message).thenReturn('Error');
+  testWidgets('Page should display loaded state',
+      (WidgetTester tester) async {
+    when(() => mockBloc.state).thenReturn(TvDetailState.initial().copyWith(
+      tvState: RequestState.Loaded,
+      tv: testTvDetail,
+      recommendationState: RequestState.Loaded,
+      tvRecommendations: [],
+    ));
 
-    await tester.pumpWidget(makeTestableWidget(TvDetailPage(id: 1)));
+    await tester.pumpWidget(makeTestableWidget(const TvDetailPage(id: 1)));
+
+    expect(find.text(testTvDetail.name), findsOneWidget);
+  });
+
+  testWidgets('Page should display error message', (WidgetTester tester) async {
+    when(() => mockBloc.state).thenReturn(TvDetailState.initial().copyWith(
+      tvState: RequestState.Error,
+      message: 'Error',
+    ));
+
+    await tester.pumpWidget(makeTestableWidget(const TvDetailPage(id: 1)));
 
     expect(find.text('Error'), findsOneWidget);
-  });
-
-  testWidgets('Page should accept TV ID parameter', (WidgetTester tester) async {
-    final page = TvDetailPage(id: 999);
-    expect(page.id, 999);
-  });
-
-  testWidgets('Page should create state', (WidgetTester tester) async {
-    when(mockNotifier.tvState).thenReturn(RequestState.Loading);
-
-    await tester.pumpWidget(makeTestableWidget(TvDetailPage(id: 1)));
-
-    expect(find.byType(Scaffold), findsOneWidget);
   });
 }

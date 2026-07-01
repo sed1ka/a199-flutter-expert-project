@@ -37,7 +37,7 @@ void main() {
   final tQuery = 'spiderman';
 
   test('initial state should be empty', () {
-    expect(movieSearchBloc.state, MovieSearchEmpty());
+    expect(movieSearchBloc.state, MovieSearchEmpty('Input the Movie name'));
   });
 
   blocTest<MovieSearchBloc, MovieSearchState>(
@@ -48,6 +48,7 @@ void main() {
       return movieSearchBloc;
     },
     act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
+    wait: const Duration(milliseconds: 550), // debounce
     expect: () => [
       MovieSearchLoading(),
       MovieSearchHasData(tMovieList),
@@ -65,6 +66,7 @@ void main() {
       return movieSearchBloc;
     },
     act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
+    wait: const Duration(milliseconds: 550),
     expect: () => [
       MovieSearchLoading(),
       MovieSearchError('Server Failure'),

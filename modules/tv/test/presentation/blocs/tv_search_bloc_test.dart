@@ -1,4 +1,5 @@
 import 'package:bloc_test/bloc_test.dart';
+import 'package:core/errors/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
@@ -33,10 +34,10 @@ void main() {
   final tQuery = 'spiderman';
 
   test('initial state should be empty', () {
-    expect(tvSearchBloc.state, TvSearchEmpty());
+    expect(tvSearchBloc.state, TvSearchEmpty('Input the TV Series name'));
   });
 
-  blocTest<TvSearchBloc, TvSearchState>(
+    blocTest<TvSearchBloc, TvSearchState>(
     'should emit [Loading, HasData] when data is gotten successfully',
     build: () {
       when(mockSearchTv.execute(tQuery))
@@ -44,9 +45,28 @@ void main() {
       return tvSearchBloc;
     },
     act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
+    wait: const Duration(milliseconds: 550), // debounce
     expect: () => [
       TvSearchLoading(),
       TvSearchHasData(tTvList),
+    ],
+    verify: (bloc) {
+      verify(mockSearchTv.execute(tQuery));
+    },
+  );
+
+  blocTest<TvSearchBloc, TvSearchState>(
+    'should emit [Loading, Error] when get search is unsuccessful',
+    build: () {
+      when(mockSearchTv.execute(tQuery))
+          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+      return tvSearchBloc;
+    },
+    act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
+    wait: const Duration(milliseconds: 550),
+    expect: () => [
+      TvSearchLoading(),
+      TvSearchError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockSearchTv.execute(tQuery));

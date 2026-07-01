@@ -12,9 +12,7 @@ class TvSearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Search TV Series'),
-      ),
+      appBar: AppBar(title: Text('Search TV Series')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -32,17 +30,10 @@ class TvSearchPage extends StatelessWidget {
               textInputAction: TextInputAction.search,
             ),
             SizedBox(height: 16),
-            Text(
-              'Search Result',
-              style: kHeading6,
-            ),
+            Text('Search Result', style: kHeading6),
             BlocBuilder<TvSearchBloc, TvSearchState>(
               builder: (context, state) {
-                if (state is TvSearchLoading) {
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (state is TvSearchHasData) {
+                if (state is TvSearchHasData) {
                   final result = state.result;
                   return Expanded(
                     child: ListView.builder(
@@ -55,16 +46,12 @@ class TvSearchPage extends StatelessWidget {
                     ),
                   );
                 } else if (state is TvSearchError) {
-                  return Expanded(
-                    child: Center(
-                      child: Text(state.message),
-                    ),
-                  );
-                } else {
-                  return Expanded(
-                    child: Container(),
-                  );
+                  return Expanded(child: Center(child: Text(state.message)));
+                } else if (state is TvSearchEmpty) {
+                  return Expanded(child: Center(child: Text(state.message)));
                 }
+
+                return Center(child: CircularProgressIndicator());
               },
             ),
           ],

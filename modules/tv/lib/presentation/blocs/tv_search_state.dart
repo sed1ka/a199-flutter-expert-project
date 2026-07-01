@@ -1,13 +1,20 @@
 part of 'tv_search_bloc.dart';
 
-abstract class TvSearchState extends Equatable {
+sealed class TvSearchState extends Equatable {
   const TvSearchState();
 
   @override
   List<Object> get props => [];
 }
 
-class TvSearchEmpty extends TvSearchState {}
+class TvSearchEmpty extends TvSearchState {
+  final String message;
+
+  const TvSearchEmpty(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
 
 class TvSearchLoading extends TvSearchState {}
 

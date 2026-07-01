@@ -1,6 +1,9 @@
 import 'package:about/about_page.dart';
 import 'package:core/core.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/presentation/blocs/movie_detail_bloc.dart';
@@ -28,8 +31,24 @@ import 'package:watchlist/presentation/blocs/watchlist_bloc.dart';
 import 'package:watchlist/presentation/watchlist_page.dart';
 import 'package:ditonton/injection.dart' as di;
 
+import 'firebase_options.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  // Pass all uncaught "fatal" errors from the framework to Crashlytics
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+  // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
+
   await di.init();
   runApp(MyApp());
 }
@@ -85,15 +104,18 @@ class MyApp extends StatelessWidget {
           drawerTheme: kDrawerTheme,
         ),
         home: HomeMoviePage(),
-        navigatorObservers: [routeObserver],
+        navigatorObservers: [
+          routeObserver,
+          FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
+        ],
         onGenerateRoute: (RouteSettings settings) {
           switch (settings.name) {
             case HomeMoviePage.routeName:
               return MaterialPageRoute(builder: (_) => HomeMoviePage());
             case PopularMoviesPage.routeName:
-              return CupertinoPageRoute(builder: (_) => PopularMoviesPage());
+              return MaterialPageRoute(builder: (_) => PopularMoviesPage());
             case TopRatedMoviesPage.routeName:
-              return CupertinoPageRoute(builder: (_) => TopRatedMoviesPage());
+              return MaterialPageRoute(builder: (_) => TopRatedMoviesPage());
             case MovieDetailPage.routeName:
               final id = settings.arguments as int;
               return MaterialPageRoute(
@@ -101,17 +123,17 @@ class MyApp extends StatelessWidget {
                 settings: settings,
               );
             case SearchPage.routeName:
-              return CupertinoPageRoute(builder: (_) => SearchPage());
+              return MaterialPageRoute(builder: (_) => SearchPage());
             case WatchlistPage.routeName:
               return MaterialPageRoute(builder: (_) => WatchlistPage());
             case HomeTvPage.routeName:
               return MaterialPageRoute(builder: (_) => HomeTvPage());
             case OnTheAirTvPage.routeName:
-              return CupertinoPageRoute(builder: (_) => OnTheAirTvPage());
+              return MaterialPageRoute(builder: (_) => OnTheAirTvPage());
             case PopularTvPage.routeName:
-              return CupertinoPageRoute(builder: (_) => PopularTvPage());
+              return MaterialPageRoute(builder: (_) => PopularTvPage());
             case TopRatedTvPage.routeName:
-              return CupertinoPageRoute(builder: (_) => TopRatedTvPage());
+              return MaterialPageRoute(builder: (_) => TopRatedTvPage());
             case TvDetailPage.routeName:
               final id = settings.arguments as int;
               return MaterialPageRoute(
@@ -119,17 +141,17 @@ class MyApp extends StatelessWidget {
                 settings: settings,
               );
             case TvSearchPage.routeName:
-              return CupertinoPageRoute(builder: (_) => TvSearchPage());
+              return MaterialPageRoute(builder: (_) => TvSearchPage());
             case AboutPage.routeName:
               return MaterialPageRoute(builder: (_) => AboutPage());
             default:
-              return MaterialPageRoute(builder: (_) {
-                return Scaffold(
+              return MaterialPageRoute(
+                builder: (_) => Scaffold(
                   body: Center(
                     child: Text('Page not found :('),
                   ),
-                );
-              });
+                ),
+              );
           }
         },
       ),

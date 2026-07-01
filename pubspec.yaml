@@ -28,6 +28,9 @@ dependencies:
     git:
       url: https://github.com/chornthorn/data_connection_checker.git
       ref: master
+  firebase_analytics: ^12.4.3
+  firebase_core: ^4.11.0
+  firebase_crashlytics: ^5.2.4
   flutter_bloc: ^9.1.1
   get_it: ^9.2.1
   http: ^1.6.0

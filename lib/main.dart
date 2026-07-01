@@ -28,8 +28,9 @@ import 'package:watchlist/presentation/blocs/watchlist_bloc.dart';
 import 'package:watchlist/presentation/watchlist_page.dart';
 import 'package:ditonton/injection.dart' as di;
 
-void main() {
-  di.init();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(MyApp());
 }
 

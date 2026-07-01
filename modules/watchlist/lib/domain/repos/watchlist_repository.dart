@@ -1,4 +1,4 @@
-import 'package:core/utils/failure.dart';
+import 'package:core/core.dart';
 import 'package:dartz/dartz.dart';
 import 'package:watchlist/domain/entities/watchlist.dart';
 

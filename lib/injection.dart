@@ -1,4 +1,5 @@
-import 'package:core/utils/network_info.dart';
+import 'package:core/network/http_client_factory.dart';
+import 'package:core/network/network_info.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:db/database_helper.dart';
 import 'package:movie/data/datasources/movie_local_data_source.dart';
@@ -39,12 +40,11 @@ import 'package:tv/presentation/blocs/popular_tv_bloc.dart';
 import 'package:tv/presentation/blocs/tv_search_bloc.dart';
 import 'package:tv/presentation/blocs/top_rated_tv_bloc.dart';
 import 'package:watchlist/presentation/blocs/watchlist_bloc.dart';
-import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 
 final locator = GetIt.instance;
 
-void init() {
+Future<void> init() async {
   // bloc
   locator.registerFactory(
     () => MovieSearchBloc(
@@ -169,6 +169,7 @@ void init() {
   locator.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(locator()));
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  final client = await HttpClientFactory.create();
+  locator.registerLazySingleton(() => client);
   locator.registerLazySingleton(() => DataConnectionChecker());
 }

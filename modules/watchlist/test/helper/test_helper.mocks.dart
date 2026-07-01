@@ -4,14 +4,13 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i6;
-import 'dart:convert' as _i18;
-import 'dart:typed_data' as _i19;
+import 'dart:convert' as _i17;
+import 'dart:typed_data' as _i18;
 
-import 'package:core/core.dart' as _i15;
-import 'package:core/utils/failure.dart' as _i7;
+import 'package:core/core.dart' as _i7;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:db/database_helper.dart' as _i12;
-import 'package:flutter_bloc/flutter_bloc.dart' as _i17;
+import 'package:flutter_bloc/flutter_bloc.dart' as _i16;
 import 'package:http/http.dart' as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i11;
@@ -22,7 +21,7 @@ import 'package:watchlist/data/datasources/watchlist_local_data_source.dart'
 import 'package:watchlist/data/models/watchlist_table.dart' as _i10;
 import 'package:watchlist/domain/entities/watchlist.dart' as _i8;
 import 'package:watchlist/domain/repos/watchlist_repository.dart' as _i3;
-import 'package:watchlist/domain/usecases/get_watchlist.dart' as _i16;
+import 'package:watchlist/domain/usecases/get_watchlist.dart' as _i15;
 import 'package:watchlist/presentation/blocs/watchlist_bloc.dart' as _i4;
 
 // ignore_for_file: type=lint
@@ -268,7 +267,7 @@ class MockDatabaseHelper extends _i1.Mock implements _i12.DatabaseHelper {
 /// A class which mocks [NetworkInfo].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockNetworkInfo extends _i1.Mock implements _i15.NetworkInfo {
+class MockNetworkInfo extends _i1.Mock implements _i7.NetworkInfo {
   MockNetworkInfo() {
     _i1.throwOnMissingStub(this);
   }
@@ -285,7 +284,7 @@ class MockNetworkInfo extends _i1.Mock implements _i15.NetworkInfo {
 /// A class which mocks [GetWatchlist].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGetWatchlist extends _i1.Mock implements _i16.GetWatchlist {
+class MockGetWatchlist extends _i1.Mock implements _i15.GetWatchlist {
   MockGetWatchlist() {
     _i1.throwOnMissingStub(this);
   }
@@ -365,8 +364,8 @@ class MockWatchlistBloc extends _i1.Mock implements _i4.WatchlistBloc {
 
   @override
   void on<E extends _i4.WatchlistEvent>(
-    _i17.EventHandler<E, _i4.WatchlistState>? handler, {
-    _i17.EventTransformer<E>? transformer,
+    _i16.EventHandler<E, _i4.WatchlistState>? handler, {
+    _i16.EventTransformer<E>? transformer,
   }) => super.noSuchMethod(
     Invocation.method(#on, [handler], {#transformer: transformer}),
     returnValueForMissingStub: null,
@@ -374,7 +373,7 @@ class MockWatchlistBloc extends _i1.Mock implements _i4.WatchlistBloc {
 
   @override
   void onTransition(
-    _i17.Transition<_i4.WatchlistEvent, _i4.WatchlistState>? transition,
+    _i16.Transition<_i4.WatchlistEvent, _i4.WatchlistState>? transition,
   ) => super.noSuchMethod(
     Invocation.method(#onTransition, [transition]),
     returnValueForMissingStub: null,
@@ -400,7 +399,7 @@ class MockWatchlistBloc extends _i1.Mock implements _i4.WatchlistBloc {
           as _i6.Future<void>);
 
   @override
-  void onChange(_i17.Change<_i4.WatchlistState>? change) => super.noSuchMethod(
+  void onChange(_i16.Change<_i4.WatchlistState>? change) => super.noSuchMethod(
     Invocation.method(#onChange, [change]),
     returnValueForMissingStub: null,
   );
@@ -457,7 +456,7 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i18.Encoding? encoding,
+    _i17.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
             Invocation.method(
@@ -483,7 +482,7 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i18.Encoding? encoding,
+    _i17.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
             Invocation.method(
@@ -509,7 +508,7 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i18.Encoding? encoding,
+    _i17.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
             Invocation.method(
@@ -535,7 +534,7 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i18.Encoding? encoding,
+    _i17.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
             Invocation.method(
@@ -570,15 +569,15 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
           as _i6.Future<String>);
 
   @override
-  _i6.Future<_i19.Uint8List> readBytes(
+  _i6.Future<_i18.Uint8List> readBytes(
     Uri? url, {
     Map<String, String>? headers,
   }) =>
       (super.noSuchMethod(
             Invocation.method(#readBytes, [url], {#headers: headers}),
-            returnValue: _i6.Future<_i19.Uint8List>.value(_i19.Uint8List(0)),
+            returnValue: _i6.Future<_i18.Uint8List>.value(_i18.Uint8List(0)),
           )
-          as _i6.Future<_i19.Uint8List>);
+          as _i6.Future<_i18.Uint8List>);
 
   @override
   _i6.Future<_i5.StreamedResponse> send(_i5.BaseRequest? request) =>

@@ -1,4 +1,4 @@
-import 'package:core/utils/network_info.dart';
+import 'package:core/network/network_info.dart';
 import 'package:db/db.dart';
 import 'package:mockito/annotations.dart';
 import 'package:watchlist/data/datasources/watchlist_local_data_source.dart';

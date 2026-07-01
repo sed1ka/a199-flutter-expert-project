@@ -10,5 +10,9 @@ void main() {
     test('should contain correct logo asset path', () {
       expect(AppAssets.logo, equals('assets/circle-g.png'));
     });
+
+    test('should contain correct certificate asset path', () {
+      expect(AppAssets.certificate, equals('assets/tmdb.pem'));
+    });
   });
 }

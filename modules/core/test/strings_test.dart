@@ -1,4 +1,4 @@
-import 'package:core/utils/constants.dart';
+import 'package:core/constants/strings.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

@@ -33,7 +33,7 @@ import 'package:ditonton/injection.dart' as di;
 
 import 'firebase_options.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   /// Firebase Setup

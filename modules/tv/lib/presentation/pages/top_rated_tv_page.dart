@@ -37,6 +37,7 @@ class _TopRatedTvPageState extends State<TopRatedTvPage> {
               return Center(child: CircularProgressIndicator());
             } else if (state is TopRatedTvHasData) {
               return ListView.builder(
+                padding: const EdgeInsets.only(top: 8, bottom: 16),
                 itemBuilder: (context, index) {
                   final tv = state.result[index];
                   return TvCard(tv);

@@ -37,6 +37,7 @@ class _PopularTvPageState extends State<PopularTvPage> {
               return Center(child: CircularProgressIndicator());
             } else if (state is PopularTvHasData) {
               return ListView.builder(
+                padding: const EdgeInsets.only(top: 8, bottom: 16),
                 itemBuilder: (context, index) {
                   final tv = state.result[index];
                   return TvCard(tv);

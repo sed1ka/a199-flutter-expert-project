@@ -2,10 +2,15 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
 class ServerException implements Exception {
   ServerException() {
-    FirebaseCrashlytics.instance.recordError(
-      'Server Exception',
-      StackTrace.current,
-    );
+    _logError('Server Exception');
+  }
+
+  void _logError(String message) {
+    try {
+      FirebaseCrashlytics.instance.recordError(message, StackTrace.current);
+    } catch (_) {
+      // Firebase might not be initialized yet
+    }
   }
 }
 
@@ -13,11 +18,15 @@ class DatabaseException implements Exception {
   final String message;
 
   DatabaseException(this.message) {
-    FirebaseCrashlytics.instance.recordError(
-      message,
-      StackTrace.current,
-      reason: 'Database Exception',
-    );
+    _logError(message);
+  }
+
+  void _logError(String message) {
+    try {
+      FirebaseCrashlytics.instance.recordError(message, StackTrace.current, reason: 'Database Exception');
+    } catch (_) {
+      // Firebase might not be initialized yet
+    }
   }
 }
 
@@ -25,10 +34,14 @@ class CacheException implements Exception {
   final String message;
 
   CacheException(this.message) {
-    FirebaseCrashlytics.instance.recordError(
-      message,
-      StackTrace.current,
-      reason: 'Cache Exception',
-    );
+    _logError(message);
+  }
+
+  void _logError(String message) {
+    try {
+      FirebaseCrashlytics.instance.recordError(message, StackTrace.current, reason: 'Cache Exception');
+    } catch (_) {
+      // Firebase might not be initialized yet
+    }
   }
 }

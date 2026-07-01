@@ -11,9 +11,9 @@ class HttpClientFactory {
   static Future<http.Client> create() async {
     final context = SecurityContext(withTrustedRoots: false);
 
-    final cert = await rootBundle.load(AppAssets.certificate);
+    final ByteData cert = await rootBundle.load('packages/core/${AppAssets.certificate}');
 
-    context.setTrustedCertificatesBytes(cert.buffer.asUint8List());
+    context.setTrustedCertificatesBytes(cert.buffer.asInt8List());
 
     final httpClient = HttpClient(context: context);
 

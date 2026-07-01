@@ -16,13 +16,11 @@ class _OnTheAirTvPageState extends State<OnTheAirTvPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(
-      () {
-        if (mounted) {
-          context.read<OnTheAirTvBloc>().add(FetchOnTheAirTv());
-        }
-      },
-    );
+    Future.microtask(() {
+      if (mounted) {
+        context.read<OnTheAirTvBloc>().add(FetchOnTheAirTv());
+      }
+    });
   }
 
   @override
@@ -37,6 +35,7 @@ class _OnTheAirTvPageState extends State<OnTheAirTvPage> {
               return Center(child: CircularProgressIndicator());
             } else if (state is OnTheAirTvHasData) {
               return ListView.builder(
+                padding: const EdgeInsets.only(top: 8, bottom: 16),
                 itemBuilder: (context, index) {
                   final tv = state.result[index];
                   return TvCard(tv);

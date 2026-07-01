@@ -37,6 +37,7 @@ class _PopularMoviesPageState extends State<PopularMoviesPage> {
               return Center(child: CircularProgressIndicator());
             } else if (state is PopularMoviesHasData) {
               return ListView.builder(
+                padding: const EdgeInsets.only(top: 8, bottom: 16),
                 itemBuilder: (context, index) {
                   final movie = state.result[index];
                   return MovieCard(movie);

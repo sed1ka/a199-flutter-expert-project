@@ -17,7 +17,10 @@ class CustomDrawer extends StatelessWidget {
         children: [
           UserAccountsDrawerHeader(
             currentAccountPicture: CircleAvatar(
-              backgroundImage: AssetImage(AppAssets.logo),
+              backgroundImage: AssetImage(
+                AppAssets.logo,
+                package: AppAssets.package,
+              ),
               backgroundColor: Colors.grey.shade900,
             ),
             accountName: Text('Ditonton'),

@@ -12,16 +12,16 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 4),
-      child: InkWell(
-        onTap: () {
-          Navigator.pushNamed(
-            context,
-            MovieDetailPage.routeName,
-            arguments: movie.id,
-          );
-        },
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          MovieDetailPage.routeName,
+          arguments: movie.id,
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4),
         child: Stack(
           alignment: Alignment.bottomLeft,
           children: [
@@ -30,7 +30,7 @@ class MovieCard extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 margin: const EdgeInsets.only(
-                  left: 16 + 80 + 16,
+                  left: 16 + 80 + 8,
                   bottom: 8,
                   right: 8,
                   top: 8,
@@ -44,7 +44,7 @@ class MovieCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: kHeading6,
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 8),
                     Text(
                       movie.overview ?? '-',
                       maxLines: 2,
@@ -54,19 +54,15 @@ class MovieCard extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(
-                left: 16,
-                bottom: 16,
-              ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16, bottom: 16),
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(8)),
                 child: CachedNetworkImage(
                   imageUrl: '$baseImageUrl${movie.posterPath}',
                   width: 80,
-                  placeholder: (context, url) => Center(
-                    child: CircularProgressIndicator(),
-                  ),
+                  placeholder: (context, url) =>
+                      Center(child: CircularProgressIndicator()),
                   errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
               ),

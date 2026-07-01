@@ -12,16 +12,12 @@ class TvCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 4),
-      child: InkWell(
-        onTap: () {
-          Navigator.pushNamed(
-            context,
-            TvDetailPage.routeName,
-            arguments: tv.id,
-          );
-        },
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, TvDetailPage.routeName, arguments: tv.id);
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4),
         child: Stack(
           alignment: Alignment.bottomLeft,
           children: [
@@ -54,19 +50,15 @@ class TvCard extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(
-                left: 16,
-                bottom: 16,
-              ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16, bottom: 16),
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(8)),
                 child: CachedNetworkImage(
                   imageUrl: '$baseImageUrl${tv.posterPath}',
                   width: 80,
-                  placeholder: (context, url) => Center(
-                    child: CircularProgressIndicator(),
-                  ),
+                  placeholder: (context, url) =>
+                      Center(child: CircularProgressIndicator()),
                   errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
               ),

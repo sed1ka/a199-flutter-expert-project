@@ -41,6 +41,7 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
               );
             } else if (state is TopRatedMoviesHasData) {
               return ListView.builder(
+                padding: const EdgeInsets.only(top: 8, bottom: 16),
                 itemBuilder: (context, index) {
                   final movie = state.result[index];
                   return MovieCard(movie);

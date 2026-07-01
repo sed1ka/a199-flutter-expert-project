@@ -46,7 +46,7 @@ class TvSearchPage extends StatelessWidget {
                   final result = state.result;
                   return Expanded(
                     child: ListView.builder(
-                      padding: const EdgeInsets.all(8),
+                      padding: const EdgeInsets.only(top: 8, bottom: 16),
                       itemBuilder: (context, index) {
                         final tv = result[index];
                         return TvCard(tv);

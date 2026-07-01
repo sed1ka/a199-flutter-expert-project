@@ -45,16 +45,16 @@ void main() {
       },
       act: (bloc) => bloc.add(const FetchTvDetail(tId)),
       expect: () => [
-        TvDetailState.initial().copyWith(tvState: RequestState.Loading),
+        TvDetailState.initial().copyWith(tvState: RequestState.loading),
         TvDetailState.initial().copyWith(
-          tvState: RequestState.Loaded,
+          tvState: RequestState.loaded,
           tv: testTvDetail,
-          recommendationState: RequestState.Loading,
+          recommendationState: RequestState.loading,
         ),
         TvDetailState.initial().copyWith(
-          tvState: RequestState.Loaded,
+          tvState: RequestState.loaded,
           tv: testTvDetail,
-          recommendationState: RequestState.Loaded,
+          recommendationState: RequestState.loaded,
           tvRecommendations: testTvList,
         ),
       ],

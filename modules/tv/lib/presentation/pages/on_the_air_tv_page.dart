@@ -17,7 +17,11 @@ class _OnTheAirTvPageState extends State<OnTheAirTvPage> {
   void initState() {
     super.initState();
     Future.microtask(
-      () => context.read<OnTheAirTvBloc>().add(FetchOnTheAirTv()),
+      () {
+        if (mounted) {
+          context.read<OnTheAirTvBloc>().add(FetchOnTheAirTv());
+        }
+      },
     );
   }
 

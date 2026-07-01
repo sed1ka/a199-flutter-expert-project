@@ -24,8 +24,10 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<MovieDetailBloc>().add(FetchMovieDetail(widget.id));
-      context.read<MovieDetailBloc>().add(LoadWatchlistStatus(widget.id));
+      if (mounted) {
+        context.read<MovieDetailBloc>().add(FetchMovieDetail(widget.id));
+        context.read<MovieDetailBloc>().add(LoadWatchlistStatus(widget.id));
+      }
     });
   }
 
@@ -34,9 +36,9 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
     return Scaffold(
       body: BlocBuilder<MovieDetailBloc, MovieDetailState>(
         builder: (context, state) {
-          if (state.movieState == RequestState.Loading) {
+          if (state.movieState == RequestState.loading) {
             return const Center(child: CircularProgressIndicator());
-          } else if (state.movieState == RequestState.Loaded) {
+          } else if (state.movieState == RequestState.loaded) {
             final movie = state.movie!;
             return SafeArea(
               child: _DetailContent(
@@ -156,15 +158,15 @@ class _DetailContent extends StatelessWidget {
                             BlocBuilder<MovieDetailBloc, MovieDetailState>(
                               builder: (context, state) {
                                 if (state.recommendationState ==
-                                    RequestState.Loading) {
+                                    RequestState.loading) {
                                   return const Center(
                                     child: CircularProgressIndicator(),
                                   );
                                 } else if (state.recommendationState ==
-                                    RequestState.Error) {
+                                    RequestState.error) {
                                   return Text(state.message);
                                 } else if (state.recommendationState ==
-                                    RequestState.Loaded) {
+                                    RequestState.loaded) {
                                   return SizedBox(
                                     height: 150,
                                     child: ListView.builder(

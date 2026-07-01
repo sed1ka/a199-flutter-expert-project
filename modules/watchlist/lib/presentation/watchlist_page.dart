@@ -19,7 +19,9 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<WatchlistBloc>().add(FetchWatchlist());
+      if (mounted) {
+        context.read<WatchlistBloc>().add(FetchWatchlist());
+      }
     });
   }
 
@@ -31,7 +33,9 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
 
   @override
   void didPopNext() {
-    context.read<WatchlistBloc>().add(FetchWatchlist());
+    if (mounted) {
+      context.read<WatchlistBloc>().add(FetchWatchlist());
+    }
   }
 
   @override

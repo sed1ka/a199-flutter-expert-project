@@ -17,7 +17,11 @@ class _PopularTvPageState extends State<PopularTvPage> {
   void initState() {
     super.initState();
     Future.microtask(
-      () => context.read<PopularTvBloc>().add(FetchPopularTv()),
+      () {
+        if (mounted) {
+          context.read<PopularTvBloc>().add(FetchPopularTv());
+        }
+      },
     );
   }
 

@@ -4,36 +4,36 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('State Enum', () {
     test('RequestState should have Empty, Loading, Loaded, Error values', () {
-      expect(RequestState.Empty, isNotNull);
-      expect(RequestState.Loading, isNotNull);
-      expect(RequestState.Loaded, isNotNull);
-      expect(RequestState.Error, isNotNull);
+      expect(RequestState.empty, isNotNull);
+      expect(RequestState.loading, isNotNull);
+      expect(RequestState.loaded, isNotNull);
+      expect(RequestState.error, isNotNull);
     });
 
     test('RequestState values should be distinct', () {
-      expect(RequestState.Empty, isNot(RequestState.Loading));
-      expect(RequestState.Loading, isNot(RequestState.Loaded));
-      expect(RequestState.Loaded, isNot(RequestState.Error));
-      expect(RequestState.Error, isNot(RequestState.Empty));
+      expect(RequestState.empty, isNot(RequestState.loading));
+      expect(RequestState.loading, isNot(RequestState.loaded));
+      expect(RequestState.loaded, isNot(RequestState.error));
+      expect(RequestState.error, isNot(RequestState.empty));
     });
 
     test('Empty state should represent initial state', () {
-      final state = RequestState.Empty;
+      final state = RequestState.empty;
       expect(state, isNotNull);
     });
 
     test('Loading state should represent loading state', () {
-      final state = RequestState.Loading;
+      final state = RequestState.loading;
       expect(state, isNotNull);
     });
 
     test('Loaded state should represent loaded state', () {
-      final state = RequestState.Loaded;
+      final state = RequestState.loaded;
       expect(state, isNotNull);
     });
 
     test('Error state should represent error state', () {
-      final state = RequestState.Error;
+      final state = RequestState.error;
       expect(state, isNotNull);
     });
   });

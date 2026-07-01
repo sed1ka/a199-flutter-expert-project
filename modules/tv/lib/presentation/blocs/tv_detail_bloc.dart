@@ -32,30 +32,30 @@ class TvDetailBloc extends Bloc<TvDetailEvent, TvDetailState> {
     required this.removeWatchlist,
   }) : super(TvDetailState.initial()) {
     on<FetchTvDetail>((event, emit) async {
-      emit(state.copyWith(tvState: RequestState.Loading));
+      emit(state.copyWith(tvState: RequestState.loading));
       final detailResult = await getTvDetail.execute(event.id);
       final recommendationResult = await getTvRecommendations.execute(event.id);
 
       detailResult.fold(
         (failure) {
           emit(state.copyWith(
-              tvState: RequestState.Error, message: failure.message));
+              tvState: RequestState.error, message: failure.message));
         },
         (tv) {
           emit(state.copyWith(
-            tvState: RequestState.Loaded,
+            tvState: RequestState.loaded,
             tv: tv,
-            recommendationState: RequestState.Loading,
+            recommendationState: RequestState.loading,
           ));
           recommendationResult.fold(
             (failure) {
               emit(state.copyWith(
-                  recommendationState: RequestState.Error,
+                  recommendationState: RequestState.error,
                   message: failure.message));
             },
             (tvs) {
               emit(state.copyWith(
-                  recommendationState: RequestState.Loaded,
+                  recommendationState: RequestState.loaded,
                   tvRecommendations: tvs));
             },
           );

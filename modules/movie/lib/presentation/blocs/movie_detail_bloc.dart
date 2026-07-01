@@ -32,7 +32,7 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
     required this.removeWatchlist,
   }) : super(MovieDetailState.initial()) {
     on<FetchMovieDetail>((event, emit) async {
-      emit(state.copyWith(movieState: RequestState.Loading));
+      emit(state.copyWith(movieState: RequestState.loading));
       final detailResult = await getMovieDetail.execute(event.id);
       final recommendationResult =
           await getMovieRecommendations.execute(event.id);
@@ -40,23 +40,23 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
       detailResult.fold(
         (failure) {
           emit(state.copyWith(
-              movieState: RequestState.Error, message: failure.message));
+              movieState: RequestState.error, message: failure.message));
         },
         (movie) {
           emit(state.copyWith(
-            movieState: RequestState.Loaded,
+            movieState: RequestState.loaded,
             movie: movie,
-            recommendationState: RequestState.Loading,
+            recommendationState: RequestState.loading,
           ));
           recommendationResult.fold(
             (failure) {
               emit(state.copyWith(
-                  recommendationState: RequestState.Error,
+                  recommendationState: RequestState.error,
                   message: failure.message));
             },
             (movies) {
               emit(state.copyWith(
-                  recommendationState: RequestState.Loaded,
+                  recommendationState: RequestState.loaded,
                   movieRecommendations: movies));
             },
           );

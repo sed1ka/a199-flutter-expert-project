@@ -25,8 +25,10 @@ class _TvDetailPageState extends State<TvDetailPage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<TvDetailBloc>().add(FetchTvDetail(widget.id));
-      context.read<TvDetailBloc>().add(LoadWatchlistStatus(widget.id));
+      if (mounted) {
+        context.read<TvDetailBloc>().add(FetchTvDetail(widget.id));
+        context.read<TvDetailBloc>().add(LoadWatchlistStatus(widget.id));
+      }
     });
   }
 
@@ -35,11 +37,11 @@ class _TvDetailPageState extends State<TvDetailPage> {
     return Scaffold(
       body: BlocBuilder<TvDetailBloc, TvDetailState>(
         builder: (context, state) {
-          if (state.tvState == RequestState.Loading) {
+          if (state.tvState == RequestState.loading) {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (state.tvState == RequestState.Loaded) {
+          } else if (state.tvState == RequestState.loaded) {
             final tv = state.tv!;
             return SafeArea(
               child: _TvDetailContent(
@@ -235,15 +237,15 @@ class _TvDetailContent extends StatelessWidget {
                             BlocBuilder<TvDetailBloc, TvDetailState>(
                               builder: (context, state) {
                                 if (state.recommendationState ==
-                                    RequestState.Loading) {
+                                    RequestState.loading) {
                                   return const Center(
                                     child: CircularProgressIndicator(),
                                   );
                                 } else if (state.recommendationState ==
-                                    RequestState.Error) {
+                                    RequestState.error) {
                                   return Text(state.message);
                                 } else if (state.recommendationState ==
-                                    RequestState.Loaded) {
+                                    RequestState.loaded) {
                                   return SizedBox(
                                     height: 150,
                                     child: ListView.builder(

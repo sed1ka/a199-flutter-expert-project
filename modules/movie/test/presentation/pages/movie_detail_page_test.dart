@@ -29,16 +29,16 @@ void main() {
       'Watchlist button should display add icon when movie not added to watchlist',
       (WidgetTester tester) async {
     when(mockBloc.state).thenReturn(MovieDetailState.initial().copyWith(
-      movieState: RequestState.Loaded,
+      movieState: RequestState.loaded,
       movie: testMovieDetail,
-      recommendationState: RequestState.Loaded,
+      recommendationState: RequestState.loaded,
       movieRecommendations: [],
       isAddedToWatchlist: false,
     ));
     when(mockBloc.stream).thenAnswer((_) => Stream.value(MovieDetailState.initial().copyWith(
-      movieState: RequestState.Loaded,
+      movieState: RequestState.loaded,
       movie: testMovieDetail,
-      recommendationState: RequestState.Loaded,
+      recommendationState: RequestState.loaded,
       movieRecommendations: [],
       isAddedToWatchlist: false,
     )));

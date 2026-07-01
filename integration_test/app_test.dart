@@ -3,7 +3,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:ditonton/main.dart' as app;
 import 'package:movie/presentation/pages/movie_detail_page.dart';
-import 'package:movie/presentation/pages/home_movie_page.dart';
 import 'package:movie/presentation/pages/search_page.dart';
 import 'package:tv/presentation/pages/home_tv_page.dart';
 import 'package:tv/presentation/pages/tv_detail_page.dart';

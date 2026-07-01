@@ -1,17 +1,13 @@
-import 'package:bloc_test/bloc_test.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
+import 'package:mockito/mockito.dart';
 import 'package:tv/presentation/blocs/tv_detail_bloc.dart';
 import 'package:tv/presentation/pages/tv_detail_page.dart';
 
 import '../../dummy_data/dummy_objects.dart';
-
-class MockTvDetailBloc
-    extends MockBloc<TvDetailEvent, TvDetailState>
-    implements TvDetailBloc {}
+import '../../helpers/test_helper.mocks.dart';
 
 void main() {
   late MockTvDetailBloc mockBloc;
@@ -31,9 +27,12 @@ void main() {
 
   testWidgets('Page should display loading state',
       (WidgetTester tester) async {
-    when(() => mockBloc.state).thenReturn(TvDetailState.initial().copyWith(
-      tvState: RequestState.Loading,
+    when(mockBloc.state).thenReturn(TvDetailState.initial().copyWith(
+      tvState: RequestState.loading,
     ));
+    when(mockBloc.stream).thenAnswer((_) => Stream.value(TvDetailState.initial().copyWith(
+      tvState: RequestState.loading,
+    )));
 
     await tester.pumpWidget(makeTestableWidget(const TvDetailPage(id: 1)));
 
@@ -42,12 +41,18 @@ void main() {
 
   testWidgets('Page should display loaded state',
       (WidgetTester tester) async {
-    when(() => mockBloc.state).thenReturn(TvDetailState.initial().copyWith(
-      tvState: RequestState.Loaded,
+    when(mockBloc.state).thenReturn(TvDetailState.initial().copyWith(
+      tvState: RequestState.loaded,
       tv: testTvDetail,
-      recommendationState: RequestState.Loaded,
+      recommendationState: RequestState.loaded,
       tvRecommendations: [],
     ));
+    when(mockBloc.stream).thenAnswer((_) => Stream.value(TvDetailState.initial().copyWith(
+      tvState: RequestState.loaded,
+      tv: testTvDetail,
+      recommendationState: RequestState.loaded,
+      tvRecommendations: [],
+    )));
 
     await tester.pumpWidget(makeTestableWidget(const TvDetailPage(id: 1)));
 
@@ -55,10 +60,14 @@ void main() {
   });
 
   testWidgets('Page should display error message', (WidgetTester tester) async {
-    when(() => mockBloc.state).thenReturn(TvDetailState.initial().copyWith(
-      tvState: RequestState.Error,
+    when(mockBloc.state).thenReturn(TvDetailState.initial().copyWith(
+      tvState: RequestState.error,
       message: 'Error',
     ));
+    when(mockBloc.stream).thenAnswer((_) => Stream.value(TvDetailState.initial().copyWith(
+      tvState: RequestState.error,
+      message: 'Error',
+    )));
 
     await tester.pumpWidget(makeTestableWidget(const TvDetailPage(id: 1)));
 

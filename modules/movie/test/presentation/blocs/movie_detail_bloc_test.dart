@@ -63,16 +63,16 @@ void main() {
       },
       act: (bloc) => bloc.add(const FetchMovieDetail(tId)),
       expect: () => [
-        MovieDetailState.initial().copyWith(movieState: RequestState.Loading),
+        MovieDetailState.initial().copyWith(movieState: RequestState.loading),
         MovieDetailState.initial().copyWith(
-          movieState: RequestState.Loaded,
+          movieState: RequestState.loaded,
           movie: testMovieDetail,
-          recommendationState: RequestState.Loading,
+          recommendationState: RequestState.loading,
         ),
         MovieDetailState.initial().copyWith(
-          movieState: RequestState.Loading,
+          movieState: RequestState.loaded,
           movie: testMovieDetail,
-          recommendationState: RequestState.Error,
+          recommendationState: RequestState.loaded,
           movieRecommendations: tMovies,
         ),
       ],

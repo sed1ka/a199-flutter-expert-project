@@ -22,9 +22,9 @@ class MovieDetailState extends Equatable {
   factory MovieDetailState.initial() {
     return const MovieDetailState(
       movie: null,
-      movieState: RequestState.Empty,
+      movieState: RequestState.empty,
       movieRecommendations: [],
-      recommendationState: RequestState.Empty,
+      recommendationState: RequestState.empty,
       message: '',
       watchlistMessage: '',
       isAddedToWatchlist: false,

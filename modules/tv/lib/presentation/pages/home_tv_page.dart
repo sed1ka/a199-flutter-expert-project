@@ -27,9 +27,11 @@ class _HomeTvPageState extends State<HomeTvPage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<OnTheAirTvBloc>().add(FetchOnTheAirTv());
-      context.read<PopularTvBloc>().add(FetchPopularTv());
-      context.read<TopRatedTvBloc>().add(FetchTopRatedTv());
+      if (mounted) {
+        context.read<OnTheAirTvBloc>().add(FetchOnTheAirTv());
+        context.read<PopularTvBloc>().add(FetchPopularTv());
+        context.read<TopRatedTvBloc>().add(FetchTopRatedTv());
+      }
     });
   }
 

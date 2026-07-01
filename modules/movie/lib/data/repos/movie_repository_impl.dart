@@ -10,7 +10,6 @@ import '../datasources/movie_local_data_source.dart';
 import '../datasources/movie_remote_data_source.dart';
 import '../models/movie_table.dart';
 
-
 class MovieRepositoryImpl implements MovieRepository {
   final MovieRemoteDataSource remoteDataSource;
   final MovieLocalDataSource localDataSource;
@@ -28,7 +27,8 @@ class MovieRepositoryImpl implements MovieRepository {
       try {
         final result = await remoteDataSource.getNowPlayingMovies();
         localDataSource.cacheNowPlayingMovies(
-            result.map((movie) => MovieTable.fromDTO(movie)).toList());
+          result.map((movie) => MovieTable.fromDTO(movie)).toList(),
+        );
         return Right(result.map((model) => model.toEntity()).toList());
       } on ServerException {
         return Left(ServerFailure(''));

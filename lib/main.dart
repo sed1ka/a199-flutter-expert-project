@@ -36,22 +36,19 @@ import 'firebase_options.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Firebase FIRST
+  /// Firebase Setup
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
-  // Pass all uncaught "fatal" errors from the framework to Crashlytics
   FlutterError.onError = (errorDetails) {
     FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
   };
-  // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
   PlatformDispatcher.instance.onError = (error, stack) {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
 
-  // THEN initialize dependencies (which may use assets or firebase)
+  /// Dependency Injection Setup
   await di.init();
 
   runApp(MyApp());
@@ -115,11 +112,20 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: (RouteSettings settings) {
           switch (settings.name) {
             case HomeMoviePage.routeName:
-              return MaterialPageRoute(builder: (_) => HomeMoviePage());
+              return MaterialPageRoute(
+                builder: (_) => HomeMoviePage(),
+                settings: settings,
+              );
             case PopularMoviesPage.routeName:
-              return MaterialPageRoute(builder: (_) => PopularMoviesPage());
+              return MaterialPageRoute(
+                builder: (_) => PopularMoviesPage(),
+                settings: settings,
+              );
             case TopRatedMoviesPage.routeName:
-              return MaterialPageRoute(builder: (_) => TopRatedMoviesPage());
+              return MaterialPageRoute(
+                builder: (_) => TopRatedMoviesPage(),
+                settings: settings,
+              );
             case MovieDetailPage.routeName:
               final id = settings.arguments as int;
               return MaterialPageRoute(
@@ -127,17 +133,35 @@ class MyApp extends StatelessWidget {
                 settings: settings,
               );
             case SearchPage.routeName:
-              return MaterialPageRoute(builder: (_) => SearchPage());
+              return MaterialPageRoute(
+                builder: (_) => SearchPage(),
+                settings: settings,
+              );
             case WatchlistPage.routeName:
-              return MaterialPageRoute(builder: (_) => WatchlistPage());
+              return MaterialPageRoute(
+                builder: (_) => WatchlistPage(),
+                settings: settings,
+              );
             case HomeTvPage.routeName:
-              return MaterialPageRoute(builder: (_) => HomeTvPage());
+              return MaterialPageRoute(
+                builder: (_) => HomeTvPage(),
+                settings: settings,
+              );
             case OnTheAirTvPage.routeName:
-              return MaterialPageRoute(builder: (_) => OnTheAirTvPage());
+              return MaterialPageRoute(
+                builder: (_) => OnTheAirTvPage(),
+                settings: settings,
+              );
             case PopularTvPage.routeName:
-              return MaterialPageRoute(builder: (_) => PopularTvPage());
+              return MaterialPageRoute(
+                builder: (_) => PopularTvPage(),
+                settings: settings,
+              );
             case TopRatedTvPage.routeName:
-              return MaterialPageRoute(builder: (_) => TopRatedTvPage());
+              return MaterialPageRoute(
+                builder: (_) => TopRatedTvPage(),
+                settings: settings,
+              );
             case TvDetailPage.routeName:
               final id = settings.arguments as int;
               return MaterialPageRoute(
@@ -145,9 +169,15 @@ class MyApp extends StatelessWidget {
                 settings: settings,
               );
             case TvSearchPage.routeName:
-              return MaterialPageRoute(builder: (_) => TvSearchPage());
+              return MaterialPageRoute(
+                builder: (_) => TvSearchPage(),
+                settings: settings,
+              );
             case AboutPage.routeName:
-              return MaterialPageRoute(builder: (_) => AboutPage());
+              return MaterialPageRoute(
+                builder: (_) => AboutPage(),
+                settings: settings,
+              );
             default:
               return MaterialPageRoute(
                 builder: (_) => Scaffold(
@@ -155,6 +185,7 @@ class MyApp extends StatelessWidget {
                     child: Text('Page not found :('),
                   ),
                 ),
+                settings: settings,
               );
           }
         },

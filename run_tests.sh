@@ -9,7 +9,11 @@ for module in "${MODULES[@]}"; do
   echo "--------------------------------------"
   cd "modules/$module"
   flutter pub get
-  flutter test
+  if find test -type f -name "*_test.dart" 2>/dev/null | grep -q .; then
+    flutter test
+  else
+    echo "No unit tests found. Skipping..."
+  fi
   cd ../..
 done
 

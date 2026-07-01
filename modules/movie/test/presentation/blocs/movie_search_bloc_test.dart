@@ -43,16 +43,15 @@ void main() {
   blocTest<MovieSearchBloc, MovieSearchState>(
     'should emit [Loading, HasData] when data is gotten successfully',
     build: () {
-      when(mockSearchMovies.execute(tQuery))
-          .thenAnswer((_) async => Right(tMovieList));
+      when(
+        mockSearchMovies.execute(tQuery),
+      ).thenAnswer((_) async => Right(tMovieList));
       return movieSearchBloc;
     },
     act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
-    wait: const Duration(milliseconds: 550), // debounce
-    expect: () => [
-      MovieSearchLoading(),
-      MovieSearchHasData(tMovieList),
-    ],
+    wait: const Duration(milliseconds: 550),
+    // debounce
+    expect: () => [MovieSearchLoading(), MovieSearchHasData(tMovieList)],
     verify: (bloc) {
       verify(mockSearchMovies.execute(tQuery));
     },
@@ -61,15 +60,35 @@ void main() {
   blocTest<MovieSearchBloc, MovieSearchState>(
     'should emit [Loading, Error] when get search is unsuccessful',
     build: () {
-      when(mockSearchMovies.execute(tQuery))
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+      when(
+        mockSearchMovies.execute(tQuery),
+      ).thenAnswer((_) async => Left(ServerFailure('Server Failure')));
       return movieSearchBloc;
     },
     act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
     wait: const Duration(milliseconds: 550),
     expect: () => [
       MovieSearchLoading(),
-      MovieSearchError('Server Failure'),
+      const MovieSearchError('Server Failure'),
+    ],
+    verify: (bloc) {
+      verify(mockSearchMovies.execute(tQuery));
+    },
+  );
+
+  blocTest<MovieSearchBloc, MovieSearchState>(
+    'should emit [Loading, Empty] when data is empty',
+    build: () {
+      when(
+        mockSearchMovies.execute(tQuery),
+      ).thenAnswer((_) async => const Right([]));
+      return movieSearchBloc;
+    },
+    act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
+    wait: const Duration(milliseconds: 550),
+    expect: () => [
+      MovieSearchLoading(),
+      const MovieSearchEmpty('Movie not found'),
     ],
     verify: (bloc) {
       verify(mockSearchMovies.execute(tQuery));

@@ -18,11 +18,13 @@ workflows:
     scripts:
       - name: Get dependencies for all modules
         script: |
+          flutter clean
           flutter pub get
           MODULES=("core" "db" "about" "movie" "tv" "watchlist")
           for module in "${MODULES[@]}"; do
             echo "Pub get in: modules/$module"
             cd "modules/$module"
+            flutter clean
             flutter pub get
             cd ../..
           done

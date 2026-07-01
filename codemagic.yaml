@@ -24,7 +24,6 @@ workflows:
           for module in "${MODULES[@]}"; do
             echo "Pub get in: modules/$module"
             cd "modules/$module"
-            flutter clean
             flutter pub get
             cd ../..
           done

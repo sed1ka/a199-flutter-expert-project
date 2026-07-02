@@ -8,10 +8,10 @@ import 'package:tv/presentation/pages/tv_detail_page.dart';
 Future<void> main() async {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  await app.main();
-
   testWidgets('TV Series Journey: should navigate to TV and see details',
       (WidgetTester tester) async {
+    await app.bootstrap(enableCrashlytics: false);
+
     await tester.pumpAndSettle();
 
     // Open Navigation Drawer

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:about/about_page.dart';
 import 'package:core/core.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';

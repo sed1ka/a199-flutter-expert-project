@@ -66,7 +66,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
                   if (state is OnTheAirTvLoading) {
                     return Center(child: CircularProgressIndicator());
                   } else if (state is OnTheAirTvHasData) {
-                    return _TvList(state.result);
+                    return TvListWidget(state.result, section: 'OnTheAir');
                   } else {
                     return Text('Failed');
                   }
@@ -82,7 +82,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
                   if (state is PopularTvLoading) {
                     return Center(child: CircularProgressIndicator());
                   } else if (state is PopularTvHasData) {
-                    return _TvList(state.result);
+                    return TvListWidget(state.result, section: 'Popular');
                   } else {
                     return Text('Failed');
                   }
@@ -98,7 +98,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
                   if (state is TopRatedTvLoading) {
                     return Center(child: CircularProgressIndicator());
                   } else if (state is TopRatedTvHasData) {
-                    return _TvList(state.result);
+                    return TvListWidget(state.result, section: 'TopRated');
                   } else {
                     return Text('Failed');
                   }
@@ -130,10 +130,11 @@ class _HomeTvPageState extends State<HomeTvPage> {
   }
 }
 
-class _TvList extends StatelessWidget {
+class TvListWidget extends StatelessWidget {
   final List<Tv> tvs;
+  final String section;
 
-  const _TvList(this.tvs);
+  const TvListWidget(this.tvs, {super.key, required this.section});
 
   @override
   Widget build(BuildContext context) {
@@ -143,9 +144,10 @@ class _TvList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           final tv = tvs[index];
-          return Container(
+          return Padding(
             padding: const EdgeInsets.all(8),
             child: InkWell(
+              key: Key('${section}_tv_item_$index'),
               onTap: () {
                 Navigator.pushNamed(
                   context,

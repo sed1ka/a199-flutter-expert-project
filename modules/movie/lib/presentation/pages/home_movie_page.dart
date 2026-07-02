@@ -61,7 +61,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                   if (state is NowPlayingMoviesLoading) {
                     return Center(child: CircularProgressIndicator());
                   } else if (state is NowPlayingMoviesHasData) {
-                    return MovieList(state.result);
+                    return MovieList(state.result, section: 'NowPlaying');
                   } else if (state is NowPlayingMoviesError) {
                     return Text(state.message);
                   } else {
@@ -79,7 +79,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                   if (state is PopularMoviesLoading) {
                     return Center(child: CircularProgressIndicator());
                   } else if (state is PopularMoviesHasData) {
-                    return MovieList(state.result);
+                    return MovieList(state.result, section: 'Popular');
                   } else if (state is PopularMoviesError) {
                     return Text(state.message);
                   } else {
@@ -97,7 +97,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                   if (state is TopRatedMoviesLoading) {
                     return Center(child: CircularProgressIndicator());
                   } else if (state is TopRatedMoviesHasData) {
-                    return MovieList(state.result);
+                    return MovieList(state.result, section: 'TopRated');
                   } else if (state is TopRatedMoviesError) {
                     return Text(state.message);
                   } else {
@@ -133,8 +133,9 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
 
 class MovieList extends StatelessWidget {
   final List<Movie> movies;
+  final String section;
 
-  const MovieList(this.movies, {super.key});
+  const MovieList(this.movies, {super.key, required this.section});
 
   @override
   Widget build(BuildContext context) {
@@ -144,9 +145,10 @@ class MovieList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           final movie = movies[index];
-          return Container(
+          return Padding(
             padding: const EdgeInsets.all(8),
             child: InkWell(
+              key: ValueKey('${section}_movie_item_$index'),
               onTap: () {
                 Navigator.pushNamed(
                   context,

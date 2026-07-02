@@ -23,7 +23,7 @@ void main() {
       await tester.tap(find.text('TV Series'));
       await tester.pumpAndSettle();
 
-      expect(find.byType(HomeTvPage), findsOneWidget);
+      expect(find.byType(HomeTVPage), findsOneWidget);
 
       // Tap first TV item from On The Air section
       final tvItemFinder =
@@ -34,7 +34,7 @@ void main() {
       await tester.tap(tvItemFinder);
       await tester.pumpAndSettle();
 
-      expect(find.byType(TvDetailPage), findsOneWidget);
+      expect(find.byType(TVDetailPage), findsOneWidget);
       expect(find.text('Watchlist'), findsOneWidget);
     },
   );

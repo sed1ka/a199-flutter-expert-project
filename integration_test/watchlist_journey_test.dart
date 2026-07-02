@@ -53,7 +53,17 @@ Future<void> main() async {
       expect(find.text('Watchlist'), findsWidgets);
 
       // Verify movie exists
-      expect(find.byType(ListView), findsOneWidget);
+      expect(find.byType(GridView), findsOneWidget);
+
+      await tester.tap(find.byKey(const Key('watchlist_0')));
+      await tester.pumpAndSettle();
+
+      // Remove from watchlist
+      expect(find.text('Watchlist'), findsOneWidget);
+      await tester.tap(find.byType(ElevatedButton));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Removed from Watchlist'), findsOneWidget);
     },
   );
 }

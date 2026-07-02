@@ -7,6 +7,7 @@ import 'blocs/watchlist_bloc.dart';
 
 class WatchlistPage extends StatefulWidget {
   static const routeName = '/watchlist';
+
   const WatchlistPage({super.key});
 
   @override
@@ -61,13 +62,15 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
                 ),
                 itemBuilder: (context, index) {
                   final item = state.result[index];
-                  return WatchlistGridCard(item);
+                  return WatchlistGridCard(item, key: ValueKey('watchlist_$index'));
                 },
                 itemCount: state.result.length,
               );
             } else if (state is WatchlistError) {
               return Center(
-                  key: const Key('error_message'), child: Text(state.message));
+                key: const Key('error_message'),
+                child: Text(state.message),
+              );
             } else {
               return Container();
             }

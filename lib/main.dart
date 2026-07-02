@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:about/about_page.dart';
 import 'package:core/core.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -34,24 +36,31 @@ import 'package:ditonton/injection.dart' as di;
 import 'firebase_options.dart';
 
 Future<void> main() async {
+  await bootstrap();
+}
+
+Future<void> bootstrap({
+  bool enableCrashlytics = true,
+}) async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  /// Firebase Setup
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  FlutterError.onError = (errorDetails) {
-    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
-  };
-  PlatformDispatcher.instance.onError = (error, stack) {
-    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-    return true;
-  };
 
-  /// Dependency Injection Setup
+  if (enableCrashlytics) {
+    FlutterError.onError =
+        FirebaseCrashlytics.instance.recordFlutterFatalError;
+
+    PlatformDispatcher.instance.onError = (error, stack) {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+      return true;
+    };
+  }
+
   await di.init();
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

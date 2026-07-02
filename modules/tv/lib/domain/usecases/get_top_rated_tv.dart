@@ -4,12 +4,12 @@ import 'package:tv/domain/repos/tv_repository.dart';
 
 import '../entities/tv.dart';
 
-class GetTopRatedTv {
-  final TvRepository repository;
+class GetTopRatedTV {
+  final TVRepository repository;
 
-  GetTopRatedTv(this.repository);
+  GetTopRatedTV(this.repository);
 
-  Future<Either<Failure, List<Tv>>> execute() {
-    return repository.getTopRatedTv();
+  Future<Either<Failure, List<TV>>> execute() {
+    return repository.getTopRatedTV();
   }
 }

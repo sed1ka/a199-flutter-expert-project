@@ -8,23 +8,23 @@ import '../../helpers/test_helper.mocks.dart';
 
 
 void main() {
-  late GetOnTheAirTv usecase;
-  late MockTvRepository mockTvRepository;
+  late GetOnTheAirTV usecase;
+  late MockTVRepository mockTVRepository;
 
   setUp(() {
-    mockTvRepository = MockTvRepository();
-    usecase = GetOnTheAirTv(mockTvRepository);
+    mockTVRepository = MockTVRepository();
+    usecase = GetOnTheAirTV(mockTVRepository);
   });
 
-  final tTv = <Tv>[];
+  final tTV = <TV>[];
 
   test('should get list of tv from the repository', () async {
     // arrange
-    when(mockTvRepository.getOnTheAirTv())
-        .thenAnswer((_) async => Right(tTv));
+    when(mockTVRepository.getOnTheAirTV())
+        .thenAnswer((_) async => Right(tTV));
     // act
     final result = await usecase.execute();
     // assert
-    expect(result, Right(tTv));
+    expect(result, Right(tTV));
   });
 }

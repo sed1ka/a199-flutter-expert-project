@@ -3,23 +3,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/popular_tv_bloc.dart';
 import '../widgets/tv_card_list.dart';
 
-class PopularTvPage extends StatefulWidget {
+class PopularTVPage extends StatefulWidget {
   static const routeName = '/popular-tv';
 
-  const PopularTvPage({super.key});
+  const PopularTVPage({super.key});
 
   @override
-  State<PopularTvPage> createState() => _PopularTvPageState();
+  State<PopularTVPage> createState() => _PopularTVPageState();
 }
 
-class _PopularTvPageState extends State<PopularTvPage> {
+class _PopularTVPageState extends State<PopularTVPage> {
   @override
   void initState() {
     super.initState();
     Future.microtask(
       () {
         if (mounted) {
-          context.read<PopularTvBloc>().add(FetchPopularTv());
+          context.read<PopularTVBloc>().add(FetchPopularTV());
         }
       },
     );
@@ -31,20 +31,20 @@ class _PopularTvPageState extends State<PopularTvPage> {
       appBar: AppBar(title: Text('Popular TV Series')),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<PopularTvBloc, PopularTvState>(
+        child: BlocBuilder<PopularTVBloc, PopularTVState>(
           builder: (context, state) {
-            if (state is PopularTvLoading) {
+            if (state is PopularTVLoading) {
               return Center(child: CircularProgressIndicator());
-            } else if (state is PopularTvHasData) {
+            } else if (state is PopularTVHasData) {
               return ListView.builder(
                 padding: const EdgeInsets.only(top: 8, bottom: 16),
                 itemBuilder: (context, index) {
                   final tv = state.result[index];
-                  return TvCard(tv);
+                  return TVCard(tv);
                 },
                 itemCount: state.result.length,
               );
-            } else if (state is PopularTvError) {
+            } else if (state is PopularTVError) {
               return Center(
                 key: Key('error_message'),
                 child: Text(state.message),

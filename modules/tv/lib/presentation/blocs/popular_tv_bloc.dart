@@ -6,20 +6,20 @@ import '../../domain/usecases/get_popular_tv.dart';
 part 'popular_tv_event.dart';
 part 'popular_tv_state.dart';
 
-class PopularTvBloc extends Bloc<PopularTvEvent, PopularTvState> {
-  final GetPopularTv _getPopularTv;
+class PopularTVBloc extends Bloc<PopularTVEvent, PopularTVState> {
+  final GetPopularTV _getPopularTV;
 
-  PopularTvBloc(this._getPopularTv) : super(PopularTvEmpty()) {
-    on<FetchPopularTv>((event, emit) async {
-      emit(PopularTvLoading());
-      final result = await _getPopularTv.execute();
+  PopularTVBloc(this._getPopularTV) : super(PopularTVEmpty()) {
+    on<FetchPopularTV>((event, emit) async {
+      emit(PopularTVLoading());
+      final result = await _getPopularTV.execute();
 
       result.fold(
         (failure) {
-          emit(PopularTvError(failure.message));
+          emit(PopularTVError(failure.message));
         },
         (data) {
-          emit(PopularTvHasData(data));
+          emit(PopularTVHasData(data));
         },
       );
     });

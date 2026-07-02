@@ -5,16 +5,16 @@ import 'package:flutter/material.dart';
 
 import '../../domain/entities/tv.dart';
 
-class TvCard extends StatelessWidget {
-  final Tv tv;
+class TVCard extends StatelessWidget {
+  final TV tv;
 
-  const TvCard(this.tv, {super.key});
+  const TVCard(this.tv, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, TvDetailPage.routeName, arguments: tv.id);
+        Navigator.pushNamed(context, TVDetailPage.routeName, arguments: tv.id);
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 4),

@@ -4,7 +4,7 @@ import 'package:integration_test/integration_test.dart';
 import 'package:ditonton/main.dart' as app;
 import 'package:movie/presentation/pages/home_movie_page.dart';
 import 'package:movie/presentation/pages/movie_detail_page.dart';
-import 'package:tv/presentation/pages/home_tv_page.dart';
+import 'package:tv/presentation/pages/tv_detail_page.dart';
 import 'package:watchlist/presentation/watchlist_page.dart';
 
 Future<void> main() async {
@@ -62,10 +62,10 @@ Future<void> main() async {
       await tester.tap(find.byKey(const Key('watchlist_0')));
       await tester.pumpAndSettle();
 
-      final isHomeMovie = find.byType(HomeMoviePage).evaluate().isNotEmpty;
-      final isHomeTv = find.byType(HomeTvPage).evaluate().isNotEmpty;
+      final isHomeMovie = find.byType(MovieDetailPage).evaluate().isNotEmpty;
+      final isTVDetail = find.byType(TVDetailPage).evaluate().isNotEmpty;
 
-      expect(isHomeMovie || isHomeTv, isTrue);
+      expect(isHomeMovie || isTVDetail, isTrue);
 
       // Remove from watchlist
       expect(find.text('Watchlist'), findsOneWidget);

@@ -9,25 +9,25 @@ import 'package:tv/domain/entities/tv_detail.dart';
 import '../../domain/entities/tv.dart';
 import '../blocs/tv_detail_bloc.dart';
 
-class TvDetailPage extends StatefulWidget {
+class TVDetailPage extends StatefulWidget {
   static const routeName = '/detail-tv';
 
   final int id;
 
-  const TvDetailPage({super.key, required this.id});
+  const TVDetailPage({super.key, required this.id});
 
   @override
-  State<TvDetailPage> createState() => _TvDetailPageState();
+  State<TVDetailPage> createState() => _TVDetailPageState();
 }
 
-class _TvDetailPageState extends State<TvDetailPage> {
+class _TVDetailPageState extends State<TVDetailPage> {
   @override
   void initState() {
     super.initState();
     Future.microtask(() {
       if (mounted) {
-        context.read<TvDetailBloc>().add(FetchTvDetail(widget.id));
-        context.read<TvDetailBloc>().add(LoadWatchlistStatus(widget.id));
+        context.read<TVDetailBloc>().add(FetchTVDetail(widget.id));
+        context.read<TVDetailBloc>().add(LoadWatchlistStatus(widget.id));
       }
     });
   }
@@ -35,7 +35,7 @@ class _TvDetailPageState extends State<TvDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<TvDetailBloc, TvDetailState>(
+      body: BlocBuilder<TVDetailBloc, TVDetailState>(
         builder: (context, state) {
           if (state.tvState == RequestState.loading) {
             return const Center(
@@ -44,7 +44,7 @@ class _TvDetailPageState extends State<TvDetailPage> {
           } else if (state.tvState == RequestState.loaded) {
             final tv = state.tv!;
             return SafeArea(
-              child: _TvDetailContent(
+              child: _TVDetailContent(
                 tv,
                 state.tvRecommendations,
                 state.isAddedToWatchlist,
@@ -59,12 +59,12 @@ class _TvDetailPageState extends State<TvDetailPage> {
   }
 }
 
-class _TvDetailContent extends StatelessWidget {
-  final TvDetail tv;
-  final List<Tv> recommendations;
+class _TVDetailContent extends StatelessWidget {
+  final TVDetail tv;
+  final List<TV> recommendations;
   final bool isAddedWatchlist;
 
-  const _TvDetailContent(this.tv, this.recommendations, this.isAddedWatchlist);
+  const _TVDetailContent(this.tv, this.recommendations, this.isAddedWatchlist);
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +106,7 @@ class _TvDetailContent extends StatelessWidget {
                               tv.name,
                               style: kHeading5,
                             ),
-                            BlocListener<TvDetailBloc, TvDetailState>(
+                            BlocListener<TVDetailBloc, TVDetailState>(
                               listenWhen: (previous, current) =>
                                   previous.watchlistMessage !=
                                       current.watchlistMessage &&
@@ -114,10 +114,10 @@ class _TvDetailContent extends StatelessWidget {
                               listener: (context, state) {
                                 final message = state.watchlistMessage;
                                 if (message ==
-                                        TvDetailBloc
+                                        TVDetailBloc
                                             .watchlistAddSuccessMessage ||
                                     message ==
-                                        TvDetailBloc
+                                        TVDetailBloc
                                             .watchlistRemoveSuccessMessage) {
                                   context.showSnackBar(message);
                                 } else {
@@ -128,11 +128,11 @@ class _TvDetailContent extends StatelessWidget {
                                 onPressed: () {
                                   if (!isAddedWatchlist) {
                                     context
-                                        .read<TvDetailBloc>()
+                                        .read<TVDetailBloc>()
                                         .add(AddWatchlist(tv));
                                   } else {
                                     context
-                                        .read<TvDetailBloc>()
+                                        .read<TVDetailBloc>()
                                         .add(RemoveFromWatchlist(tv));
                                   }
                                 },
@@ -234,7 +234,7 @@ class _TvDetailContent extends StatelessWidget {
                               'Recommendations',
                               style: kHeading6,
                             ),
-                            BlocBuilder<TvDetailBloc, TvDetailState>(
+                            BlocBuilder<TVDetailBloc, TVDetailState>(
                               builder: (context, state) {
                                 if (state.recommendationState ==
                                     RequestState.loading) {
@@ -259,7 +259,7 @@ class _TvDetailContent extends StatelessWidget {
                                             onTap: () {
                                               Navigator.pushReplacementNamed(
                                                 context,
-                                                TvDetailPage.routeName,
+                                                TVDetailPage.routeName,
                                                 arguments: tvResult.id,
                                               );
                                             },

@@ -3,23 +3,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/top_rated_tv_bloc.dart';
 import '../widgets/tv_card_list.dart';
 
-class TopRatedTvPage extends StatefulWidget {
+class TopRatedTVPage extends StatefulWidget {
   static const routeName = '/top-rated-tv';
 
-  const TopRatedTvPage({super.key});
+  const TopRatedTVPage({super.key});
 
   @override
-  State<TopRatedTvPage> createState() => _TopRatedTvPageState();
+  State<TopRatedTVPage> createState() => _TopRatedTVPageState();
 }
 
-class _TopRatedTvPageState extends State<TopRatedTvPage> {
+class _TopRatedTVPageState extends State<TopRatedTVPage> {
   @override
   void initState() {
     super.initState();
     Future.microtask(
       () {
         if (mounted) {
-          context.read<TopRatedTvBloc>().add(FetchTopRatedTv());
+          context.read<TopRatedTVBloc>().add(FetchTopRatedTV());
         }
       },
     );
@@ -31,20 +31,20 @@ class _TopRatedTvPageState extends State<TopRatedTvPage> {
       appBar: AppBar(title: Text('Top Rated TV Series')),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<TopRatedTvBloc, TopRatedTvState>(
+        child: BlocBuilder<TopRatedTVBloc, TopRatedTVState>(
           builder: (context, state) {
-            if (state is TopRatedTvLoading) {
+            if (state is TopRatedTVLoading) {
               return Center(child: CircularProgressIndicator());
-            } else if (state is TopRatedTvHasData) {
+            } else if (state is TopRatedTVHasData) {
               return ListView.builder(
                 padding: const EdgeInsets.only(top: 8, bottom: 16),
                 itemBuilder: (context, index) {
                   final tv = state.result[index];
-                  return TvCard(tv);
+                  return TVCard(tv);
                 },
                 itemCount: state.result.length,
               );
-            } else if (state is TopRatedTvError) {
+            } else if (state is TopRatedTVError) {
               return Center(
                 key: Key('error_message'),
                 child: Text(state.message),

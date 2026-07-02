@@ -9,14 +9,14 @@ import '../../dummy_data/dummy_objects.dart';
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {
-  late MockPopularTvBloc mockBloc;
+  late MockPopularTVBloc mockBloc;
 
   setUp(() {
-    mockBloc = MockPopularTvBloc();
+    mockBloc = MockPopularTVBloc();
   });
 
   Widget makeTestableWidget(Widget body) {
-    return BlocProvider<PopularTvBloc>.value(
+    return BlocProvider<PopularTVBloc>.value(
       value: mockBloc,
       child: MaterialApp(
         home: body,
@@ -26,34 +26,34 @@ void main() {
 
   testWidgets('Page should display center progress bar when loading',
       (WidgetTester tester) async {
-    when(mockBloc.state).thenReturn(PopularTvLoading());
-    when(mockBloc.stream).thenAnswer((_) => Stream.value(PopularTvLoading()));
+    when(mockBloc.state).thenReturn(PopularTVLoading());
+    when(mockBloc.stream).thenAnswer((_) => Stream.value(PopularTVLoading()));
 
     final progressBarFinder = find.byType(CircularProgressIndicator);
 
-    await tester.pumpWidget(makeTestableWidget(const PopularTvPage()));
+    await tester.pumpWidget(makeTestableWidget(const PopularTVPage()));
 
     expect(progressBarFinder, findsOneWidget);
   });
 
   testWidgets('Page should display ListView when data is loaded',
       (WidgetTester tester) async {
-    when(mockBloc.state).thenReturn(PopularTvHasData(testTvList));
-    when(mockBloc.stream).thenAnswer((_) => Stream.value(PopularTvHasData(testTvList)));
+    when(mockBloc.state).thenReturn(PopularTVHasData(testTVList));
+    when(mockBloc.stream).thenAnswer((_) => Stream.value(PopularTVHasData(testTVList)));
 
-    await tester.pumpWidget(makeTestableWidget(const PopularTvPage()));
+    await tester.pumpWidget(makeTestableWidget(const PopularTVPage()));
 
     expect(find.byType(ListView), findsOneWidget);
   });
 
   testWidgets('Page should display text with message when Error',
       (WidgetTester tester) async {
-    when(mockBloc.state).thenReturn(const PopularTvError('Error message'));
-    when(mockBloc.stream).thenAnswer((_) => Stream.value(const PopularTvError('Error message')));
+    when(mockBloc.state).thenReturn(const PopularTVError('Error message'));
+    when(mockBloc.stream).thenAnswer((_) => Stream.value(const PopularTVError('Error message')));
 
     final textFinder = find.byKey(const Key('error_message'));
 
-    await tester.pumpWidget(makeTestableWidget(const PopularTvPage()));
+    await tester.pumpWidget(makeTestableWidget(const PopularTVPage()));
 
     expect(textFinder, findsOneWidget);
   });

@@ -4,10 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/tv_search_bloc.dart';
 import '../widgets/tv_card_list.dart';
 
-class TvSearchPage extends StatelessWidget {
+class TVSearchPage extends StatelessWidget {
   static const routeName = '/search-tv';
 
-  const TvSearchPage({super.key});
+  const TVSearchPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class TvSearchPage extends StatelessWidget {
           children: [
             TextField(
               onChanged: (query) {
-                context.read<TvSearchBloc>().add(OnQueryChanged(query));
+                context.read<TVSearchBloc>().add(OnQueryChanged(query));
               },
               decoration: InputDecoration(
                 hintText: 'Search title',
@@ -31,23 +31,23 @@ class TvSearchPage extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text('Search Result', style: kHeading6),
-            BlocBuilder<TvSearchBloc, TvSearchState>(
+            BlocBuilder<TVSearchBloc, TVSearchState>(
               builder: (context, state) {
-                if (state is TvSearchHasData) {
+                if (state is TVSearchHasData) {
                   final result = state.result;
                   return Expanded(
                     child: ListView.builder(
                       padding: const EdgeInsets.only(top: 8, bottom: 16),
                       itemBuilder: (context, index) {
                         final tv = result[index];
-                        return TvCard(tv);
+                        return TVCard(tv);
                       },
                       itemCount: result.length,
                     ),
                   );
-                } else if (state is TvSearchError) {
+                } else if (state is TVSearchError) {
                   return Expanded(child: Center(child: Text(state.message)));
-                } else if (state is TvSearchEmpty) {
+                } else if (state is TVSearchEmpty) {
                   return Expanded(child: Center(child: Text(state.message)));
                 }
 

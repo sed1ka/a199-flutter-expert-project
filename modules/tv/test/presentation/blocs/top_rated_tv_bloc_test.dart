@@ -8,15 +8,15 @@ import 'package:tv/presentation/blocs/top_rated_tv_bloc.dart';
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {
-  late MockGetTopRatedTv mockGetTopRatedTv;
-  late TopRatedTvBloc topRatedTvBloc;
+  late MockGetTopRatedTV mockGetTopRatedTV;
+  late TopRatedTVBloc topRatedTVBloc;
 
   setUp(() {
-    mockGetTopRatedTv = MockGetTopRatedTv();
-    topRatedTvBloc = TopRatedTvBloc(mockGetTopRatedTv);
+    mockGetTopRatedTV = MockGetTopRatedTV();
+    topRatedTVBloc = TopRatedTVBloc(mockGetTopRatedTV);
   });
 
-  final tTv = Tv(
+  final tTV = TV(
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
     id: 1,
@@ -29,25 +29,25 @@ void main() {
     voteAverage: 1,
     voteCount: 1,
   );
-  final tTvList = <Tv>[tTv];
+  final tTVList = <TV>[tTV];
 
   test('initial state should be empty', () {
-    expect(topRatedTvBloc.state, TopRatedTvEmpty());
+    expect(topRatedTVBloc.state, TopRatedTVEmpty());
   });
 
-  blocTest<TopRatedTvBloc, TopRatedTvState>(
+  blocTest<TopRatedTVBloc, TopRatedTVState>(
     'should emit [Loading, HasData] when data is gotten successfully',
     build: () {
-      when(mockGetTopRatedTv.execute()).thenAnswer((_) async => Right(tTvList));
-      return topRatedTvBloc;
+      when(mockGetTopRatedTV.execute()).thenAnswer((_) async => Right(tTVList));
+      return topRatedTVBloc;
     },
-    act: (bloc) => bloc.add(FetchTopRatedTv()),
+    act: (bloc) => bloc.add(FetchTopRatedTV()),
     expect: () => [
-      TopRatedTvLoading(),
-      TopRatedTvHasData(tTvList),
+      TopRatedTVLoading(),
+      TopRatedTVHasData(tTVList),
     ],
     verify: (bloc) {
-      verify(mockGetTopRatedTv.execute());
+      verify(mockGetTopRatedTV.execute());
     },
   );
 }

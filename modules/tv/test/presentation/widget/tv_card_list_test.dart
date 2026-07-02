@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  group('TvCard Widget', () {
-    final tTv = Tv(
+  group('TVCard Widget', () {
+    final tTV = TV(
       backdropPath: '/backdropPath',
       genreIds: [1, 2],
       id: 1,
@@ -20,45 +20,45 @@ void main() {
       voteCount: 25000,
     );
 
-    testWidgets('TvCard should display tv series name', (WidgetTester tester) async {
+    testWidgets('TVCard should display tv series name', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: TvCard(tTv),
+            body: TVCard(tTV),
           ),
           routes: {
-            TvDetailPage.routeName: (context) => Scaffold(),
+            TVDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
 
-      expect(find.text(tTv.name ?? '-'), findsOneWidget);
+      expect(find.text(tTV.name ?? '-'), findsOneWidget);
     });
 
-    testWidgets('TvCard should display tv overview', (WidgetTester tester) async {
+    testWidgets('TVCard should display tv overview', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: TvCard(tTv),
+            body: TVCard(tTV),
           ),
           routes: {
-            TvDetailPage.routeName: (context) => Scaffold(),
+            TVDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
 
-      expect(find.text(tTv.overview ?? '-'), findsOneWidget);
+      expect(find.text(tTV.overview ?? '-'), findsOneWidget);
     });
 
-    testWidgets('TvCard should have InkWell for tap interaction',
+    testWidgets('TVCard should have InkWell for tap interaction',
         (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: TvCard(tTv),
+            body: TVCard(tTV),
           ),
           routes: {
-            TvDetailPage.routeName: (context) => Scaffold(),
+            TVDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -66,14 +66,14 @@ void main() {
       expect(find.byType(InkWell), findsOneWidget);
     });
 
-    testWidgets('TvCard should navigate on tap', (WidgetTester tester) async {
+    testWidgets('TVCard should navigate on tap', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: TvCard(tTv),
+            body: TVCard(tTV),
           ),
           routes: {
-            TvDetailPage.routeName: (context) => Scaffold(),
+            TVDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -84,14 +84,14 @@ void main() {
       expect(find.byType(Scaffold), findsWidgets);
     });
 
-    testWidgets('TvCard should display Card widget', (WidgetTester tester) async {
+    testWidgets('TVCard should display Card widget', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: TvCard(tTv),
+            body: TVCard(tTV),
           ),
           routes: {
-            TvDetailPage.routeName: (context) => Scaffold(),
+            TVDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -99,15 +99,15 @@ void main() {
       expect(find.byType(Card), findsOneWidget);
     });
 
-    testWidgets('TvCard should display ClipRRect for image border radius',
+    testWidgets('TVCard should display ClipRRect for image border radius',
         (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: TvCard(tTv),
+            body: TVCard(tTV),
           ),
           routes: {
-            TvDetailPage.routeName: (context) => Scaffold(),
+            TVDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -115,8 +115,8 @@ void main() {
       expect(find.byType(ClipRRect), findsOneWidget);
     });
 
-    testWidgets('TvCard with null name should display dash', (WidgetTester tester) async {
-      final tvWithNullName = Tv(
+    testWidgets('TVCard with null name should display dash', (WidgetTester tester) async {
+      final tvWithNullName = TV(
         backdropPath: '/backdropPath',
         genreIds: [1, 2],
         id: 1,
@@ -133,10 +133,10 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: TvCard(tvWithNullName),
+            body: TVCard(tvWithNullName),
           ),
           routes: {
-            TvDetailPage.routeName: (context) => Scaffold(),
+            TVDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -144,8 +144,8 @@ void main() {
       expect(find.text('-'), findsWidgets);
     });
 
-    testWidgets('TvCard with null overview should display dash', (WidgetTester tester) async {
-      final tvWithNullOverview = Tv(
+    testWidgets('TVCard with null overview should display dash', (WidgetTester tester) async {
+      final tvWithNullOverview = TV(
         backdropPath: '/backdropPath',
         genreIds: [1, 2],
         id: 1,
@@ -162,10 +162,10 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: TvCard(tvWithNullOverview),
+            body: TVCard(tvWithNullOverview),
           ),
           routes: {
-            TvDetailPage.routeName: (context) => Scaffold(),
+            TVDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -173,14 +173,14 @@ void main() {
       expect(find.text('-'), findsWidgets);
     });
 
-    testWidgets('TvCard should have Stack layout', (WidgetTester tester) async {
+    testWidgets('TVCard should have Stack layout', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: TvCard(tTv),
+            body: TVCard(tTV),
           ),
           routes: {
-            TvDetailPage.routeName: (context) => Scaffold(),
+            TVDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
@@ -188,24 +188,24 @@ void main() {
       expect(find.byType(Stack), findsWidgets);
     });
 
-    testWidgets('TvCard should have margin between cards', (WidgetTester tester) async {
+    testWidgets('TVCard should have margin between cards', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
             body: ListView(
               children: [
-                TvCard(tTv),
-                TvCard(tTv),
+                TVCard(tTV),
+                TVCard(tTV),
               ],
             ),
           ),
           routes: {
-            TvDetailPage.routeName: (context) => Scaffold(),
+            TVDetailPage.routeName: (context) => Scaffold(),
           },
         ),
       );
 
-      expect(find.byType(TvCard), findsWidgets);
+      expect(find.byType(TVCard), findsWidgets);
     });
   });
 }

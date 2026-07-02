@@ -14,27 +14,27 @@ import '../../domain/usecases/get_tv_recommendations.dart';
 part 'tv_detail_event.dart';
 part 'tv_detail_state.dart';
 
-class TvDetailBloc extends Bloc<TvDetailEvent, TvDetailState> {
+class TVDetailBloc extends Bloc<TVDetailEvent, TVDetailState> {
   static const watchlistAddSuccessMessage = 'Added to Watchlist';
   static const watchlistRemoveSuccessMessage = 'Removed from Watchlist';
 
-  final GetTvDetail getTvDetail;
-  final GetTvRecommendations getTvRecommendations;
+  final GetTVDetail getTVDetail;
+  final GetTVRecommendations getTVRecommendations;
   final GetWatchListStatus getWatchListStatus;
   final SaveWatchlist saveWatchlist;
   final RemoveWatchlist removeWatchlist;
 
-  TvDetailBloc({
-    required this.getTvDetail,
-    required this.getTvRecommendations,
+  TVDetailBloc({
+    required this.getTVDetail,
+    required this.getTVRecommendations,
     required this.getWatchListStatus,
     required this.saveWatchlist,
     required this.removeWatchlist,
-  }) : super(TvDetailState.initial()) {
-    on<FetchTvDetail>((event, emit) async {
+  }) : super(TVDetailState.initial()) {
+    on<FetchTVDetail>((event, emit) async {
       emit(state.copyWith(tvState: RequestState.loading));
-      final detailResult = await getTvDetail.execute(event.id);
-      final recommendationResult = await getTvRecommendations.execute(event.id);
+      final detailResult = await getTVDetail.execute(event.id);
+      final recommendationResult = await getTVRecommendations.execute(event.id);
 
       detailResult.fold(
         (failure) {

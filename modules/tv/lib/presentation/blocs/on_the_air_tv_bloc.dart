@@ -6,20 +6,20 @@ import '../../domain/usecases/get_on_the_air_tv.dart';
 part 'on_the_air_tv_event.dart';
 part 'on_the_air_tv_state.dart';
 
-class OnTheAirTvBloc extends Bloc<OnTheAirTvEvent, OnTheAirTvState> {
-  final GetOnTheAirTv _getOnTheAirTv;
+class OnTheAirTVBloc extends Bloc<OnTheAirTVEvent, OnTheAirTVState> {
+  final GetOnTheAirTV _getOnTheAirTV;
 
-  OnTheAirTvBloc(this._getOnTheAirTv) : super(OnTheAirTvEmpty()) {
-    on<FetchOnTheAirTv>((event, emit) async {
-      emit(OnTheAirTvLoading());
-      final result = await _getOnTheAirTv.execute();
+  OnTheAirTVBloc(this._getOnTheAirTV) : super(OnTheAirTVEmpty()) {
+    on<FetchOnTheAirTV>((event, emit) async {
+      emit(OnTheAirTVLoading());
+      final result = await _getOnTheAirTV.execute();
 
       result.fold(
         (failure) {
-          emit(OnTheAirTvError(failure.message));
+          emit(OnTheAirTVError(failure.message));
         },
         (data) {
-          emit(OnTheAirTvHasData(data));
+          emit(OnTheAirTVHasData(data));
         },
       );
     });

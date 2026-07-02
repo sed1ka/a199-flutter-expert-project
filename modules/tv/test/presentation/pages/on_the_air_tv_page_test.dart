@@ -9,14 +9,14 @@ import '../../dummy_data/dummy_objects.dart';
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {
-  late MockOnTheAirTvBloc mockBloc;
+  late MockOnTheAirTVBloc mockBloc;
 
   setUp(() {
-    mockBloc = MockOnTheAirTvBloc();
+    mockBloc = MockOnTheAirTVBloc();
   });
 
   Widget makeTestableWidget(Widget body) {
-    return BlocProvider<OnTheAirTvBloc>.value(
+    return BlocProvider<OnTheAirTVBloc>.value(
       value: mockBloc,
       child: MaterialApp(home: body),
     );
@@ -25,12 +25,12 @@ void main() {
   testWidgets('Page should display center progress bar when loading', (
     WidgetTester tester,
   ) async {
-    when(mockBloc.state).thenReturn(OnTheAirTvLoading());
-    when(mockBloc.stream).thenAnswer((_) => Stream.value(OnTheAirTvLoading()));
+    when(mockBloc.state).thenReturn(OnTheAirTVLoading());
+    when(mockBloc.stream).thenAnswer((_) => Stream.value(OnTheAirTVLoading()));
 
     final progressBarFinder = find.byType(CircularProgressIndicator);
 
-    await tester.pumpWidget(makeTestableWidget(const OnTheAirTvPage()));
+    await tester.pumpWidget(makeTestableWidget(const OnTheAirTVPage()));
 
     expect(progressBarFinder, findsOneWidget);
   });
@@ -38,10 +38,10 @@ void main() {
   testWidgets('Page should display ListView when data is loaded', (
     WidgetTester tester,
   ) async {
-    when(mockBloc.state).thenReturn(OnTheAirTvHasData(testTvList));
-    when(mockBloc.stream).thenAnswer((_) => Stream.value(OnTheAirTvHasData(testTvList)));
+    when(mockBloc.state).thenReturn(OnTheAirTVHasData(testTVList));
+    when(mockBloc.stream).thenAnswer((_) => Stream.value(OnTheAirTVHasData(testTVList)));
 
-    await tester.pumpWidget(makeTestableWidget(const OnTheAirTvPage()));
+    await tester.pumpWidget(makeTestableWidget(const OnTheAirTVPage()));
 
     expect(find.byType(ListView), findsOneWidget);
   });
@@ -49,12 +49,12 @@ void main() {
   testWidgets('Page should display text with message when Error', (
     WidgetTester tester,
   ) async {
-    when(mockBloc.state).thenReturn(const OnTheAirTvError('Error message'));
-    when(mockBloc.stream).thenAnswer((_) => Stream.value(const OnTheAirTvError('Error message')));
+    when(mockBloc.state).thenReturn(const OnTheAirTVError('Error message'));
+    when(mockBloc.stream).thenAnswer((_) => Stream.value(const OnTheAirTVError('Error message')));
 
     final textFinder = find.byKey(const Key('error_message'));
 
-    await tester.pumpWidget(makeTestableWidget(const OnTheAirTvPage()));
+    await tester.pumpWidget(makeTestableWidget(const OnTheAirTVPage()));
 
     expect(textFinder, findsOneWidget);
   });

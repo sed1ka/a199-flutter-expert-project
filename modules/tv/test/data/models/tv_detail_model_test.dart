@@ -2,7 +2,7 @@ import 'package:tv/data/models/tv_detail_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  final tTvDetailResponse = TvDetailResponse(
+  final tTVDetailResponse = TVDetailResponse(
     backdropPath: "/path.jpg",
     genres: [],
     homepage: "https://google.com",
@@ -43,9 +43,9 @@ void main() {
         "seasons": [],
       };
       // act
-      final result = TvDetailResponse.fromJson(jsonMap);
+      final result = TVDetailResponse.fromJson(jsonMap);
       // assert
-      expect(result, tTvDetailResponse);
+      expect(result, tTVDetailResponse);
     });
   });
 
@@ -54,7 +54,7 @@ void main() {
       // arrange
 
       // act
-      final result = tTvDetailResponse.toJson();
+      final result = tTVDetailResponse.toJson();
       // assert
       final expectedJsonMap = {
         "backdrop_path": "/path.jpg",

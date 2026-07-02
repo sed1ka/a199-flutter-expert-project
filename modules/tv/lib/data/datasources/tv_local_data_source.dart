@@ -1,10 +1,10 @@
 
 import 'package:db/database_helper.dart';
 
-abstract class TvLocalDataSource {}
+abstract class TVLocalDataSource {}
 
-class TvLocalDataSourceImpl implements TvLocalDataSource {
+class TVLocalDataSourceImpl implements TVLocalDataSource {
   final DatabaseHelper databaseHelper;
 
-  TvLocalDataSourceImpl({required this.databaseHelper});
+  TVLocalDataSourceImpl({required this.databaseHelper});
 }

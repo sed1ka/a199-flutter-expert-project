@@ -7,7 +7,7 @@ import 'package:tv/data/models/tv_response.dart';
 import '../../json_reader.dart';
 
 void main() {
-  final tTvModel = TvModel(
+  final tTVModel = TVModel(
     backdropPath: "/path.jpg",
     genreIds: [1, 2],
     id: 1,
@@ -20,16 +20,16 @@ void main() {
     voteAverage: 1.0,
     voteCount: 1,
   );
-  final tTvResponseModel = TvResponse(tvList: <TvModel>[tTvModel]);
+  final tTVResponseModel = TVResponse(tvList: <TVModel>[tTVModel]);
   group('fromJson', () {
     test('should return a valid model from JSON', () async {
       // arrange
       final Map<String, dynamic> jsonMap =
           json.decode(readJson('dummy_data/on_the_air.json'));
       // act
-      final result = TvResponse.fromJson(jsonMap);
+      final result = TVResponse.fromJson(jsonMap);
       // assert
-      expect(result, tTvResponseModel);
+      expect(result, tTVResponseModel);
     });
   });
 
@@ -38,7 +38,7 @@ void main() {
       // arrange
 
       // act
-      final result = tTvResponseModel.toJson();
+      final result = tTVResponseModel.toJson();
       // assert
       final expectedJsonMap = {
         "results": [

@@ -10,19 +10,19 @@ import '../../helpers/test_helper.mocks.dart';
 
 void main() {
   setUpAll(() {
-    provideDummy<TvSearchState>(
-      const TvSearchEmpty('Dummy'),
+    provideDummy<TVSearchState>(
+      const TVSearchEmpty('Dummy'),
     );
   });
 
-  late MockTvSearchBloc mockBloc;
+  late MockTVSearchBloc mockBloc;
 
   setUp(() {
-    mockBloc = MockTvSearchBloc();
+    mockBloc = MockTVSearchBloc();
   });
 
   Widget makeTestableWidget(Widget body) {
-    return BlocProvider<TvSearchBloc>.value(
+    return BlocProvider<TVSearchBloc>.value(
       value: mockBloc,
       child: MaterialApp(
         home: body,
@@ -33,11 +33,11 @@ void main() {
   testWidgets(
     'Page should display center progress bar when loading',
         (WidgetTester tester) async {
-      when(mockBloc.state).thenReturn(TvSearchLoading());
+      when(mockBloc.state).thenReturn(TVSearchLoading());
       when(mockBloc.stream)
-          .thenAnswer((_) => Stream.value(TvSearchLoading()));
+          .thenAnswer((_) => Stream.value(TVSearchLoading()));
 
-      await tester.pumpWidget(makeTestableWidget(const TvSearchPage()));
+      await tester.pumpWidget(makeTestableWidget(const TVSearchPage()));
 
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
     },
@@ -46,11 +46,11 @@ void main() {
   testWidgets(
     'Page should display ListView when data is loaded',
         (WidgetTester tester) async {
-      when(mockBloc.state).thenReturn(TvSearchHasData(testTvList));
+      when(mockBloc.state).thenReturn(TVSearchHasData(testTVList));
       when(mockBloc.stream)
-          .thenAnswer((_) => Stream.value(TvSearchHasData(testTvList)));
+          .thenAnswer((_) => Stream.value(TVSearchHasData(testTVList)));
 
-      await tester.pumpWidget(makeTestableWidget(const TvSearchPage()));
+      await tester.pumpWidget(makeTestableWidget(const TVSearchPage()));
 
       expect(find.byType(ListView), findsOneWidget);
     },
@@ -60,12 +60,12 @@ void main() {
     'Page should display message when data is empty',
         (WidgetTester tester) async {
       when(mockBloc.state)
-          .thenReturn(const TvSearchEmpty('TV Series not found'));
+          .thenReturn(const TVSearchEmpty('TV Series not found'));
       when(mockBloc.stream).thenAnswer(
-            (_) => Stream.value(const TvSearchEmpty('TV Series not found')),
+            (_) => Stream.value(const TVSearchEmpty('TV Series not found')),
       );
 
-      await tester.pumpWidget(makeTestableWidget(const TvSearchPage()));
+      await tester.pumpWidget(makeTestableWidget(const TVSearchPage()));
 
       expect(find.text('TV Series not found'), findsOneWidget);
     },
@@ -75,12 +75,12 @@ void main() {
     'Page should display error message when error',
         (WidgetTester tester) async {
       when(mockBloc.state)
-          .thenReturn(const TvSearchError('Error message'));
+          .thenReturn(const TVSearchError('Error message'));
       when(mockBloc.stream).thenAnswer(
-            (_) => Stream.value(const TvSearchError('Error message')),
+            (_) => Stream.value(const TVSearchError('Error message')),
       );
 
-      await tester.pumpWidget(makeTestableWidget(const TvSearchPage()));
+      await tester.pumpWidget(makeTestableWidget(const TVSearchPage()));
 
       expect(find.text('Error message'), findsOneWidget);
     },

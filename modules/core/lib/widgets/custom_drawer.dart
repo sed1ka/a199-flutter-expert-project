@@ -44,12 +44,12 @@ class CustomDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.tv),
             title: Text('TV Series'),
-            selected: currentRoute == HomeTvPage.routeName,
+            selected: currentRoute == HomeTVPage.routeName,
             onTap: () {
-              if (currentRoute == HomeTvPage.routeName) {
+              if (currentRoute == HomeTVPage.routeName) {
                 Navigator.pop(context);
               } else {
-                Navigator.pushReplacementNamed(context, HomeTvPage.routeName);
+                Navigator.pushReplacementNamed(context, HomeTVPage.routeName);
               }
             },
           ),

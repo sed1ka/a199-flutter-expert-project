@@ -11,27 +11,27 @@ import 'package:tv/presentation/pages/tv_search_page.dart';
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {
-  late MockOnTheAirTvBloc mockOnTheAirBloc;
-  late MockPopularTvBloc mockPopularBloc;
-  late MockTopRatedTvBloc mockTopRatedBloc;
+  late MockOnTheAirTVBloc mockOnTheAirBloc;
+  late MockPopularTVBloc mockPopularBloc;
+  late MockTopRatedTVBloc mockTopRatedBloc;
 
   setUp(() {
-    mockOnTheAirBloc = MockOnTheAirTvBloc();
-    mockPopularBloc = MockPopularTvBloc();
-    mockTopRatedBloc = MockTopRatedTvBloc();
+    mockOnTheAirBloc = MockOnTheAirTVBloc();
+    mockPopularBloc = MockPopularTVBloc();
+    mockTopRatedBloc = MockTopRatedTVBloc();
   });
 
   Widget makeTestableWidget(Widget body) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<OnTheAirTvBloc>.value(value: mockOnTheAirBloc),
-        BlocProvider<PopularTvBloc>.value(value: mockPopularBloc),
-        BlocProvider<TopRatedTvBloc>.value(value: mockTopRatedBloc),
+        BlocProvider<OnTheAirTVBloc>.value(value: mockOnTheAirBloc),
+        BlocProvider<PopularTVBloc>.value(value: mockPopularBloc),
+        BlocProvider<TopRatedTVBloc>.value(value: mockTopRatedBloc),
       ],
       child: MaterialApp(
         home: body,
         routes: {
-          TvSearchPage.routeName: (context) => const TvSearchPage(),
+          TVSearchPage.routeName: (context) => const TVSearchPage(),
         },
       ),
     );
@@ -39,16 +39,16 @@ void main() {
 
   testWidgets('Page should display loading when on the air is loading',
       (WidgetTester tester) async {
-    when(mockOnTheAirBloc.state).thenReturn(OnTheAirTvLoading());
-    when(mockPopularBloc.state).thenReturn(PopularTvLoading());
-    when(mockTopRatedBloc.state).thenReturn(TopRatedTvLoading());
-    when(mockOnTheAirBloc.stream).thenAnswer((_) => Stream.value(OnTheAirTvLoading()));
-    when(mockPopularBloc.stream).thenAnswer((_) => Stream.value(PopularTvLoading()));
-    when(mockTopRatedBloc.stream).thenAnswer((_) => Stream.value(TopRatedTvLoading()));
+    when(mockOnTheAirBloc.state).thenReturn(OnTheAirTVLoading());
+    when(mockPopularBloc.state).thenReturn(PopularTVLoading());
+    when(mockTopRatedBloc.state).thenReturn(TopRatedTVLoading());
+    when(mockOnTheAirBloc.stream).thenAnswer((_) => Stream.value(OnTheAirTVLoading()));
+    when(mockPopularBloc.stream).thenAnswer((_) => Stream.value(PopularTVLoading()));
+    when(mockTopRatedBloc.stream).thenAnswer((_) => Stream.value(TopRatedTVLoading()));
 
     final progressBarFinder = find.byType(CircularProgressIndicator);
 
-    await tester.pumpWidget(makeTestableWidget(const HomeTvPage()));
+    await tester.pumpWidget(makeTestableWidget(const HomeTVPage()));
 
     expect(progressBarFinder, findsWidgets);
   });

@@ -84,19 +84,19 @@ class MyApp extends StatelessWidget {
           create: (_) => di.locator<MovieDetailBloc>(),
         ),
         BlocProvider(
-          create: (_) => di.locator<TvSearchBloc>(),
+          create: (_) => di.locator<TVSearchBloc>(),
         ),
         BlocProvider(
-          create: (_) => di.locator<OnTheAirTvBloc>(),
+          create: (_) => di.locator<OnTheAirTVBloc>(),
         ),
         BlocProvider(
-          create: (_) => di.locator<PopularTvBloc>(),
+          create: (_) => di.locator<PopularTVBloc>(),
         ),
         BlocProvider(
-          create: (_) => di.locator<TopRatedTvBloc>(),
+          create: (_) => di.locator<TopRatedTVBloc>(),
         ),
         BlocProvider(
-          create: (_) => di.locator<TvDetailBloc>(),
+          create: (_) => di.locator<TVDetailBloc>(),
         ),
         BlocProvider(
           create: (_) => di.locator<WatchlistBloc>(),
@@ -149,35 +149,35 @@ class MyApp extends StatelessWidget {
                 builder: (_) => WatchlistPage(),
                 settings: settings,
               );
-            case HomeTvPage.routeName:
+            case HomeTVPage.routeName:
               return MaterialPageRoute(
-                builder: (_) => HomeTvPage(),
+                builder: (_) => HomeTVPage(),
                 settings: settings,
               );
-            case OnTheAirTvPage.routeName:
+            case OnTheAirTVPage.routeName:
               return MaterialPageRoute(
-                builder: (_) => OnTheAirTvPage(),
+                builder: (_) => OnTheAirTVPage(),
                 settings: settings,
               );
-            case PopularTvPage.routeName:
+            case PopularTVPage.routeName:
               return MaterialPageRoute(
-                builder: (_) => PopularTvPage(),
+                builder: (_) => PopularTVPage(),
                 settings: settings,
               );
-            case TopRatedTvPage.routeName:
+            case TopRatedTVPage.routeName:
               return MaterialPageRoute(
-                builder: (_) => TopRatedTvPage(),
+                builder: (_) => TopRatedTVPage(),
                 settings: settings,
               );
-            case TvDetailPage.routeName:
+            case TVDetailPage.routeName:
               final id = settings.arguments as int;
               return MaterialPageRoute(
-                builder: (_) => TvDetailPage(id: id),
+                builder: (_) => TVDetailPage(id: id),
                 settings: settings,
               );
-            case TvSearchPage.routeName:
+            case TVSearchPage.routeName:
               return MaterialPageRoute(
-                builder: (_) => TvSearchPage(),
+                builder: (_) => TVSearchPage(),
                 settings: settings,
               );
             case AboutPage.routeName:

@@ -232,7 +232,7 @@
 00:01 +49 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/movie_remote_data_source_test.dart: search movies should throw ServerException when response code is other than 200
 00:01 +50 -13: loading Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/tv_local_data_source_test.dart
 00:03 +50 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/tv_local_data_source_test.dart: should be able to be instantiated
-00:03 +51 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/tv_remote_data_source_test.dart: get On The Air TV Series should return list of Tv Model when the response code is 200
+00:03 +51 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/tv_remote_data_source_test.dart: get On The Air TV Series should return list of TV Model when the response code is 200
 00:04 +52 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/tv_remote_data_source_test.dart: get On The Air TV Series should throw a ServerException when the response code is 404 or other
 00:04 +53 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/tv_remote_data_source_test.dart: get Popular TV Series should return list of tv models when response code is 200
 00:04 +54 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/tv_remote_data_source_test.dart: get Popular TV Series should throw ServerException when response code is 404 or other
@@ -240,7 +240,7 @@
 00:04 +56 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/tv_remote_data_source_test.dart: get Top Rated TV Series should throw ServerException when response code is 404 or other
 00:04 +57 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/tv_remote_data_source_test.dart: get tv detail should return tv detail when the response code is 200
 00:04 +58 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/tv_remote_data_source_test.dart: get tv detail should throw ServerException when the response code is 404 or other
-00:04 +59 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/tv_remote_data_source_test.dart: get tv recommendations should return list of Tv Model when the response code is 200
+00:04 +59 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/tv_remote_data_source_test.dart: get tv recommendations should return list of TV Model when the response code is 200
 00:04 +60 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/tv_remote_data_source_test.dart: get tv recommendations should throw ServerException when the response code is 404 or other
 00:04 +61 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/tv_remote_data_source_test.dart: search tv should return list of tv models when response code is 200
 00:04 +62 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/datasources/tv_remote_data_source_test.dart: search tv should throw ServerException when response code is 404 or other
@@ -262,10 +262,10 @@
 00:08 +78 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/models/season_model_test.dart: toJson should return a JSON map containing proper data
 00:09 +79 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/models/tv_detail_model_test.dart: fromJson should return a valid model from JSON
 00:09 +80 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/models/tv_detail_model_test.dart: toJson should return a JSON map containing proper data
-00:10 +81 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/models/tv_model_test.dart: should be a subclass of Tv entity
+00:10 +81 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/models/tv_model_test.dart: should be a subclass of TV entity
 00:10 +82 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/models/tv_response_model_test.dart: fromJson should return a valid model from JSON
 00:10 +83 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/models/tv_response_model_test.dart: toJson should return a JSON map containing proper data
-00:12 +84 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/models/tv_table_test.dart: should return a JSON map from TvTable
+00:12 +84 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/models/tv_table_test.dart: should return a JSON map from TVTable
 00:12 +85 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/models/watchlist_table_test.dart: should return a JSON map from WatchlistTable
 00:12 +86 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/models/watchlist_table_test.dart: should return a Watchlist entity from WatchlistTable
 00:13 +87 -13: Y:/AndroidStudioProject/Github/expert-project/test/data/repositories/movie_repository_impl_test.dart: Now Playing Movies should check if the device is online
@@ -337,19 +337,19 @@
 00:18 +153 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/season_entity_test.dart: Season Entity Two Season entities with same properties should be equal
 00:18 +154 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/season_entity_test.dart: Season Entity Different seasons should not be equal
 00:18 +155 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/season_entity_test.dart: Season Entity Season props should include all properties
-00:18 +156 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_detail_entity_test.dart: TvDetail Entity TvDetail entity should have correct properties
-00:18 +157 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_detail_entity_test.dart: TvDetail Entity TvDetail with null backdrop path should work correctly
-00:18 +158 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_detail_entity_test.dart: TvDetail Entity Two TvDetail entities with same properties should be equal
-00:18 +159 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_detail_entity_test.dart: TvDetail Entity Different TvDetail entities should not be equal
-00:18 +160 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_detail_entity_test.dart: TvDetail Entity TvDetail with multiple genres should work correctly
-00:18 +161 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_detail_entity_test.dart: TvDetail Entity TvDetail with multiple seasons should work correctly
-00:19 +162 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_entity_test.dart: Tv Entity Tv entity should have correct properties
-00:19 +163 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_entity_test.dart: Tv Entity Tv.watchlist constructor should create tv with null optional fields
-00:19 +164 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_entity_test.dart: Tv Entity Two Tv entities with same properties should be equal
-00:19 +165 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_entity_test.dart: Tv Entity Tv.watchlist entities with same properties should be equal
-00:19 +166 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_entity_test.dart: Tv Entity Tv entity with null optional fields should work correctly
-00:19 +167 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_entity_test.dart: Tv Entity Tv entity should support stringify
-00:19 +168 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_entity_test.dart: Tv Entity Different tvs should not be equal
+00:18 +156 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_detail_entity_test.dart: TVDetail Entity TVDetail entity should have correct properties
+00:18 +157 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_detail_entity_test.dart: TVDetail Entity TVDetail with null backdrop path should work correctly
+00:18 +158 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_detail_entity_test.dart: TVDetail Entity Two TVDetail entities with same properties should be equal
+00:18 +159 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_detail_entity_test.dart: TVDetail Entity Different TVDetail entities should not be equal
+00:18 +160 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_detail_entity_test.dart: TVDetail Entity TVDetail with multiple genres should work correctly
+00:18 +161 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_detail_entity_test.dart: TVDetail Entity TVDetail with multiple seasons should work correctly
+00:19 +162 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_entity_test.dart: TV Entity TV entity should have correct properties
+00:19 +163 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_entity_test.dart: TV Entity TV.watchlist constructor should create tv with null optional fields
+00:19 +164 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_entity_test.dart: TV Entity Two TV entities with same properties should be equal
+00:19 +165 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_entity_test.dart: TV Entity TV.watchlist entities with same properties should be equal
+00:19 +166 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_entity_test.dart: TV Entity TV entity with null optional fields should work correctly
+00:19 +167 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_entity_test.dart: TV Entity TV entity should support stringify
+00:19 +168 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/tv_entity_test.dart: TV Entity Different tvs should not be equal
 00:19 +169 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/watchlist_entity_test.dart: Watchlist Entity Watchlist entity should have correct properties
 00:19 +170 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/watchlist_entity_test.dart: Watchlist Entity Watchlist with null optional fields should work correctly
 00:19 +171 -13: Y:/AndroidStudioProject/Github/expert-project/test/domain/entities/watchlist_entity_test.dart: Watchlist Entity Two Watchlist entities with same properties should be equal
@@ -378,7 +378,7 @@
 00:34 +194 -13: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_movie_page_test.dart: HomeMoviePage Widget Page should display Scaffold with AppBar
 00:34 +195 -13: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_movie_page_test.dart: HomeMoviePage Widget Page should display Scaffold with AppBar
 00:34 +196 -13: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_movie_page_test.dart: HomeMoviePage Widget Page should display Scaffold with AppBar
-00:35 +197 -13: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTvPage Widget Page should display Scaffold with AppBar
+00:35 +197 -13: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTVPage Widget Page should display Scaffold with AppBar
 00:35 +197 -13: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/about_page_test.dart: AboutPage Widget AboutPage should have Stack layout
 ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 The following TestFailure was thrown running a test:
@@ -406,20 +406,20 @@ This was caught by the test expectation on the following line:
 The test description was:
   AboutPage should have Stack layout
 ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-00:35 +197 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTvPage Widget Page should display Scaffold with AppBar
+00:35 +197 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTVPage Widget Page should display Scaffold with AppBar
 00:35 +197 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/about_page_test.dart: AboutPage Widget AboutPage should have Stack layout [E]
   Test failed. See exception logs above.
   The test description was: AboutPage should have Stack layout
   
-00:35 +198 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTvPage Widget Page should display Scaffold with AppBar
-00:35 +199 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTvPage Widget Page should display Scaffold with AppBar
-00:35 +200 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTvPage Widget Page should display Scaffold with AppBar
-00:35 +201 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTvPage Widget Page should display Scaffold with AppBar
-00:35 +202 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTvPage Widget Page should display Scaffold with AppBar
-00:35 +203 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTvPage Widget Page should display Scaffold with AppBar
-00:35 +204 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTvPage Widget Page should display Scaffold with AppBar
-00:35 +205 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTvPage Widget Page should display Scaffold with AppBar
-00:35 +206 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTvPage Widget Page should display Scaffold with AppBar
+00:35 +198 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTVPage Widget Page should display Scaffold with AppBar
+00:35 +199 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTVPage Widget Page should display Scaffold with AppBar
+00:35 +200 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTVPage Widget Page should display Scaffold with AppBar
+00:35 +201 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTVPage Widget Page should display Scaffold with AppBar
+00:35 +202 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTVPage Widget Page should display Scaffold with AppBar
+00:35 +203 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTVPage Widget Page should display Scaffold with AppBar
+00:35 +204 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTVPage Widget Page should display Scaffold with AppBar
+00:35 +205 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTVPage Widget Page should display Scaffold with AppBar
+00:35 +206 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTVPage Widget Page should display Scaffold with AppBar
 00:35 +207 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/movie_detail_page_test.dart: Watchlist button should display add icon when movie not added to watchlist
 00:35 +208 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/movie_detail_page_test.dart: Watchlist button should display add icon when movie not added to watchlist
 00:36 +209 -14: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/movie_detail_page_test.dart: Watchlist button should display add icon when movie not added to watchlist
@@ -457,7 +457,7 @@ The test description was:
   
 00:36 +211 -15: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/movie_detail_page_test.dart: Watchlist button should display add icon when movie not added to watchlist
 00:36 +212 -15: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/movie_detail_page_test.dart: Watchlist button should display add icon when movie not added to watchlist
-00:36 +213 -15: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTvPage Widget Page should display error message
+00:36 +213 -15: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTVPage Widget Page should display error message
 ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 The following TestFailure was thrown running a test:
 Expected: exactly one matching candidate
@@ -483,12 +483,12 @@ This was caught by the test expectation on the following line:
 The test description was:
   Page should display error message
 ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-00:36 +213 -16: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTvPage Widget Page should display error message [E]
+00:36 +213 -16: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTVPage Widget Page should display error message [E]
   Test failed. See exception logs above.
   The test description was: Page should display error message
   
 00:36 +213 -16: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/movie_detail_page_test.dart: Watchlist button should dispay check icon when movie is added to wathclist
-00:37 +214 -16: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTvPage Widget Page should have drawer
+00:37 +214 -16: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTVPage Widget Page should have drawer
 ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 The following TestFailure was thrown running a test:
 Expected: exactly one matching candidate
@@ -511,32 +511,32 @@ The test description was:
   Page should have drawer
 ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 00:37 +214 -17: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/movie_detail_page_test.dart: Watchlist button should display Snackbar when added to watchlist
-00:37 +214 -17: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTvPage Widget Page should have drawer [E]
+00:37 +214 -17: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/home_tv_page_test.dart: HomeTVPage Widget Page should have drawer [E]
   Test failed. See exception logs above.
   The test description was: Page should have drawer
   
 00:37 +215 -17: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/movie_detail_page_test.dart: Watchlist button should display AlertDialog when add to watchlist failed
-00:38 +216 -17: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/on_the_air_tv_page_test.dart: OnTheAirTvPage Widget Page should display Scaffold with AppBar
+00:38 +216 -17: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/on_the_air_tv_page_test.dart: OnTheAirTVPage Widget Page should display Scaffold with AppBar
 ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY WIDGETS LIBRARY Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-The following MissingStubError was thrown building Consumer<OnTheAirTvNotifier>(dirty, dependencies:
-[_InheritedProviderScope<OnTheAirTvNotifier?>]):
+The following MissingStubError was thrown building Consumer<OnTheAirTVNotifier>(dirty, dependencies:
+[_InheritedProviderScope<OnTheAirTVNotifier?>]):
 'message'
 No stub was found which matches the arguments of this method call:
 message
 
-Add a stub for this method using Mockito's 'when' API, or generate the MockOnTheAirTvNotifier mock
+Add a stub for this method using Mockito's 'when' API, or generate the MockOnTheAirTVNotifier mock
 with the @GenerateNiceMocks annotation (see
 https://pub.dev/documentation/mockito/latest/annotations/MockSpec-class.html).
 
 The relevant error-causing widget was:
-  Consumer<OnTheAirTvNotifier>
+  Consumer<OnTheAirTVNotifier>
   Consumer:file:///Y:/AndroidStudioProject/Github/expert-project/lib/presentation/pages/on_the_air_tv_page.dart:31:16
 
 When the exception was thrown, this was the stack:
 #0      Mock._noSuchMethod (package:mockito/src/mock.dart:201:7)
 #1      Mock.noSuchMethod (package:mockito/src/mock.dart:195:47)
-#2      MockOnTheAirTvNotifier.message (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/on_the_air_tv_page_test.mocks.dart:73:32)
-#3      _OnTheAirTvPageState.build.<anonymous closure> (package:ditonton/presentation/pages/on_the_air_tv_page.dart:48:34)
+#2      MockOnTheAirTVNotifier.message (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/on_the_air_tv_page_test.mocks.dart:73:32)
+#3      _OnTheAirTVPageState.build.<anonymous closure> (package:ditonton/presentation/pages/on_the_air_tv_page.dart:48:34)
 #4      Consumer.buildWithChild (package:provider/src/consumer.dart:179:19)
 #5      SingleChildStatelessWidget.build (package:nested/nested.dart:259:41)
 #6      StatelessElement.build (package:flutter/src/widgets/framework.dart:5889:49)
@@ -641,31 +641,31 @@ When the exception was thrown, this was the stack:
 
 ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 00:39 +216 -18: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_movies_page_test.dart: Page should display center progress bar when loading
-00:39 +216 -18: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/on_the_air_tv_page_test.dart: OnTheAirTvPage Widget Page should display Scaffold with AppBar [E]
+00:39 +216 -18: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/on_the_air_tv_page_test.dart: OnTheAirTVPage Widget Page should display Scaffold with AppBar [E]
   Test failed. See exception logs above.
   The test description was: Page should display Scaffold with AppBar
   
-00:40 +216 -18: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/on_the_air_tv_page_test.dart: OnTheAirTvPage Widget Page should display correct title
+00:40 +216 -18: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/on_the_air_tv_page_test.dart: OnTheAirTVPage Widget Page should display correct title
 ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY WIDGETS LIBRARY Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-The following MissingStubError was thrown building Consumer<OnTheAirTvNotifier>(dirty, dependencies:
-[_InheritedProviderScope<OnTheAirTvNotifier?>]):
+The following MissingStubError was thrown building Consumer<OnTheAirTVNotifier>(dirty, dependencies:
+[_InheritedProviderScope<OnTheAirTVNotifier?>]):
 'message'
 No stub was found which matches the arguments of this method call:
 message
 
-Add a stub for this method using Mockito's 'when' API, or generate the MockOnTheAirTvNotifier mock
+Add a stub for this method using Mockito's 'when' API, or generate the MockOnTheAirTVNotifier mock
 with the @GenerateNiceMocks annotation (see
 https://pub.dev/documentation/mockito/latest/annotations/MockSpec-class.html).
 
 The relevant error-causing widget was:
-  Consumer<OnTheAirTvNotifier>
+  Consumer<OnTheAirTVNotifier>
   Consumer:file:///Y:/AndroidStudioProject/Github/expert-project/lib/presentation/pages/on_the_air_tv_page.dart:31:16
 
 When the exception was thrown, this was the stack:
 #0      Mock._noSuchMethod (package:mockito/src/mock.dart:201:7)
 #1      Mock.noSuchMethod (package:mockito/src/mock.dart:195:47)
-#2      MockOnTheAirTvNotifier.message (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/on_the_air_tv_page_test.mocks.dart:73:32)
-#3      _OnTheAirTvPageState.build.<anonymous closure> (package:ditonton/presentation/pages/on_the_air_tv_page.dart:48:34)
+#2      MockOnTheAirTVNotifier.message (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/on_the_air_tv_page_test.mocks.dart:73:32)
+#3      _OnTheAirTVPageState.build.<anonymous closure> (package:ditonton/presentation/pages/on_the_air_tv_page.dart:48:34)
 #4      Consumer.buildWithChild (package:provider/src/consumer.dart:179:19)
 #5      SingleChildStatelessWidget.build (package:nested/nested.dart:259:41)
 #6      StatelessElement.build (package:flutter/src/widgets/framework.dart:5889:49)
@@ -770,7 +770,7 @@ When the exception was thrown, this was the stack:
 
 ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 00:40 +216 -19: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_movies_page_test.dart: Page should display center progress bar when loading
-00:40 +216 -19: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/on_the_air_tv_page_test.dart: OnTheAirTvPage Widget Page should display correct title [E]
+00:40 +216 -19: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/on_the_air_tv_page_test.dart: OnTheAirTVPage Widget Page should display correct title [E]
   Test failed. See exception logs above.
   The test description was: Page should display correct title
   
@@ -778,29 +778,29 @@ When the exception was thrown, this was the stack:
 00:40 +218 -19: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_movies_page_test.dart: Page should display center progress bar when loading
 00:40 +219 -19: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_movies_page_test.dart: Page should display center progress bar when loading
 00:40 +220 -19: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_movies_page_test.dart: Page should display center progress bar when loading
-00:40 +221 -19: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.dart: PopularTvPage Widget Page should display Scaffold with AppBar
-00:40 +222 -19: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.dart: PopularTvPage Widget Page should display Scaffold with AppBar
-00:40 +223 -19: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.dart: PopularTvPage Widget Page should display Scaffold with AppBar
+00:40 +221 -19: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.dart: PopularTVPage Widget Page should display Scaffold with AppBar
+00:40 +222 -19: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.dart: PopularTVPage Widget Page should display Scaffold with AppBar
+00:40 +223 -19: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.dart: PopularTVPage Widget Page should display Scaffold with AppBar
 ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY WIDGETS LIBRARY Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-The following MissingStubError was thrown building Consumer<PopularTvNotifier>(dirty, dependencies:
-[_InheritedProviderScope<PopularTvNotifier?>]):
+The following MissingStubError was thrown building Consumer<PopularTVNotifier>(dirty, dependencies:
+[_InheritedProviderScope<PopularTVNotifier?>]):
 'message'
 No stub was found which matches the arguments of this method call:
 message
 
-Add a stub for this method using Mockito's 'when' API, or generate the MockPopularTvNotifier mock
+Add a stub for this method using Mockito's 'when' API, or generate the MockPopularTVNotifier mock
 with the @GenerateNiceMocks annotation (see
 https://pub.dev/documentation/mockito/latest/annotations/MockSpec-class.html).
 
 The relevant error-causing widget was:
-  Consumer<PopularTvNotifier>
+  Consumer<PopularTVNotifier>
   Consumer:file:///Y:/AndroidStudioProject/Github/expert-project/lib/presentation/pages/popular_tv_page.dart:31:16
 
 When the exception was thrown, this was the stack:
 #0      Mock._noSuchMethod (package:mockito/src/mock.dart:201:7)
 #1      Mock.noSuchMethod (package:mockito/src/mock.dart:195:47)
-#2      MockPopularTvNotifier.message (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.mocks.dart:71:32)
-#3      _PopularTvPageState.build.<anonymous closure> (package:ditonton/presentation/pages/popular_tv_page.dart:48:34)
+#2      MockPopularTVNotifier.message (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.mocks.dart:71:32)
+#3      _PopularTVPageState.build.<anonymous closure> (package:ditonton/presentation/pages/popular_tv_page.dart:48:34)
 #4      Consumer.buildWithChild (package:provider/src/consumer.dart:179:19)
 #5      SingleChildStatelessWidget.build (package:nested/nested.dart:259:41)
 #6      StatelessElement.build (package:flutter/src/widgets/framework.dart:5889:49)
@@ -905,31 +905,31 @@ When the exception was thrown, this was the stack:
 
 ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 00:41 +223 -20: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/search_page_test.dart: SearchPage Widget Page should display Scaffold
-00:41 +223 -20: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.dart: PopularTvPage Widget Page should display Scaffold with AppBar [E]
+00:41 +223 -20: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.dart: PopularTVPage Widget Page should display Scaffold with AppBar [E]
   Test failed. See exception logs above.
   The test description was: Page should display Scaffold with AppBar
   
-00:41 +223 -20: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.dart: PopularTvPage Widget Page should display correct title
+00:41 +223 -20: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.dart: PopularTVPage Widget Page should display correct title
 ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY WIDGETS LIBRARY Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-The following MissingStubError was thrown building Consumer<PopularTvNotifier>(dirty, dependencies:
-[_InheritedProviderScope<PopularTvNotifier?>]):
+The following MissingStubError was thrown building Consumer<PopularTVNotifier>(dirty, dependencies:
+[_InheritedProviderScope<PopularTVNotifier?>]):
 'message'
 No stub was found which matches the arguments of this method call:
 message
 
-Add a stub for this method using Mockito's 'when' API, or generate the MockPopularTvNotifier mock
+Add a stub for this method using Mockito's 'when' API, or generate the MockPopularTVNotifier mock
 with the @GenerateNiceMocks annotation (see
 https://pub.dev/documentation/mockito/latest/annotations/MockSpec-class.html).
 
 The relevant error-causing widget was:
-  Consumer<PopularTvNotifier>
+  Consumer<PopularTVNotifier>
   Consumer:file:///Y:/AndroidStudioProject/Github/expert-project/lib/presentation/pages/popular_tv_page.dart:31:16
 
 When the exception was thrown, this was the stack:
 #0      Mock._noSuchMethod (package:mockito/src/mock.dart:201:7)
 #1      Mock.noSuchMethod (package:mockito/src/mock.dart:195:47)
-#2      MockPopularTvNotifier.message (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.mocks.dart:71:32)
-#3      _PopularTvPageState.build.<anonymous closure> (package:ditonton/presentation/pages/popular_tv_page.dart:48:34)
+#2      MockPopularTVNotifier.message (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.mocks.dart:71:32)
+#3      _PopularTVPageState.build.<anonymous closure> (package:ditonton/presentation/pages/popular_tv_page.dart:48:34)
 #4      Consumer.buildWithChild (package:provider/src/consumer.dart:179:19)
 #5      SingleChildStatelessWidget.build (package:nested/nested.dart:259:41)
 #6      StatelessElement.build (package:flutter/src/widgets/framework.dart:5889:49)
@@ -1034,7 +1034,7 @@ When the exception was thrown, this was the stack:
 
 ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 00:41 +223 -21: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/search_page_test.dart: SearchPage Widget Page should display Scaffold
-00:41 +223 -21: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.dart: PopularTvPage Widget Page should display correct title [E]
+00:41 +223 -21: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/popular_tv_page_test.dart: PopularTVPage Widget Page should display correct title [E]
   Test failed. See exception logs above.
   The test description was: Page should display correct title
   
@@ -1051,29 +1051,29 @@ When the exception was thrown, this was the stack:
 00:43 +234 -21: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/search_page_test.dart: SearchPage Widget Page should have correct route name
 00:43 +235 -21: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_movies_page_test.dart: Page should display progress bar when loading
 00:43 +236 -21: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_movies_page_test.dart: Page should display progress bar when loading
-00:44 +237 -21: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.dart: TopRatedTvPage Widget Page should display Scaffold with AppBar
-00:44 +238 -21: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.dart: TopRatedTvPage Widget Page should display Scaffold with AppBar
-00:44 +239 -21: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.dart: TopRatedTvPage Widget Page should display Scaffold with AppBar
+00:44 +237 -21: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.dart: TopRatedTVPage Widget Page should display Scaffold with AppBar
+00:44 +238 -21: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.dart: TopRatedTVPage Widget Page should display Scaffold with AppBar
+00:44 +239 -21: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.dart: TopRatedTVPage Widget Page should display Scaffold with AppBar
 ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY WIDGETS LIBRARY Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-The following MissingStubError was thrown building Consumer<TopRatedTvNotifier>(dirty, dependencies:
-[_InheritedProviderScope<TopRatedTvNotifier?>]):
+The following MissingStubError was thrown building Consumer<TopRatedTVNotifier>(dirty, dependencies:
+[_InheritedProviderScope<TopRatedTVNotifier?>]):
 'message'
 No stub was found which matches the arguments of this method call:
 message
 
-Add a stub for this method using Mockito's 'when' API, or generate the MockTopRatedTvNotifier mock
+Add a stub for this method using Mockito's 'when' API, or generate the MockTopRatedTVNotifier mock
 with the @GenerateNiceMocks annotation (see
 https://pub.dev/documentation/mockito/latest/annotations/MockSpec-class.html).
 
 The relevant error-causing widget was:
-  Consumer<TopRatedTvNotifier>
+  Consumer<TopRatedTVNotifier>
   Consumer:file:///Y:/AndroidStudioProject/Github/expert-project/lib/presentation/pages/top_rated_tv_page.dart:31:16
 
 When the exception was thrown, this was the stack:
 #0      Mock._noSuchMethod (package:mockito/src/mock.dart:201:7)
 #1      Mock.noSuchMethod (package:mockito/src/mock.dart:195:47)
-#2      MockTopRatedTvNotifier.message (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.mocks.dart:73:32)
-#3      _TopRatedTvPageState.build.<anonymous closure> (package:ditonton/presentation/pages/top_rated_tv_page.dart:48:34)
+#2      MockTopRatedTVNotifier.message (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.mocks.dart:73:32)
+#3      _TopRatedTVPageState.build.<anonymous closure> (package:ditonton/presentation/pages/top_rated_tv_page.dart:48:34)
 #4      Consumer.buildWithChild (package:provider/src/consumer.dart:179:19)
 #5      SingleChildStatelessWidget.build (package:nested/nested.dart:259:41)
 #6      StatelessElement.build (package:flutter/src/widgets/framework.dart:5889:49)
@@ -1177,32 +1177,32 @@ When the exception was thrown, this was the stack:
 (elided 5 frames from dart:async and package:stack_trace)
 
 ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-00:44 +239 -22: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Page should display progress bar when loading
-00:45 +239 -22: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.dart: TopRatedTvPage Widget Page should display Scaffold with AppBar [E]
+00:44 +239 -22: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Page should display progress bar when loading
+00:45 +239 -22: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.dart: TopRatedTVPage Widget Page should display Scaffold with AppBar [E]
   Test failed. See exception logs above.
   The test description was: Page should display Scaffold with AppBar
   
-00:45 +239 -22: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.dart: TopRatedTvPage Widget Page should display correct title
+00:45 +239 -22: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.dart: TopRatedTVPage Widget Page should display correct title
 ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY WIDGETS LIBRARY Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-The following MissingStubError was thrown building Consumer<TopRatedTvNotifier>(dirty, dependencies:
-[_InheritedProviderScope<TopRatedTvNotifier?>]):
+The following MissingStubError was thrown building Consumer<TopRatedTVNotifier>(dirty, dependencies:
+[_InheritedProviderScope<TopRatedTVNotifier?>]):
 'message'
 No stub was found which matches the arguments of this method call:
 message
 
-Add a stub for this method using Mockito's 'when' API, or generate the MockTopRatedTvNotifier mock
+Add a stub for this method using Mockito's 'when' API, or generate the MockTopRatedTVNotifier mock
 with the @GenerateNiceMocks annotation (see
 https://pub.dev/documentation/mockito/latest/annotations/MockSpec-class.html).
 
 The relevant error-causing widget was:
-  Consumer<TopRatedTvNotifier>
+  Consumer<TopRatedTVNotifier>
   Consumer:file:///Y:/AndroidStudioProject/Github/expert-project/lib/presentation/pages/top_rated_tv_page.dart:31:16
 
 When the exception was thrown, this was the stack:
 #0      Mock._noSuchMethod (package:mockito/src/mock.dart:201:7)
 #1      Mock.noSuchMethod (package:mockito/src/mock.dart:195:47)
-#2      MockTopRatedTvNotifier.message (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.mocks.dart:73:32)
-#3      _TopRatedTvPageState.build.<anonymous closure> (package:ditonton/presentation/pages/top_rated_tv_page.dart:48:34)
+#2      MockTopRatedTVNotifier.message (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.mocks.dart:73:32)
+#3      _TopRatedTVPageState.build.<anonymous closure> (package:ditonton/presentation/pages/top_rated_tv_page.dart:48:34)
 #4      Consumer.buildWithChild (package:provider/src/consumer.dart:179:19)
 #5      SingleChildStatelessWidget.build (package:nested/nested.dart:259:41)
 #6      StatelessElement.build (package:flutter/src/widgets/framework.dart:5889:49)
@@ -1306,36 +1306,36 @@ When the exception was thrown, this was the stack:
 (elided 5 frames from dart:async and package:stack_trace)
 
 ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-00:45 +239 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Page should display progress bar when loading
-00:45 +239 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.dart: TopRatedTvPage Widget Page should display correct title [E]
+00:45 +239 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Page should display progress bar when loading
+00:45 +239 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/top_rated_tv_page_test.dart: TopRatedTVPage Widget Page should display correct title [E]
   Test failed. See exception logs above.
   The test description was: Page should display correct title
   
-00:45 +240 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Page should display progress bar when loading
-00:45 +241 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Page should display progress bar when loading
-00:45 +242 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Page should display progress bar when loading
-00:45 +243 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Page should display progress bar when loading
-00:45 +244 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Page should display tv detail when loaded
+00:45 +240 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Page should display progress bar when loading
+00:45 +241 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Page should display progress bar when loading
+00:45 +242 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Page should display progress bar when loading
+00:45 +243 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Page should display progress bar when loading
+00:45 +244 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Page should display tv detail when loaded
 ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY WIDGETS LIBRARY Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-The following MissingStubError was thrown building Consumer<TvDetailNotifier>(dirty, dependencies:
-[_InheritedProviderScope<TvDetailNotifier?>]):
+The following MissingStubError was thrown building Consumer<TVDetailNotifier>(dirty, dependencies:
+[_InheritedProviderScope<TVDetailNotifier?>]):
 'recommendationState'
 No stub was found which matches the arguments of this method call:
 recommendationState
 
-Add a stub for this method using Mockito's 'when' API, or generate the MockTvDetailNotifier mock
+Add a stub for this method using Mockito's 'when' API, or generate the MockTVDetailNotifier mock
 with the @GenerateNiceMocks annotation (see
 https://pub.dev/documentation/mockito/latest/annotations/MockSpec-class.html).
 
 The relevant error-causing widget was:
-  Consumer<TvDetailNotifier>
+  Consumer<TVDetailNotifier>
   Consumer:file:///Y:/AndroidStudioProject/Github/expert-project/lib/presentation/pages/tv_detail_page.dart:230:29
 
 When the exception was thrown, this was the stack:
 #0      Mock._noSuchMethod (package:mockito/src/mock.dart:201:7)
 #1      Mock.noSuchMethod (package:mockito/src/mock.dart:195:47)
-#2      MockTvDetailNotifier.recommendationState (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.mocks.dart:174:54)
-#3      TvDetailContent.build.<anonymous closure>.<anonymous closure> (package:ditonton/presentation/pages/tv_detail_page.dart:232:42)
+#2      MockTVDetailNotifier.recommendationState (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.mocks.dart:174:54)
+#3      TVDetailContent.build.<anonymous closure>.<anonymous closure> (package:ditonton/presentation/pages/tv_detail_page.dart:232:42)
 #4      Consumer.buildWithChild (package:provider/src/consumer.dart:179:19)
 #5      SingleChildStatelessWidget.build (package:nested/nested.dart:259:41)
 #6      StatelessElement.build (package:flutter/src/widgets/framework.dart:5889:49)
@@ -1851,7 +1851,7 @@ This RenderObject had the following descendants (showing up to depth 5):
     center child: RenderSliverPadding#41a3e NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
       child: RenderSliverList#c0e59 NEEDS-LAYOUT NEEDS-PAINT
 ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-00:47 +245 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Page should display tv detail when loaded
+00:47 +245 -23: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Page should display tv detail when loaded
 ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY RENDERING LIBRARY Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 The following assertion was thrown during performLayout():
 RenderBox was not laid out: RenderViewport#4442a NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
@@ -5468,7 +5468,7 @@ When the exception was thrown, this was the stack:
 The following RenderObject was being processed when the exception was fired: RenderPadding#b2fcd NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
   creator: Padding ΓåÉ DecoratedBox ΓåÉ Container ΓåÉ FractionallySizedBox ΓåÉ SizedBox.expand ΓåÉ LayoutBuilder
     ΓåÉ ValueListenableBuilder<double> ΓåÉ DraggableScrollableSheet ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ
-    TvDetailContent ΓåÉ Γï»
+    TVDetailContent ΓåÉ Γï»
   parentData: <none> (can use size)
   constraints: BoxConstraints(w=800.0, h=272.0)
   size: MISSING
@@ -5611,7 +5611,7 @@ When the exception was thrown, this was the stack:
 The following RenderObject was being processed when the exception was fired: RenderDecoratedBox#f0c8b NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
   creator: DecoratedBox ΓåÉ Container ΓåÉ FractionallySizedBox ΓåÉ SizedBox.expand ΓåÉ LayoutBuilder ΓåÉ
     ValueListenableBuilder<double> ΓåÉ DraggableScrollableSheet ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ
-    TvDetailContent ΓåÉ MediaQuery ΓåÉ Γï»
+    TVDetailContent ΓåÉ MediaQuery ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0) (can use size)
   constraints: BoxConstraints(w=800.0, h=272.0)
   size: MISSING
@@ -5754,7 +5754,7 @@ When the exception was thrown, this was the stack:
 
 The following RenderObject was being processed when the exception was fired: RenderFractionallySizedOverflowBox#41279 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
   creator: FractionallySizedBox ΓåÉ SizedBox.expand ΓåÉ LayoutBuilder ΓåÉ ValueListenableBuilder<double> ΓåÉ
-    DraggableScrollableSheet ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TvDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ
+    DraggableScrollableSheet ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TVDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ
     SafeArea ΓåÉ Γï»
   parentData: <none> (can use size)
   constraints: BoxConstraints(w=800.0, h=544.0)
@@ -5895,8 +5895,8 @@ When the exception was thrown, this was the stack:
 
 The following RenderObject was being processed when the exception was fired: RenderConstrainedBox#66975 relayoutBoundary=up5 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
   creator: SizedBox.expand ΓåÉ LayoutBuilder ΓåÉ ValueListenableBuilder<double> ΓåÉ DraggableScrollableSheet
-    ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TvDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ
-    Consumer<TvDetailNotifier> ΓåÉ Γï»
+    ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TVDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ
+    Consumer<TVDetailNotifier> ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0) (can use size)
   constraints: BoxConstraints(0.0<=w<=800.0, 0.0<=h<=544.0)
   size: MISSING
@@ -6030,7 +6030,7 @@ When the exception was thrown, this was the stack:
 
 The following RenderObject was being processed when the exception was fired: _RenderLayoutBuilder#b9c58 relayoutBoundary=up4 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
   creator: LayoutBuilder ΓåÉ ValueListenableBuilder<double> ΓåÉ DraggableScrollableSheet ΓåÉ Padding ΓåÉ
-    Container ΓåÉ Stack ΓåÉ TvDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ Consumer<TvDetailNotifier>
+    Container ΓåÉ Stack ΓåÉ TVDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ Consumer<TVDetailNotifier>
     ΓåÉ KeyedSubtree-[GlobalKey#d0f5c] ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0) (can use size)
   constraints: BoxConstraints(0.0<=w<=800.0, 0.0<=h<=544.0)
@@ -6160,8 +6160,8 @@ When the exception was thrown, this was the stack:
 (elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
 
 The following RenderObject was being processed when the exception was fired: RenderPadding#f8152 relayoutBoundary=up3 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
-  creator: Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TvDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ
-    Consumer<TvDetailNotifier> ΓåÉ KeyedSubtree-[GlobalKey#d0f5c] ΓåÉ _BodyBuilder ΓåÉ MediaQuery ΓåÉ
+  creator: Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TVDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ
+    Consumer<TVDetailNotifier> ΓåÉ KeyedSubtree-[GlobalKey#d0f5c] ΓåÉ _BodyBuilder ΓåÉ MediaQuery ΓåÉ
     LayoutId-[<_ScaffoldSlot.body>] ΓåÉ Γï»
   parentData: not positioned; offset=Offset(0.0, 0.0) (can use size)
   constraints: BoxConstraints(0.0<=w<=800.0, 0.0<=h<=600.0)
@@ -6291,7 +6291,7 @@ When the exception was thrown, this was the stack:
 (elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
 
 The following RenderObject was being processed when the exception was fired: RenderStack#fc49c relayoutBoundary=up2 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
-  creator: Stack ΓåÉ TvDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ Consumer<TvDetailNotifier> ΓåÉ
+  creator: Stack ΓåÉ TVDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ Consumer<TVDetailNotifier> ΓåÉ
     KeyedSubtree-[GlobalKey#d0f5c] ΓåÉ _BodyBuilder ΓåÉ MediaQuery ΓåÉ LayoutId-[<_ScaffoldSlot.body>] ΓåÉ
     CustomMultiChildLayout ΓåÉ _ActionsScope ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0) (can use size)
@@ -6429,7 +6429,7 @@ When the exception was thrown, this was the stack:
 (elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
 
 The following RenderObject was being processed when the exception was fired: RenderPadding#3ff86 relayoutBoundary=up1 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
-  creator: Padding ΓåÉ SafeArea ΓåÉ Consumer<TvDetailNotifier> ΓåÉ KeyedSubtree-[GlobalKey#d0f5c] ΓåÉ
+  creator: Padding ΓåÉ SafeArea ΓåÉ Consumer<TVDetailNotifier> ΓåÉ KeyedSubtree-[GlobalKey#d0f5c] ΓåÉ
     _BodyBuilder ΓåÉ MediaQuery ΓåÉ LayoutId-[<_ScaffoldSlot.body>] ΓåÉ CustomMultiChildLayout ΓåÉ
     _ActionsScope ΓåÉ Actions ΓåÉ Builder ΓåÉ DefaultTextStyle ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0); id=_ScaffoldSlot.body (can use size)
@@ -6780,7 +6780,7 @@ The following RenderObject was being processed when the exception was fired: Ren
   needs compositing
   creator: DecoratedBox ΓåÉ Container ΓåÉ FractionallySizedBox ΓåÉ SizedBox.expand ΓåÉ LayoutBuilder ΓåÉ
     ValueListenableBuilder<double> ΓåÉ DraggableScrollableSheet ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ
-    TvDetailContent ΓåÉ MediaQuery ΓåÉ Γï»
+    TVDetailContent ΓåÉ MediaQuery ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0) (can use size)
   constraints: BoxConstraints(w=800.0, h=272.0)
   size: MISSING
@@ -7048,7 +7048,7 @@ Multiple exceptions (35) were detected during the running of the current test, a
 unexpected.
 ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 00:48 +245 -24: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/watchlist_page_test.dart: Page should display center progress bar when loading
-00:48 +245 -24: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Page should display tv detail when loaded [E]
+00:48 +245 -24: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Page should display tv detail when loaded [E]
   Test failed. See exception logs above.
   The test description was: Page should display tv detail when loaded
   
@@ -7057,7 +7057,7 @@ TestWidgetsFlutterBinding, all HTTP requests will return status code 400, and no
 will actually be made. Any test expecting a real network connection and status code will fail.
 To test code that needs an HttpClient, provide your own HttpClient implementation to the code under
 test, so that your test can consistently provide a testable response to the code under test.
-00:48 +245 -24: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_search_page_test.dart: TvSearchPage Widget Page should display search title
+00:48 +245 -24: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_search_page_test.dart: TVSearchPage Widget Page should display search title
 ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 The following TestFailure was thrown running a test:
 Expected: exactly one matching candidate
@@ -7080,7 +7080,7 @@ The test description was:
   Page should display search title
 ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 00:48 +245 -25: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/watchlist_page_test.dart: Page should display center progress bar when loading
-00:48 +245 -25: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_search_page_test.dart: TvSearchPage Widget Page should display search title [E]
+00:48 +245 -25: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_search_page_test.dart: TVSearchPage Widget Page should display search title [E]
   Test failed. See exception logs above.
   The test description was: Page should display search title
   
@@ -7101,30 +7101,30 @@ The test description was:
 00:48 +260 -25: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/watchlist_page_test.dart: Page should display center progress bar when loading
 00:48 +261 -25: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/watchlist_page_test.dart: Page should display center progress bar when loading
 00:48 +262 -25: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/watchlist_page_test.dart: Page should display center progress bar when loading
-00:48 +263 -25: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Watchlist button should display add icon when tv not added
-00:48 +264 -25: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Watchlist button should display add icon when tv not added
-00:48 +265 -25: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Watchlist button should display add icon when tv not added
-00:48 +266 -25: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Watchlist button should display add icon when tv not added
+00:48 +263 -25: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Watchlist button should display add icon when tv not added
+00:48 +264 -25: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Watchlist button should display add icon when tv not added
+00:48 +265 -25: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Watchlist button should display add icon when tv not added
+00:48 +266 -25: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Watchlist button should display add icon when tv not added
 ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY WIDGETS LIBRARY Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-The following MissingStubError was thrown building Consumer<TvDetailNotifier>(dirty, dependencies:
-[_InheritedProviderScope<TvDetailNotifier?>]):
+The following MissingStubError was thrown building Consumer<TVDetailNotifier>(dirty, dependencies:
+[_InheritedProviderScope<TVDetailNotifier?>]):
 'recommendationState'
 No stub was found which matches the arguments of this method call:
 recommendationState
 
-Add a stub for this method using Mockito's 'when' API, or generate the MockTvDetailNotifier mock
+Add a stub for this method using Mockito's 'when' API, or generate the MockTVDetailNotifier mock
 with the @GenerateNiceMocks annotation (see
 https://pub.dev/documentation/mockito/latest/annotations/MockSpec-class.html).
 
 The relevant error-causing widget was:
-  Consumer<TvDetailNotifier>
+  Consumer<TVDetailNotifier>
   Consumer:file:///Y:/AndroidStudioProject/Github/expert-project/lib/presentation/pages/tv_detail_page.dart:230:29
 
 When the exception was thrown, this was the stack:
 #0      Mock._noSuchMethod (package:mockito/src/mock.dart:201:7)
 #1      Mock.noSuchMethod (package:mockito/src/mock.dart:195:47)
-#2      MockTvDetailNotifier.recommendationState (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.mocks.dart:174:54)
-#3      TvDetailContent.build.<anonymous closure>.<anonymous closure> (package:ditonton/presentation/pages/tv_detail_page.dart:232:42)
+#2      MockTVDetailNotifier.recommendationState (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.mocks.dart:174:54)
+#3      TVDetailContent.build.<anonymous closure>.<anonymous closure> (package:ditonton/presentation/pages/tv_detail_page.dart:232:42)
 #4      Consumer.buildWithChild (package:provider/src/consumer.dart:179:19)
 #5      SingleChildStatelessWidget.build (package:nested/nested.dart:259:41)
 #6      StatelessElement.build (package:flutter/src/widgets/framework.dart:5889:49)
@@ -11256,7 +11256,7 @@ When the exception was thrown, this was the stack:
 The following RenderObject was being processed when the exception was fired: RenderPadding#7c874 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
   creator: Padding ΓåÉ DecoratedBox ΓåÉ Container ΓåÉ FractionallySizedBox ΓåÉ SizedBox.expand ΓåÉ LayoutBuilder
     ΓåÉ ValueListenableBuilder<double> ΓåÉ DraggableScrollableSheet ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ
-    TvDetailContent ΓåÉ Γï»
+    TVDetailContent ΓåÉ Γï»
   parentData: <none> (can use size)
   constraints: BoxConstraints(w=800.0, h=272.0)
   size: MISSING
@@ -11399,7 +11399,7 @@ When the exception was thrown, this was the stack:
 The following RenderObject was being processed when the exception was fired: RenderDecoratedBox#12087 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
   creator: DecoratedBox ΓåÉ Container ΓåÉ FractionallySizedBox ΓåÉ SizedBox.expand ΓåÉ LayoutBuilder ΓåÉ
     ValueListenableBuilder<double> ΓåÉ DraggableScrollableSheet ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ
-    TvDetailContent ΓåÉ MediaQuery ΓåÉ Γï»
+    TVDetailContent ΓåÉ MediaQuery ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0) (can use size)
   constraints: BoxConstraints(w=800.0, h=272.0)
   size: MISSING
@@ -11542,7 +11542,7 @@ When the exception was thrown, this was the stack:
 
 The following RenderObject was being processed when the exception was fired: RenderFractionallySizedOverflowBox#e818a NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
   creator: FractionallySizedBox ΓåÉ SizedBox.expand ΓåÉ LayoutBuilder ΓåÉ ValueListenableBuilder<double> ΓåÉ
-    DraggableScrollableSheet ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TvDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ
+    DraggableScrollableSheet ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TVDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ
     SafeArea ΓåÉ Γï»
   parentData: <none> (can use size)
   constraints: BoxConstraints(w=800.0, h=544.0)
@@ -11683,8 +11683,8 @@ When the exception was thrown, this was the stack:
 
 The following RenderObject was being processed when the exception was fired: RenderConstrainedBox#fa1f8 relayoutBoundary=up5 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
   creator: SizedBox.expand ΓåÉ LayoutBuilder ΓåÉ ValueListenableBuilder<double> ΓåÉ DraggableScrollableSheet
-    ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TvDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ
-    Consumer<TvDetailNotifier> ΓåÉ Γï»
+    ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TVDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ
+    Consumer<TVDetailNotifier> ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0) (can use size)
   constraints: BoxConstraints(0.0<=w<=800.0, 0.0<=h<=544.0)
   size: MISSING
@@ -11818,7 +11818,7 @@ When the exception was thrown, this was the stack:
 
 The following RenderObject was being processed when the exception was fired: _RenderLayoutBuilder#b2664 relayoutBoundary=up4 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
   creator: LayoutBuilder ΓåÉ ValueListenableBuilder<double> ΓåÉ DraggableScrollableSheet ΓåÉ Padding ΓåÉ
-    Container ΓåÉ Stack ΓåÉ TvDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ Consumer<TvDetailNotifier>
+    Container ΓåÉ Stack ΓåÉ TVDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ Consumer<TVDetailNotifier>
     ΓåÉ KeyedSubtree-[GlobalKey#29f7b] ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0) (can use size)
   constraints: BoxConstraints(0.0<=w<=800.0, 0.0<=h<=544.0)
@@ -11948,8 +11948,8 @@ When the exception was thrown, this was the stack:
 (elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
 
 The following RenderObject was being processed when the exception was fired: RenderPadding#bb18a relayoutBoundary=up3 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
-  creator: Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TvDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ
-    Consumer<TvDetailNotifier> ΓåÉ KeyedSubtree-[GlobalKey#29f7b] ΓåÉ _BodyBuilder ΓåÉ MediaQuery ΓåÉ
+  creator: Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TVDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ
+    Consumer<TVDetailNotifier> ΓåÉ KeyedSubtree-[GlobalKey#29f7b] ΓåÉ _BodyBuilder ΓåÉ MediaQuery ΓåÉ
     LayoutId-[<_ScaffoldSlot.body>] ΓåÉ Γï»
   parentData: not positioned; offset=Offset(0.0, 0.0) (can use size)
   constraints: BoxConstraints(0.0<=w<=800.0, 0.0<=h<=600.0)
@@ -12079,7 +12079,7 @@ When the exception was thrown, this was the stack:
 (elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
 
 The following RenderObject was being processed when the exception was fired: RenderStack#10ba2 relayoutBoundary=up2 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
-  creator: Stack ΓåÉ TvDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ Consumer<TvDetailNotifier> ΓåÉ
+  creator: Stack ΓåÉ TVDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ Consumer<TVDetailNotifier> ΓåÉ
     KeyedSubtree-[GlobalKey#29f7b] ΓåÉ _BodyBuilder ΓåÉ MediaQuery ΓåÉ LayoutId-[<_ScaffoldSlot.body>] ΓåÉ
     CustomMultiChildLayout ΓåÉ _ActionsScope ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0) (can use size)
@@ -12217,7 +12217,7 @@ When the exception was thrown, this was the stack:
 (elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
 
 The following RenderObject was being processed when the exception was fired: RenderPadding#bb075 relayoutBoundary=up1 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
-  creator: Padding ΓåÉ SafeArea ΓåÉ Consumer<TvDetailNotifier> ΓåÉ KeyedSubtree-[GlobalKey#29f7b] ΓåÉ
+  creator: Padding ΓåÉ SafeArea ΓåÉ Consumer<TVDetailNotifier> ΓåÉ KeyedSubtree-[GlobalKey#29f7b] ΓåÉ
     _BodyBuilder ΓåÉ MediaQuery ΓåÉ LayoutId-[<_ScaffoldSlot.body>] ΓåÉ CustomMultiChildLayout ΓåÉ
     _ActionsScope ΓåÉ Actions ΓåÉ Builder ΓåÉ DefaultTextStyle ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0); id=_ScaffoldSlot.body (can use size)
@@ -12568,7 +12568,7 @@ The following RenderObject was being processed when the exception was fired: Ren
   needs compositing
   creator: DecoratedBox ΓåÉ Container ΓåÉ FractionallySizedBox ΓåÉ SizedBox.expand ΓåÉ LayoutBuilder ΓåÉ
     ValueListenableBuilder<double> ΓåÉ DraggableScrollableSheet ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ
-    TvDetailContent ΓåÉ MediaQuery ΓåÉ Γï»
+    TVDetailContent ΓåÉ MediaQuery ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0) (can use size)
   constraints: BoxConstraints(w=800.0, h=272.0)
   size: MISSING
@@ -12836,34 +12836,34 @@ Multiple exceptions (35) were detected during the running of the current test, a
 unexpected.
 ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 00:49 +266 -26: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/watchlist_page_test.dart: Page should display GridView when data is loaded
-00:49 +266 -26: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Watchlist button should display add icon when tv not added [E]
+00:49 +266 -26: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Watchlist button should display add icon when tv not added [E]
   Test failed. See exception logs above.
   The test description was: Watchlist button should display add icon when tv not added
   
 00:49 +267 -26: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/watchlist_page_test.dart: Page should display GridView when data is loaded
-00:49 +268 -26: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Watchlist button should display check icon when tv is added
-00:49 +269 -26: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Watchlist button should display check icon when tv is added
-00:49 +270 -26: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Watchlist button should display check icon when tv is added
+00:49 +268 -26: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Watchlist button should display check icon when tv is added
+00:49 +269 -26: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Watchlist button should display check icon when tv is added
+00:49 +270 -26: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Watchlist button should display check icon when tv is added
 ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY WIDGETS LIBRARY Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-The following MissingStubError was thrown building Consumer<TvDetailNotifier>(dirty, dependencies:
-[_InheritedProviderScope<TvDetailNotifier?>]):
+The following MissingStubError was thrown building Consumer<TVDetailNotifier>(dirty, dependencies:
+[_InheritedProviderScope<TVDetailNotifier?>]):
 'recommendationState'
 No stub was found which matches the arguments of this method call:
 recommendationState
 
-Add a stub for this method using Mockito's 'when' API, or generate the MockTvDetailNotifier mock
+Add a stub for this method using Mockito's 'when' API, or generate the MockTVDetailNotifier mock
 with the @GenerateNiceMocks annotation (see
 https://pub.dev/documentation/mockito/latest/annotations/MockSpec-class.html).
 
 The relevant error-causing widget was:
-  Consumer<TvDetailNotifier>
+  Consumer<TVDetailNotifier>
   Consumer:file:///Y:/AndroidStudioProject/Github/expert-project/lib/presentation/pages/tv_detail_page.dart:230:29
 
 When the exception was thrown, this was the stack:
 #0      Mock._noSuchMethod (package:mockito/src/mock.dart:201:7)
 #1      Mock.noSuchMethod (package:mockito/src/mock.dart:195:47)
-#2      MockTvDetailNotifier.recommendationState (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.mocks.dart:174:54)
-#3      TvDetailContent.build.<anonymous closure>.<anonymous closure> (package:ditonton/presentation/pages/tv_detail_page.dart:232:42)
+#2      MockTVDetailNotifier.recommendationState (file:///Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.mocks.dart:174:54)
+#3      TVDetailContent.build.<anonymous closure>.<anonymous closure> (package:ditonton/presentation/pages/tv_detail_page.dart:232:42)
 #4      Consumer.buildWithChild (package:provider/src/consumer.dart:179:19)
 #5      SingleChildStatelessWidget.build (package:nested/nested.dart:259:41)
 #6      StatelessElement.build (package:flutter/src/widgets/framework.dart:5889:49)
@@ -16995,7 +16995,7 @@ When the exception was thrown, this was the stack:
 The following RenderObject was being processed when the exception was fired: RenderPadding#b3578 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
   creator: Padding ΓåÉ DecoratedBox ΓåÉ Container ΓåÉ FractionallySizedBox ΓåÉ SizedBox.expand ΓåÉ LayoutBuilder
     ΓåÉ ValueListenableBuilder<double> ΓåÉ DraggableScrollableSheet ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ
-    TvDetailContent ΓåÉ Γï»
+    TVDetailContent ΓåÉ Γï»
   parentData: <none> (can use size)
   constraints: BoxConstraints(w=800.0, h=272.0)
   size: MISSING
@@ -17138,7 +17138,7 @@ When the exception was thrown, this was the stack:
 The following RenderObject was being processed when the exception was fired: RenderDecoratedBox#7e62b NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
   creator: DecoratedBox ΓåÉ Container ΓåÉ FractionallySizedBox ΓåÉ SizedBox.expand ΓåÉ LayoutBuilder ΓåÉ
     ValueListenableBuilder<double> ΓåÉ DraggableScrollableSheet ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ
-    TvDetailContent ΓåÉ MediaQuery ΓåÉ Γï»
+    TVDetailContent ΓåÉ MediaQuery ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0) (can use size)
   constraints: BoxConstraints(w=800.0, h=272.0)
   size: MISSING
@@ -17281,7 +17281,7 @@ When the exception was thrown, this was the stack:
 
 The following RenderObject was being processed when the exception was fired: RenderFractionallySizedOverflowBox#77847 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
   creator: FractionallySizedBox ΓåÉ SizedBox.expand ΓåÉ LayoutBuilder ΓåÉ ValueListenableBuilder<double> ΓåÉ
-    DraggableScrollableSheet ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TvDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ
+    DraggableScrollableSheet ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TVDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ
     SafeArea ΓåÉ Γï»
   parentData: <none> (can use size)
   constraints: BoxConstraints(w=800.0, h=544.0)
@@ -17422,8 +17422,8 @@ When the exception was thrown, this was the stack:
 
 The following RenderObject was being processed when the exception was fired: RenderConstrainedBox#92644 relayoutBoundary=up5 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
   creator: SizedBox.expand ΓåÉ LayoutBuilder ΓåÉ ValueListenableBuilder<double> ΓåÉ DraggableScrollableSheet
-    ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TvDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ
-    Consumer<TvDetailNotifier> ΓåÉ Γï»
+    ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TVDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ
+    Consumer<TVDetailNotifier> ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0) (can use size)
   constraints: BoxConstraints(0.0<=w<=800.0, 0.0<=h<=544.0)
   size: MISSING
@@ -17557,7 +17557,7 @@ When the exception was thrown, this was the stack:
 
 The following RenderObject was being processed when the exception was fired: _RenderLayoutBuilder#4b700 relayoutBoundary=up4 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
   creator: LayoutBuilder ΓåÉ ValueListenableBuilder<double> ΓåÉ DraggableScrollableSheet ΓåÉ Padding ΓåÉ
-    Container ΓåÉ Stack ΓåÉ TvDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ Consumer<TvDetailNotifier>
+    Container ΓåÉ Stack ΓåÉ TVDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ Consumer<TVDetailNotifier>
     ΓåÉ KeyedSubtree-[GlobalKey#c5cd7] ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0) (can use size)
   constraints: BoxConstraints(0.0<=w<=800.0, 0.0<=h<=544.0)
@@ -17687,8 +17687,8 @@ When the exception was thrown, this was the stack:
 (elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
 
 The following RenderObject was being processed when the exception was fired: RenderPadding#b9165 relayoutBoundary=up3 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
-  creator: Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TvDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ
-    Consumer<TvDetailNotifier> ΓåÉ KeyedSubtree-[GlobalKey#c5cd7] ΓåÉ _BodyBuilder ΓåÉ MediaQuery ΓåÉ
+  creator: Padding ΓåÉ Container ΓåÉ Stack ΓåÉ TVDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ
+    Consumer<TVDetailNotifier> ΓåÉ KeyedSubtree-[GlobalKey#c5cd7] ΓåÉ _BodyBuilder ΓåÉ MediaQuery ΓåÉ
     LayoutId-[<_ScaffoldSlot.body>] ΓåÉ Γï»
   parentData: not positioned; offset=Offset(0.0, 0.0) (can use size)
   constraints: BoxConstraints(0.0<=w<=800.0, 0.0<=h<=600.0)
@@ -17818,7 +17818,7 @@ When the exception was thrown, this was the stack:
 (elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
 
 The following RenderObject was being processed when the exception was fired: RenderStack#619a8 relayoutBoundary=up2 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
-  creator: Stack ΓåÉ TvDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ Consumer<TvDetailNotifier> ΓåÉ
+  creator: Stack ΓåÉ TVDetailContent ΓåÉ MediaQuery ΓåÉ Padding ΓåÉ SafeArea ΓåÉ Consumer<TVDetailNotifier> ΓåÉ
     KeyedSubtree-[GlobalKey#c5cd7] ΓåÉ _BodyBuilder ΓåÉ MediaQuery ΓåÉ LayoutId-[<_ScaffoldSlot.body>] ΓåÉ
     CustomMultiChildLayout ΓåÉ _ActionsScope ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0) (can use size)
@@ -17956,7 +17956,7 @@ When the exception was thrown, this was the stack:
 (elided 7 frames from class _AssertionError, dart:async, and package:stack_trace)
 
 The following RenderObject was being processed when the exception was fired: RenderPadding#bb3ff relayoutBoundary=up1 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
-  creator: Padding ΓåÉ SafeArea ΓåÉ Consumer<TvDetailNotifier> ΓåÉ KeyedSubtree-[GlobalKey#c5cd7] ΓåÉ
+  creator: Padding ΓåÉ SafeArea ΓåÉ Consumer<TVDetailNotifier> ΓåÉ KeyedSubtree-[GlobalKey#c5cd7] ΓåÉ
     _BodyBuilder ΓåÉ MediaQuery ΓåÉ LayoutId-[<_ScaffoldSlot.body>] ΓåÉ CustomMultiChildLayout ΓåÉ
     _ActionsScope ΓåÉ Actions ΓåÉ Builder ΓåÉ DefaultTextStyle ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0); id=_ScaffoldSlot.body (can use size)
@@ -18307,7 +18307,7 @@ The following RenderObject was being processed when the exception was fired: Ren
   needs compositing
   creator: DecoratedBox ΓåÉ Container ΓåÉ FractionallySizedBox ΓåÉ SizedBox.expand ΓåÉ LayoutBuilder ΓåÉ
     ValueListenableBuilder<double> ΓåÉ DraggableScrollableSheet ΓåÉ Padding ΓåÉ Container ΓåÉ Stack ΓåÉ
-    TvDetailContent ΓåÉ MediaQuery ΓåÉ Γï»
+    TVDetailContent ΓåÉ MediaQuery ΓåÉ Γï»
   parentData: offset=Offset(0.0, 0.0) (can use size)
   constraints: BoxConstraints(w=800.0, h=272.0)
   size: MISSING
@@ -18574,11 +18574,11 @@ The following message was thrown:
 Multiple exceptions (35) were detected during the running of the current test, and at least one was
 unexpected.
 ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-00:50 +270 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Watchlist button should display check icon when tv is added [E]
+00:50 +270 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Watchlist button should display check icon when tv is added [E]
   Test failed. See exception logs above.
   The test description was: Watchlist button should display check icon when tv is added
   
-00:50 +270 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TvDetailPage Widget Page should have correct route name
+00:50 +270 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/pages/tv_detail_page_test.dart: TVDetailPage Widget Page should have correct route name
 00:50 +271 -27: loading Y:/AndroidStudioProject/Github/expert-project/test/presentation/provider/movie_list_notifier_test.dart
 00:51 +271 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/provider/movie_list_notifier_test.dart: now playing movies initialState should be Empty
 00:51 +272 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/provider/movie_list_notifier_test.dart: now playing movies should get data from the usecase
@@ -18640,9 +18640,9 @@ unexpected.
 00:59 +326 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/provider/watchlist_notifier_test.dart: should return error when data is unsuccessful
 00:59 +327 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/custom_drawer_test.dart: should display all menu items
 01:01 +328 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/movie_card_list_test.dart: MovieCard Widget MovieCard should display movie title
-01:02 +329 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TvCard Widget TvCard should display tv series name
-01:02 +330 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TvCard Widget TvCard should display tv series name
-01:02 +331 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TvCard Widget TvCard should display tv series name
+01:02 +329 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TVCard Widget TVCard should display tv series name
+01:02 +330 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TVCard Widget TVCard should display tv series name
+01:02 +331 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TVCard Widget TVCard should display tv series name
 01:02 +332 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/watchlist_grid_card_test.dart: should display title and type label
 01:03 +333 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/watchlist_grid_card_test.dart: should display title and type label
 01:03 +334 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/watchlist_grid_card_test.dart: should display title and type label
@@ -18651,14 +18651,14 @@ unexpected.
 01:03 +337 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/watchlist_grid_card_test.dart: should display title and type label
 01:03 +338 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/watchlist_grid_card_test.dart: should display title and type label
 01:03 +339 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/watchlist_grid_card_test.dart: should display title and type label
-01:03 +340 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TvCard Widget TvCard should navigate on tap
+01:03 +340 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TVCard Widget TVCard should navigate on tap
 01:03 +341 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/watchlist_grid_card_test.dart: should display TV SERIES label for tv type
 01:03 +342 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/watchlist_grid_card_test.dart: should display TV SERIES label for tv type
-01:03 +343 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TvCard Widget TvCard should display ClipRRect for image border radius
-01:03 +344 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TvCard Widget TvCard with null name should display dash
-01:03 +345 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TvCard Widget TvCard with null overview should display dash
-01:03 +346 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TvCard Widget TvCard should have Stack layout
-01:03 +347 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TvCard Widget TvCard should have margin between cards
+01:03 +343 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TVCard Widget TVCard should display ClipRRect for image border radius
+01:03 +344 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TVCard Widget TVCard with null name should display dash
+01:03 +345 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TVCard Widget TVCard with null overview should display dash
+01:03 +346 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TVCard Widget TVCard should have Stack layout
+01:03 +347 -27: Y:/AndroidStudioProject/Github/expert-project/test/presentation/widgets/tv_card_list_test.dart: TVCard Widget TVCard should have margin between cards
 01:04 +348 -27: Some tests failed.
 
 Failing tests:

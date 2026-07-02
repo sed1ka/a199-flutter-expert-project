@@ -8,19 +8,19 @@ import 'package:tv/domain/entities/tv_detail.dart';
 
 import '../../domain/repos/tv_repository.dart';
 import '../datasources/tv_remote_data_source.dart';
-class TvRepositoryImpl implements TvRepository {
-  final TvRemoteDataSource remoteDataSource;
-  final TvLocalDataSource localDataSource;
+class TVRepositoryImpl implements TVRepository {
+  final TVRemoteDataSource remoteDataSource;
+  final TVLocalDataSource localDataSource;
 
-  TvRepositoryImpl({
+  TVRepositoryImpl({
     required this.remoteDataSource,
     required this.localDataSource,
   });
 
   @override
-  Future<Either<Failure, List<Tv>>> getOnTheAirTv() async {
+  Future<Either<Failure, List<TV>>> getOnTheAirTV() async {
     try {
-      final result = await remoteDataSource.getOnTheAirTv();
+      final result = await remoteDataSource.getOnTheAirTV();
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
       return Left(ServerFailure(''));
@@ -30,9 +30,9 @@ class TvRepositoryImpl implements TvRepository {
   }
 
   @override
-  Future<Either<Failure, TvDetail>> getTvDetail(int id) async {
+  Future<Either<Failure, TVDetail>> getTVDetail(int id) async {
     try {
-      final result = await remoteDataSource.getTvDetail(id);
+      final result = await remoteDataSource.getTVDetail(id);
       return Right(result.toEntity());
     } on ServerException {
       return Left(ServerFailure(''));
@@ -42,9 +42,9 @@ class TvRepositoryImpl implements TvRepository {
   }
 
   @override
-  Future<Either<Failure, List<Tv>>> getTvRecommendations(int id) async {
+  Future<Either<Failure, List<TV>>> getTVRecommendations(int id) async {
     try {
-      final result = await remoteDataSource.getTvRecommendations(id);
+      final result = await remoteDataSource.getTVRecommendations(id);
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
       return Left(ServerFailure(''));
@@ -54,9 +54,9 @@ class TvRepositoryImpl implements TvRepository {
   }
 
   @override
-  Future<Either<Failure, List<Tv>>> getPopularTv() async {
+  Future<Either<Failure, List<TV>>> getPopularTV() async {
     try {
-      final result = await remoteDataSource.getPopularTv();
+      final result = await remoteDataSource.getPopularTV();
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
       return Left(ServerFailure(''));
@@ -66,9 +66,9 @@ class TvRepositoryImpl implements TvRepository {
   }
 
   @override
-  Future<Either<Failure, List<Tv>>> getTopRatedTv() async {
+  Future<Either<Failure, List<TV>>> getTopRatedTV() async {
     try {
-      final result = await remoteDataSource.getTopRatedTv();
+      final result = await remoteDataSource.getTopRatedTV();
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
       return Left(ServerFailure(''));
@@ -78,9 +78,9 @@ class TvRepositoryImpl implements TvRepository {
   }
 
   @override
-  Future<Either<Failure, List<Tv>>> searchTv(String query) async {
+  Future<Either<Failure, List<TV>>> searchTV(String query) async {
     try {
-      final result = await remoteDataSource.searchTv(query);
+      final result = await remoteDataSource.searchTV(query);
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
       return Left(ServerFailure(''));

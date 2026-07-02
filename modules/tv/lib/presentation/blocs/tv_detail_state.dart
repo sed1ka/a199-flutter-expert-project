@@ -1,15 +1,15 @@
 part of 'tv_detail_bloc.dart';
 
-class TvDetailState extends Equatable {
-  final TvDetail? tv;
+class TVDetailState extends Equatable {
+  final TVDetail? tv;
   final RequestState tvState;
-  final List<Tv> tvRecommendations;
+  final List<TV> tvRecommendations;
   final RequestState recommendationState;
   final String message;
   final String watchlistMessage;
   final bool isAddedToWatchlist;
 
-  const TvDetailState({
+  const TVDetailState({
     required this.tv,
     required this.tvState,
     required this.tvRecommendations,
@@ -19,8 +19,8 @@ class TvDetailState extends Equatable {
     required this.isAddedToWatchlist,
   });
 
-  factory TvDetailState.initial() {
-    return const TvDetailState(
+  factory TVDetailState.initial() {
+    return const TVDetailState(
       tv: null,
       tvState: RequestState.empty,
       tvRecommendations: [],
@@ -31,16 +31,16 @@ class TvDetailState extends Equatable {
     );
   }
 
-  TvDetailState copyWith({
-    TvDetail? tv,
+  TVDetailState copyWith({
+    TVDetail? tv,
     RequestState? tvState,
-    List<Tv>? tvRecommendations,
+    List<TV>? tvRecommendations,
     RequestState? recommendationState,
     String? message,
     String? watchlistMessage,
     bool? isAddedToWatchlist,
   }) {
-    return TvDetailState(
+    return TVDetailState(
       tv: tv ?? this.tv,
       tvState: tvState ?? this.tvState,
       tvRecommendations: tvRecommendations ?? this.tvRecommendations,

@@ -1,29 +1,29 @@
 part of 'on_the_air_tv_bloc.dart';
 
-abstract class OnTheAirTvState extends Equatable {
-  const OnTheAirTvState();
+abstract class OnTheAirTVState extends Equatable {
+  const OnTheAirTVState();
 
   @override
   List<Object> get props => [];
 }
 
-class OnTheAirTvEmpty extends OnTheAirTvState {}
+class OnTheAirTVEmpty extends OnTheAirTVState {}
 
-class OnTheAirTvLoading extends OnTheAirTvState {}
+class OnTheAirTVLoading extends OnTheAirTVState {}
 
-class OnTheAirTvError extends OnTheAirTvState {
+class OnTheAirTVError extends OnTheAirTVState {
   final String message;
 
-  const OnTheAirTvError(this.message);
+  const OnTheAirTVError(this.message);
 
   @override
   List<Object> get props => [message];
 }
 
-class OnTheAirTvHasData extends OnTheAirTvState {
-  final List<Tv> result;
+class OnTheAirTVHasData extends OnTheAirTVState {
+  final List<TV> result;
 
-  const OnTheAirTvHasData(this.result);
+  const OnTheAirTVHasData(this.result);
 
   @override
   List<Object> get props => [result];

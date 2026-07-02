@@ -4,7 +4,7 @@ import 'package:tv/domain/entities/tv_detail.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  group('TvDetail Entity', () {
+  group('TVDetail Entity', () {
     final tGenres = [Genre(id: 18, name: 'Drama')];
     final tSeasons = [
       Season(
@@ -18,150 +18,150 @@ void main() {
       )
     ];
 
-    final tTvDetailId = 1;
-    final tTvDetailName = 'Breaking Bad';
-    final tTvDetailOriginalName = 'Breaking Bad';
-    final tTvDetailOverview = 'A drama series';
-    final tTvDetailPosterPath = '/posterPath';
-    final tTvDetailBackdropPath = '/backdropPath';
-    final tTvDetailFirstAirDate = '2008-01-20';
-    final tTvDetailVoteAverage = 9.5;
-    final tTvDetailVoteCount = 25000;
+    final tTVDetailId = 1;
+    final tTVDetailName = 'Breaking Bad';
+    final tTVDetailOriginalName = 'Breaking Bad';
+    final tTVDetailOverview = 'A drama series';
+    final tTVDetailPosterPath = '/posterPath';
+    final tTVDetailBackdropPath = '/backdropPath';
+    final tTVDetailFirstAirDate = '2008-01-20';
+    final tTVDetailVoteAverage = 9.5;
+    final tTVDetailVoteCount = 25000;
 
-    test('TvDetail entity should have correct properties', () {
-      final tvDetail = TvDetail(
-        backdropPath: tTvDetailBackdropPath,
+    test('TVDetail entity should have correct properties', () {
+      final tvDetail = TVDetail(
+        backdropPath: tTVDetailBackdropPath,
         genres: tGenres,
-        id: tTvDetailId,
-        originalName: tTvDetailOriginalName,
-        overview: tTvDetailOverview,
-        posterPath: tTvDetailPosterPath,
-        firstAirDate: tTvDetailFirstAirDate,
-        name: tTvDetailName,
-        voteAverage: tTvDetailVoteAverage,
-        voteCount: tTvDetailVoteCount,
+        id: tTVDetailId,
+        originalName: tTVDetailOriginalName,
+        overview: tTVDetailOverview,
+        posterPath: tTVDetailPosterPath,
+        firstAirDate: tTVDetailFirstAirDate,
+        name: tTVDetailName,
+        voteAverage: tTVDetailVoteAverage,
+        voteCount: tTVDetailVoteCount,
         seasons: tSeasons,
       );
 
-      expect(tvDetail.id, tTvDetailId);
-      expect(tvDetail.name, tTvDetailName);
-      expect(tvDetail.originalName, tTvDetailOriginalName);
-      expect(tvDetail.overview, tTvDetailOverview);
-      expect(tvDetail.posterPath, tTvDetailPosterPath);
-      expect(tvDetail.backdropPath, tTvDetailBackdropPath);
-      expect(tvDetail.firstAirDate, tTvDetailFirstAirDate);
-      expect(tvDetail.voteAverage, tTvDetailVoteAverage);
-      expect(tvDetail.voteCount, tTvDetailVoteCount);
+      expect(tvDetail.id, tTVDetailId);
+      expect(tvDetail.name, tTVDetailName);
+      expect(tvDetail.originalName, tTVDetailOriginalName);
+      expect(tvDetail.overview, tTVDetailOverview);
+      expect(tvDetail.posterPath, tTVDetailPosterPath);
+      expect(tvDetail.backdropPath, tTVDetailBackdropPath);
+      expect(tvDetail.firstAirDate, tTVDetailFirstAirDate);
+      expect(tvDetail.voteAverage, tTVDetailVoteAverage);
+      expect(tvDetail.voteCount, tTVDetailVoteCount);
       expect(tvDetail.genres, tGenres);
       expect(tvDetail.seasons, tSeasons);
     });
 
-    test('TvDetail with null backdrop path should work correctly', () {
-      final tvDetail = TvDetail(
+    test('TVDetail with null backdrop path should work correctly', () {
+      final tvDetail = TVDetail(
         backdropPath: null,
         genres: tGenres,
-        id: tTvDetailId,
-        originalName: tTvDetailOriginalName,
-        overview: tTvDetailOverview,
-        posterPath: tTvDetailPosterPath,
-        firstAirDate: tTvDetailFirstAirDate,
-        name: tTvDetailName,
-        voteAverage: tTvDetailVoteAverage,
-        voteCount: tTvDetailVoteCount,
+        id: tTVDetailId,
+        originalName: tTVDetailOriginalName,
+        overview: tTVDetailOverview,
+        posterPath: tTVDetailPosterPath,
+        firstAirDate: tTVDetailFirstAirDate,
+        name: tTVDetailName,
+        voteAverage: tTVDetailVoteAverage,
+        voteCount: tTVDetailVoteCount,
         seasons: tSeasons,
       );
 
       expect(tvDetail.backdropPath, null);
     });
 
-    test('Two TvDetail entities with same properties should be equal', () {
-      final tvDetail1 = TvDetail(
-        backdropPath: tTvDetailBackdropPath,
+    test('Two TVDetail entities with same properties should be equal', () {
+      final tvDetail1 = TVDetail(
+        backdropPath: tTVDetailBackdropPath,
         genres: tGenres,
-        id: tTvDetailId,
-        originalName: tTvDetailOriginalName,
-        overview: tTvDetailOverview,
-        posterPath: tTvDetailPosterPath,
-        firstAirDate: tTvDetailFirstAirDate,
-        name: tTvDetailName,
-        voteAverage: tTvDetailVoteAverage,
-        voteCount: tTvDetailVoteCount,
+        id: tTVDetailId,
+        originalName: tTVDetailOriginalName,
+        overview: tTVDetailOverview,
+        posterPath: tTVDetailPosterPath,
+        firstAirDate: tTVDetailFirstAirDate,
+        name: tTVDetailName,
+        voteAverage: tTVDetailVoteAverage,
+        voteCount: tTVDetailVoteCount,
         seasons: tSeasons,
       );
 
-      final tvDetail2 = TvDetail(
-        backdropPath: tTvDetailBackdropPath,
+      final tvDetail2 = TVDetail(
+        backdropPath: tTVDetailBackdropPath,
         genres: tGenres,
-        id: tTvDetailId,
-        originalName: tTvDetailOriginalName,
-        overview: tTvDetailOverview,
-        posterPath: tTvDetailPosterPath,
-        firstAirDate: tTvDetailFirstAirDate,
-        name: tTvDetailName,
-        voteAverage: tTvDetailVoteAverage,
-        voteCount: tTvDetailVoteCount,
+        id: tTVDetailId,
+        originalName: tTVDetailOriginalName,
+        overview: tTVDetailOverview,
+        posterPath: tTVDetailPosterPath,
+        firstAirDate: tTVDetailFirstAirDate,
+        name: tTVDetailName,
+        voteAverage: tTVDetailVoteAverage,
+        voteCount: tTVDetailVoteCount,
         seasons: tSeasons,
       );
 
       expect(tvDetail1, equals(tvDetail2));
     });
 
-    test('Different TvDetail entities should not be equal', () {
-      final tvDetail1 = TvDetail(
-        backdropPath: tTvDetailBackdropPath,
+    test('Different TVDetail entities should not be equal', () {
+      final tvDetail1 = TVDetail(
+        backdropPath: tTVDetailBackdropPath,
         genres: tGenres,
-        id: tTvDetailId,
-        originalName: tTvDetailOriginalName,
-        overview: tTvDetailOverview,
-        posterPath: tTvDetailPosterPath,
-        firstAirDate: tTvDetailFirstAirDate,
-        name: tTvDetailName,
-        voteAverage: tTvDetailVoteAverage,
-        voteCount: tTvDetailVoteCount,
+        id: tTVDetailId,
+        originalName: tTVDetailOriginalName,
+        overview: tTVDetailOverview,
+        posterPath: tTVDetailPosterPath,
+        firstAirDate: tTVDetailFirstAirDate,
+        name: tTVDetailName,
+        voteAverage: tTVDetailVoteAverage,
+        voteCount: tTVDetailVoteCount,
         seasons: tSeasons,
       );
 
-      final tvDetail2 = TvDetail(
-        backdropPath: tTvDetailBackdropPath,
+      final tvDetail2 = TVDetail(
+        backdropPath: tTVDetailBackdropPath,
         genres: tGenres,
         id: 2,
-        originalName: tTvDetailOriginalName,
-        overview: tTvDetailOverview,
-        posterPath: tTvDetailPosterPath,
-        firstAirDate: tTvDetailFirstAirDate,
-        name: tTvDetailName,
-        voteAverage: tTvDetailVoteAverage,
-        voteCount: tTvDetailVoteCount,
+        originalName: tTVDetailOriginalName,
+        overview: tTVDetailOverview,
+        posterPath: tTVDetailPosterPath,
+        firstAirDate: tTVDetailFirstAirDate,
+        name: tTVDetailName,
+        voteAverage: tTVDetailVoteAverage,
+        voteCount: tTVDetailVoteCount,
         seasons: tSeasons,
       );
 
       expect(tvDetail1, isNot(tvDetail2));
     });
 
-    test('TvDetail with multiple genres should work correctly', () {
+    test('TVDetail with multiple genres should work correctly', () {
       final multipleGenres = [
         Genre(id: 18, name: 'Drama'),
         Genre(id: 9648, name: 'Mystery'),
       ];
 
-      final tvDetail = TvDetail(
-        backdropPath: tTvDetailBackdropPath,
+      final tvDetail = TVDetail(
+        backdropPath: tTVDetailBackdropPath,
         genres: multipleGenres,
-        id: tTvDetailId,
-        originalName: tTvDetailOriginalName,
-        overview: tTvDetailOverview,
-        posterPath: tTvDetailPosterPath,
-        firstAirDate: tTvDetailFirstAirDate,
-        name: tTvDetailName,
-        voteAverage: tTvDetailVoteAverage,
-        voteCount: tTvDetailVoteCount,
+        id: tTVDetailId,
+        originalName: tTVDetailOriginalName,
+        overview: tTVDetailOverview,
+        posterPath: tTVDetailPosterPath,
+        firstAirDate: tTVDetailFirstAirDate,
+        name: tTVDetailName,
+        voteAverage: tTVDetailVoteAverage,
+        voteCount: tTVDetailVoteCount,
         seasons: tSeasons,
       );
 
       expect(tvDetail.genres.length, 2);
     });
 
-    test('TvDetail with multiple seasons should work correctly', () {
+    test('TVDetail with multiple seasons should work correctly', () {
       final multipleSeasons = [
         Season(
           airDate: '2008-01-20',
@@ -183,17 +183,17 @@ void main() {
         )
       ];
 
-      final tvDetail = TvDetail(
-        backdropPath: tTvDetailBackdropPath,
+      final tvDetail = TVDetail(
+        backdropPath: tTVDetailBackdropPath,
         genres: tGenres,
-        id: tTvDetailId,
-        originalName: tTvDetailOriginalName,
-        overview: tTvDetailOverview,
-        posterPath: tTvDetailPosterPath,
-        firstAirDate: tTvDetailFirstAirDate,
-        name: tTvDetailName,
-        voteAverage: tTvDetailVoteAverage,
-        voteCount: tTvDetailVoteCount,
+        id: tTVDetailId,
+        originalName: tTVDetailOriginalName,
+        overview: tTVDetailOverview,
+        posterPath: tTVDetailPosterPath,
+        firstAirDate: tTVDetailFirstAirDate,
+        name: tTVDetailName,
+        voteAverage: tTVDetailVoteAverage,
+        voteCount: tTVDetailVoteCount,
         seasons: multipleSeasons,
       );
 

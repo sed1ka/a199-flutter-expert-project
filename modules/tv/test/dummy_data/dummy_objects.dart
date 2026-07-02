@@ -7,7 +7,7 @@ import 'package:tv/domain/entities/season.dart';
 import 'package:tv/domain/entities/tv.dart';
 import 'package:tv/domain/entities/tv_detail.dart';
 
-final testTv = Tv(
+final testTV = TV(
   backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
   genreIds: [14, 28],
   id: 1,
@@ -22,9 +22,9 @@ final testTv = Tv(
   voteCount: 13507,
 );
 
-final testTvList = [testTv];
+final testTVList = [testTV];
 
-final testTvDetail = TvDetail(
+final testTVDetail = TVDetail(
   backdropPath: 'backdropPath',
   genres: [Genre(id: 1, name: 'Action')],
   id: 1,
@@ -48,7 +48,7 @@ final testTvDetail = TvDetail(
   ],
 );
 
-final testTvDetailResponse = TvDetailResponse(
+final testTVDetailResponse = TVDetailResponse(
   backdropPath: 'backdropPath',
   genres: [GenreModel(id: 1, name: 'Action')],
   homepage: 'homepage',
@@ -77,14 +77,14 @@ final testTvDetailResponse = TvDetailResponse(
   ],
 );
 
-final testTvTable = TvTable(
+final testTVTable = TVTable(
   id: 1,
   name: 'name',
   posterPath: 'posterPath',
   overview: 'overview',
 );
 
-final testTvMap = {
+final testTVMap = {
   'id': 1,
   'overview': 'overview',
   'posterPath': 'posterPath',

@@ -8,15 +8,15 @@ import 'package:tv/presentation/blocs/popular_tv_bloc.dart';
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {
-  late MockGetPopularTv mockGetPopularTv;
-  late PopularTvBloc popularTvBloc;
+  late MockGetPopularTV mockGetPopularTV;
+  late PopularTVBloc popularTVBloc;
 
   setUp(() {
-    mockGetPopularTv = MockGetPopularTv();
-    popularTvBloc = PopularTvBloc(mockGetPopularTv);
+    mockGetPopularTV = MockGetPopularTV();
+    popularTVBloc = PopularTVBloc(mockGetPopularTV);
   });
 
-  final tTv = Tv(
+  final tTV = TV(
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
     id: 1,
@@ -29,25 +29,25 @@ void main() {
     voteAverage: 1,
     voteCount: 1,
   );
-  final tTvList = <Tv>[tTv];
+  final tTVList = <TV>[tTV];
 
   test('initial state should be empty', () {
-    expect(popularTvBloc.state, PopularTvEmpty());
+    expect(popularTVBloc.state, PopularTVEmpty());
   });
 
-  blocTest<PopularTvBloc, PopularTvState>(
+  blocTest<PopularTVBloc, PopularTVState>(
     'should emit [Loading, HasData] when data is gotten successfully',
     build: () {
-      when(mockGetPopularTv.execute()).thenAnswer((_) async => Right(tTvList));
-      return popularTvBloc;
+      when(mockGetPopularTV.execute()).thenAnswer((_) async => Right(tTVList));
+      return popularTVBloc;
     },
-    act: (bloc) => bloc.add(FetchPopularTv()),
+    act: (bloc) => bloc.add(FetchPopularTV()),
     expect: () => [
-      PopularTvLoading(),
-      PopularTvHasData(tTvList),
+      PopularTVLoading(),
+      PopularTVHasData(tTVList),
     ],
     verify: (bloc) {
-      verify(mockGetPopularTv.execute());
+      verify(mockGetPopularTV.execute());
     },
   );
 }

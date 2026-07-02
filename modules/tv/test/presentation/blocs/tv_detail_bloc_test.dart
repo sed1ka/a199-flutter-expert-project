@@ -9,22 +9,22 @@ import '../../dummy_data/dummy_objects.dart';
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {
-  late TvDetailBloc tvDetailBloc;
-  late MockGetTvDetail mockGetTvDetail;
-  late MockGetTvRecommendations mockGetTvRecommendations;
+  late TVDetailBloc tvDetailBloc;
+  late MockGetTVDetail mockGetTVDetail;
+  late MockGetTVRecommendations mockGetTVRecommendations;
   late MockGetWatchListStatus mockGetWatchlistStatus;
   late MockSaveWatchlist mockSaveWatchlist;
   late MockRemoveWatchlist mockRemoveWatchlist;
 
   setUp(() {
-    mockGetTvDetail = MockGetTvDetail();
-    mockGetTvRecommendations = MockGetTvRecommendations();
+    mockGetTVDetail = MockGetTVDetail();
+    mockGetTVRecommendations = MockGetTVRecommendations();
     mockGetWatchlistStatus = MockGetWatchListStatus();
     mockSaveWatchlist = MockSaveWatchlist();
     mockRemoveWatchlist = MockRemoveWatchlist();
-    tvDetailBloc = TvDetailBloc(
-      getTvDetail: mockGetTvDetail,
-      getTvRecommendations: mockGetTvRecommendations,
+    tvDetailBloc = TVDetailBloc(
+      getTVDetail: mockGetTVDetail,
+      getTVRecommendations: mockGetTVRecommendations,
       getWatchListStatus: mockGetWatchlistStatus,
       saveWatchlist: mockSaveWatchlist,
       removeWatchlist: mockRemoveWatchlist,
@@ -34,39 +34,39 @@ void main() {
   const tId = 1;
 
   group('Get TV Detail', () {
-    blocTest<TvDetailBloc, TvDetailState>(
+    blocTest<TVDetailBloc, TVDetailState>(
       'should emit [Loading, Loaded, RecommendationLoading, RecommendationLoaded] when data is gotten successfully',
       build: () {
-        when(mockGetTvDetail.execute(tId))
-            .thenAnswer((_) async => Right(testTvDetail));
-        when(mockGetTvRecommendations.execute(tId))
-            .thenAnswer((_) async => Right(testTvList));
+        when(mockGetTVDetail.execute(tId))
+            .thenAnswer((_) async => Right(testTVDetail));
+        when(mockGetTVRecommendations.execute(tId))
+            .thenAnswer((_) async => Right(testTVList));
         return tvDetailBloc;
       },
-      act: (bloc) => bloc.add(const FetchTvDetail(tId)),
+      act: (bloc) => bloc.add(const FetchTVDetail(tId)),
       expect: () => [
-        TvDetailState.initial().copyWith(tvState: RequestState.loading),
-        TvDetailState.initial().copyWith(
+        TVDetailState.initial().copyWith(tvState: RequestState.loading),
+        TVDetailState.initial().copyWith(
           tvState: RequestState.loaded,
-          tv: testTvDetail,
+          tv: testTVDetail,
           recommendationState: RequestState.loading,
         ),
-        TvDetailState.initial().copyWith(
+        TVDetailState.initial().copyWith(
           tvState: RequestState.loaded,
-          tv: testTvDetail,
+          tv: testTVDetail,
           recommendationState: RequestState.loaded,
-          tvRecommendations: testTvList,
+          tvRecommendations: testTVList,
         ),
       ],
       verify: (_) {
-        verify(mockGetTvDetail.execute(tId));
-        verify(mockGetTvRecommendations.execute(tId));
+        verify(mockGetTVDetail.execute(tId));
+        verify(mockGetTVRecommendations.execute(tId));
       },
     );
   });
 
   group('Watchlist', () {
-    blocTest<TvDetailBloc, TvDetailState>(
+    blocTest<TVDetailBloc, TVDetailState>(
       'should get the watchlist status',
       build: () {
         when(mockGetWatchlistStatus.execute(tId, 'tv'))
@@ -75,7 +75,7 @@ void main() {
       },
       act: (bloc) => bloc.add(const LoadWatchlistStatus(tId)),
       expect: () => [
-        TvDetailState.initial().copyWith(isAddedToWatchlist: true),
+        TVDetailState.initial().copyWith(isAddedToWatchlist: true),
       ],
     );
   });

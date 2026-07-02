@@ -3,11 +3,11 @@ import 'package:dartz/dartz.dart';
 import 'package:tv/domain/entities/tv.dart';
 import 'package:tv/domain/entities/tv_detail.dart';
 
-abstract class TvRepository {
-  Future<Either<Failure, List<Tv>>> getOnTheAirTv();
-  Future<Either<Failure, List<Tv>>> getPopularTv();
-  Future<Either<Failure, List<Tv>>> getTopRatedTv();
-  Future<Either<Failure, TvDetail>> getTvDetail(int id);
-  Future<Either<Failure, List<Tv>>> getTvRecommendations(int id);
-  Future<Either<Failure, List<Tv>>> searchTv(String query);
+abstract class TVRepository {
+  Future<Either<Failure, List<TV>>> getOnTheAirTV();
+  Future<Either<Failure, List<TV>>> getPopularTV();
+  Future<Either<Failure, List<TV>>> getTopRatedTV();
+  Future<Either<Failure, TVDetail>> getTVDetail(int id);
+  Future<Either<Failure, List<TV>>> getTVRecommendations(int id);
+  Future<Either<Failure, List<TV>>> searchTV(String query);
 }

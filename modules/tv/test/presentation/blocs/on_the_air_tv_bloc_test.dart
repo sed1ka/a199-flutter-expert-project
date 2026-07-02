@@ -8,15 +8,15 @@ import 'package:tv/presentation/blocs/on_the_air_tv_bloc.dart';
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {
-  late MockGetOnTheAirTv mockGetOnTheAirTv;
-  late OnTheAirTvBloc onTheAirTvBloc;
+  late MockGetOnTheAirTV mockGetOnTheAirTV;
+  late OnTheAirTVBloc onTheAirTVBloc;
 
   setUp(() {
-    mockGetOnTheAirTv = MockGetOnTheAirTv();
-    onTheAirTvBloc = OnTheAirTvBloc(mockGetOnTheAirTv);
+    mockGetOnTheAirTV = MockGetOnTheAirTV();
+    onTheAirTVBloc = OnTheAirTVBloc(mockGetOnTheAirTV);
   });
 
-  final tTv = Tv(
+  final tTV = TV(
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
     id: 1,
@@ -29,25 +29,25 @@ void main() {
     voteAverage: 1,
     voteCount: 1,
   );
-  final tTvList = <Tv>[tTv];
+  final tTVList = <TV>[tTV];
 
   test('initial state should be empty', () {
-    expect(onTheAirTvBloc.state, OnTheAirTvEmpty());
+    expect(onTheAirTVBloc.state, OnTheAirTVEmpty());
   });
 
-  blocTest<OnTheAirTvBloc, OnTheAirTvState>(
+  blocTest<OnTheAirTVBloc, OnTheAirTVState>(
     'should emit [Loading, HasData] when data is gotten successfully',
     build: () {
-      when(mockGetOnTheAirTv.execute()).thenAnswer((_) async => Right(tTvList));
-      return onTheAirTvBloc;
+      when(mockGetOnTheAirTV.execute()).thenAnswer((_) async => Right(tTVList));
+      return onTheAirTVBloc;
     },
-    act: (bloc) => bloc.add(FetchOnTheAirTv()),
+    act: (bloc) => bloc.add(FetchOnTheAirTV()),
     expect: () => [
-      OnTheAirTvLoading(),
-      OnTheAirTvHasData(tTvList),
+      OnTheAirTVLoading(),
+      OnTheAirTVHasData(tTVList),
     ],
     verify: (bloc) {
-      verify(mockGetOnTheAirTv.execute());
+      verify(mockGetOnTheAirTV.execute());
     },
   );
 }

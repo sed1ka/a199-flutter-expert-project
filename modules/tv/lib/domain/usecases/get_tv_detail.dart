@@ -3,12 +3,12 @@ import 'package:dartz/dartz.dart';
 import 'package:tv/domain/entities/tv_detail.dart';
 import 'package:tv/domain/repos/tv_repository.dart';
 
-class GetTvDetail {
-  final TvRepository repository;
+class GetTVDetail {
+  final TVRepository repository;
 
-  GetTvDetail(this.repository);
+  GetTVDetail(this.repository);
 
-  Future<Either<Failure, TvDetail>> execute(int id) {
-    return repository.getTvDetail(id);
+  Future<Either<Failure, TVDetail>> execute(int id) {
+    return repository.getTVDetail(id);
   }
 }

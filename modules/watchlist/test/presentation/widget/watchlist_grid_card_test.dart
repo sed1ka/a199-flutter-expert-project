@@ -33,7 +33,7 @@ void main() {
   });
 
   testWidgets('should display TV SERIES label for tv type', (WidgetTester tester) async {
-    final tWatchlistTv = Watchlist(
+    final tWatchlistTV = Watchlist(
       id: 1,
       title: 'title',
       posterPath: 'posterPath',
@@ -44,7 +44,7 @@ void main() {
     await tester.pumpWidget(makeTestableWidget(
       SizedBox(
         height: 200,
-        child: WatchlistGridCard(tWatchlistTv),
+        child: WatchlistGridCard(tWatchlistTV),
       ),
     ));
 

@@ -8,29 +8,29 @@ part 'tv_search_event.dart';
 
 part 'tv_search_state.dart';
 
-class TvSearchBloc extends Bloc<TvSearchEvent, TvSearchState> {
-  final SearchTv _searchTv;
+class TVSearchBloc extends Bloc<TVSearchEvent, TVSearchState> {
+  final SearchTV _searchTV;
 
-  TvSearchBloc(this._searchTv)
-    : super(TvSearchEmpty('Input the TV Series name')) {
+  TVSearchBloc(this._searchTV)
+    : super(TVSearchEmpty('Input the TV Series name')) {
     on<OnQueryChanged>((event, emit) async {
       final query = event.query;
 
-      emit(TvSearchLoading());
-      final result = await _searchTv.execute(query);
+      emit(TVSearchLoading());
+      final result = await _searchTV.execute(query);
 
       result.fold(
         (failure) {
-          emit(TvSearchError(failure.message));
+          emit(TVSearchError(failure.message));
         },
         (data) {
           if (data.isEmpty) {
             final message = query.isNotEmpty
                 ? 'TV Series not found'
                 : 'Input the TV Series name';
-            emit(TvSearchEmpty(message));
+            emit(TVSearchEmpty(message));
           } else {
-            emit(TvSearchHasData(data));
+            emit(TVSearchHasData(data));
           }
         },
       );

@@ -76,29 +76,29 @@ Future<void> init() async {
     ),
   );
   locator.registerFactory(
-    () => TvSearchBloc(
+    () => TVSearchBloc(
       locator(),
     ),
   );
   locator.registerFactory(
-    () => OnTheAirTvBloc(
+    () => OnTheAirTVBloc(
       locator(),
     ),
   );
   locator.registerFactory(
-    () => PopularTvBloc(
+    () => PopularTVBloc(
       locator(),
     ),
   );
   locator.registerFactory(
-    () => TopRatedTvBloc(
+    () => TopRatedTVBloc(
       locator(),
     ),
   );
   locator.registerFactory(
-    () => TvDetailBloc(
-      getTvDetail: locator(),
-      getTvRecommendations: locator(),
+    () => TVDetailBloc(
+      getTVDetail: locator(),
+      getTVRecommendations: locator(),
       getWatchListStatus: locator(),
       saveWatchlist: locator(),
       removeWatchlist: locator(),
@@ -118,12 +118,12 @@ Future<void> init() async {
   locator.registerLazySingleton(() => GetMovieRecommendations(locator()));
   locator.registerLazySingleton(() => SearchMovies(locator()));
 
-  locator.registerLazySingleton(() => GetOnTheAirTv(locator()));
-  locator.registerLazySingleton(() => GetPopularTv(locator()));
-  locator.registerLazySingleton(() => GetTopRatedTv(locator()));
-  locator.registerLazySingleton(() => GetTvDetail(locator()));
-  locator.registerLazySingleton(() => GetTvRecommendations(locator()));
-  locator.registerLazySingleton(() => SearchTv(locator()));
+  locator.registerLazySingleton(() => GetOnTheAirTV(locator()));
+  locator.registerLazySingleton(() => GetPopularTV(locator()));
+  locator.registerLazySingleton(() => GetTopRatedTV(locator()));
+  locator.registerLazySingleton(() => GetTVDetail(locator()));
+  locator.registerLazySingleton(() => GetTVRecommendations(locator()));
+  locator.registerLazySingleton(() => SearchTV(locator()));
 
   locator.registerLazySingleton(() => GetWatchListStatus(locator()));
   locator.registerLazySingleton(() => SaveWatchlist(locator()));
@@ -138,8 +138,8 @@ Future<void> init() async {
       networkInfo: locator(),
     ),
   );
-  locator.registerLazySingleton<TvRepository>(
-    () => TvRepositoryImpl(
+  locator.registerLazySingleton<TVRepository>(
+    () => TVRepositoryImpl(
       remoteDataSource: locator(),
       localDataSource: locator(),
     ),
@@ -155,10 +155,10 @@ Future<void> init() async {
       () => MovieRemoteDataSourceImpl(client: locator()));
   locator.registerLazySingleton<MovieLocalDataSource>(
       () => MovieLocalDataSourceImpl(databaseHelper: locator()));
-  locator.registerLazySingleton<TvRemoteDataSource>(
-      () => TvRemoteDataSourceImpl(client: locator()));
-  locator.registerLazySingleton<TvLocalDataSource>(
-      () => TvLocalDataSourceImpl(databaseHelper: locator()));
+  locator.registerLazySingleton<TVRemoteDataSource>(
+      () => TVRemoteDataSourceImpl(client: locator()));
+  locator.registerLazySingleton<TVLocalDataSource>(
+      () => TVLocalDataSourceImpl(databaseHelper: locator()));
   locator.registerLazySingleton<WatchlistLocalDataSource>(
       () => WatchlistLocalDataSourceImpl(databaseHelper: locator()));
 

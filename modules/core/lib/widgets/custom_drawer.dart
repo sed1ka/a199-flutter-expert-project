@@ -13,7 +13,6 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      key: const ValueKey('main_drawer'),
       child: Column(
         children: [
           UserAccountsDrawerHeader(

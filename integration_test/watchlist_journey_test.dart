@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:ditonton/main.dart' as app;
+import 'package:movie/presentation/pages/home_movie_page.dart';
 import 'package:movie/presentation/pages/movie_detail_page.dart';
 import 'package:watchlist/presentation/watchlist_page.dart';
 
@@ -31,8 +32,10 @@ Future<void> main() async {
       await tester.tap(find.byKey(const Key('back_button')));
       await tester.pumpAndSettle();
 
+      expect(find.byType(HomeMoviePage), findsOneWidget);
+
       // Open drawer
-      await tester.tap(find.byKey(const Key('main_drawer')));
+      await tester.tap(find.byIcon(Icons.menu));
       await tester.pumpAndSettle();
 
       // Tap drawer menu

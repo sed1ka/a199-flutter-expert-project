@@ -7,11 +7,18 @@ import 'package:movie/presentation/pages/search_page.dart';
 Future<void> main() async {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  await app.main();
-
   testWidgets('Search Movie Journey: should search and find movies',
       (WidgetTester tester) async {
+    await app.bootstrap(enableCrashlytics: false);
     await tester.pumpAndSettle();
+
+    debugDumpApp();
+
+    expect(find.byType(MaterialApp), findsOneWidget);
+    expect(find.byType(Scaffold), findsOneWidget);
+    expect(find.text('Movies'), findsOneWidget);
+    expect(find.byType(AppBar), findsOneWidget);
+    expect(find.byIcon(Icons.search), findsOneWidget);
 
     // Find and tap Search Icon in AppBar
     final searchIconFinder = find.byIcon(Icons.search);

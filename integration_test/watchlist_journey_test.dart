@@ -28,7 +28,7 @@ Future<void> main() async {
       expect(find.text('Added to Watchlist'), findsOneWidget);
 
       // Back
-      await tester.pageBack();
+      await tester.tap(find.byKey(const Key('back_button')));
       await tester.pumpAndSettle();
 
       // Open drawer

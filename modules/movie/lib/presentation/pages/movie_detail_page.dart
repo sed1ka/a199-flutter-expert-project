@@ -98,7 +98,7 @@ class _DetailContent extends StatelessWidget {
                             BlocListener<MovieDetailBloc, MovieDetailState>(
                               listenWhen: (previous, current) =>
                                   previous.watchlistMessage !=
-                                  current.watchlistMessage &&
+                                      current.watchlistMessage &&
                                   current.watchlistMessage.isNotEmpty,
                               listener: (context, state) {
                                 final message = state.watchlistMessage;
@@ -116,13 +116,13 @@ class _DetailContent extends StatelessWidget {
                               child: ElevatedButton(
                                 onPressed: () {
                                   if (!isAddedWatchlist) {
-                                    context
-                                        .read<MovieDetailBloc>()
-                                        .add(AddWatchlist(movie));
+                                    context.read<MovieDetailBloc>().add(
+                                      AddWatchlist(movie),
+                                    );
                                   } else {
-                                    context
-                                        .read<MovieDetailBloc>()
-                                        .add(RemoveFromWatchlist(movie));
+                                    context.read<MovieDetailBloc>().add(
+                                      RemoveFromWatchlist(movie),
+                                    );
                                   }
                                 },
                                 child: Row(
@@ -143,8 +143,10 @@ class _DetailContent extends StatelessWidget {
                                 RatingBarIndicator(
                                   rating: movie.voteAverage / 2,
                                   itemCount: 5,
-                                  itemBuilder: (context, index) =>
-                                      const Icon(Icons.star, color: kMikadoYellow),
+                                  itemBuilder: (context, index) => const Icon(
+                                    Icons.star,
+                                    color: kMikadoYellow,
+                                  ),
                                   itemSize: 24,
                                 ),
                                 Text('${movie.voteAverage}'),
@@ -185,9 +187,10 @@ class _DetailContent extends StatelessWidget {
                                               );
                                             },
                                             child: ClipRRect(
-                                              borderRadius: const BorderRadius.all(
-                                                Radius.circular(8),
-                                              ),
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                    Radius.circular(8),
+                                                  ),
                                               child: CachedNetworkImage(
                                                 imageUrl:
                                                     'https://image.tmdb.org/t/p/w500${movieResult.posterPath}',
@@ -240,6 +243,7 @@ class _DetailContent extends StatelessWidget {
             backgroundColor: kRichBlack,
             foregroundColor: Colors.white,
             child: IconButton(
+              key: const ValueKey('back_button'),
               icon: const Icon(Icons.arrow_back),
               onPressed: () {
                 Navigator.pop(context);
